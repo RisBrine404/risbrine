@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color:aqua;
+        }
+    </style>
+</head>
+<body>
+    <pre>
+        Daftar Lengkap Perintah Kali Linux
+1. Perintah Dasar Linux
+• **pwd** - Menampilkan direktori kerja saat ini. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **ls** - Menampilkan daftar file dan direktori. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **cd [direktori]** - Berpindah ke direktori tertentu. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **mkdir [nama_direktori]** - Membuat direktori baru. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **rmdir [nama_direktori]** - Menghapus direktori kosong. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **rm [file/direktori]** - Menghapus file atau direktori. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **cp [sumber] [tujuan]** - Menyalin file atau direktori. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **mv [sumber] [tujuan]** - Memindahkan atau mengganti nama file/direktori. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **touch [file]** - Membuat file kosong baru. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **cat [file]** - Menampilkan isi file. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **clear** - Membersihkan tampilan terminal. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **echo [teks]** - Mencetak teks ke output. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **history** - Menampilkan daftar perintah yang telah digunakan. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+2. Perintah Manajemen Pengguna
+• **whoami** - Menampilkan pengguna yang sedang aktif. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **id** - Menampilkan UID, GID, dan grup pengguna. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **who** - Menampilkan siapa saja yang sedang login ke sistem. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **adduser [username]** - Menambahkan pengguna baru. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **deluser [username]** - Menghapus pengguna. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **passwd [username]** - Mengubah kata sandi pengguna. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **usermod -aG [group] [username]** - Menambahkan pengguna ke grup tertentu. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **groups** - Menampilkan grup yang dimiliki oleh pengguna. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+3. Perintah Jaringan
+• **ifconfig** - Menampilkan atau mengkonfigurasi jaringan (deprecated). - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **ip a** - Menampilkan alamat IP. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **ping [target]** - Menguji konektivitas ke host tertentu. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **netstat -tulnp** - Menampilkan koneksi jaringan aktif. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **nmap [target]** - Melakukan pemindaian port pada target. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **wget [URL]** - Mengunduh file dari internet. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **curl [URL]** - Mengambil data dari URL. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **traceroute [target]** - Menunjukkan rute jaringan ke target. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **dnsenum [domain]** - Melakukan enumerasi DNS pada domain. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+4. Perintah Manajemen Paket
+• **apt update** - Memperbarui daftar paket. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **apt upgrade** - Mengupgrade semua paket terinstal. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **apt install [package]** - Menginstal paket. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **apt remove [package]** - Menghapus paket. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **dpkg -i [package.deb]** - Menginstal paket dari file `.deb`. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **dpkg -r [package]** - Menghapus paket yang terinstal. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **apt-cache search [package]** - Mencari paket di repository. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **apt list --installed** - Menampilkan daftar paket yang terinstal. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+5. Perintah Keamanan dan Forensik (Khusus Kali Linux)
+• **airmon-ng** - Mengaktifkan mode monitor pada Wi-Fi. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **aircrack-ng** - Melakukan cracking terhadap WPA/WEP. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **metasploit** - Menjalankan framework Metasploit. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **sqlmap -u [URL] --dbs** - Melakukan SQL Injection pada target. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **hydra -l [user] -P [passlist.txt] [target]** - Melakukan brute-force login. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **john --wordlist=[file.txt] [hash.txt]** - Melakukan cracking password dengan John The Ripper. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **ettercap -G** - Menjalankan Ettercap GUI untuk sniffing. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **wireshark** - Menjalankan Wireshark untuk analisis jaringan. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **nmap -A [target]** - Pemindaian mendalam terhadap target. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+6. Perintah Manajemen Sistem
+• **uname -a** - Menampilkan informasi sistem operasi. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **uptime** - Menampilkan lama sistem berjalan. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **free -h** - Menampilkan penggunaan RAM. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **df -h** - Menampilkan informasi penggunaan disk. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **reboot** - Me-restart sistem. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **shutdown now** - Mematikan sistem. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **systemctl start [service]** - Memulai layanan tertentu. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **systemctl stop [service]** - Menghentikan layanan tertentu. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **journalctl -xe** - Melihat log sistem. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **top** - Menampilkan proses yang berjalan secara real-time. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **htop** - Alternatif `top` dengan tampilan interaktif. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **kill [PID]** - Menghentikan proses berdasarkan PID. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **killall [nama_proses]** - Menghentikan semua proses dengan nama tertentu. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+7. Perintah Scripting & Automation
+• **bash script.sh** - Menjalankan skrip Bash. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **chmod +x script.sh** - Memberikan izin eksekusi pada skrip. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **./script.sh** - Menjalankan skrip Bash yang memiliki izin eksekusi. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **crontab -e** - Menjadwalkan tugas otomatis. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **at [waktu] -f script.sh** - Menjalankan perintah atau skrip pada waktu tertentu. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **alias ll='ls -la'** - Membuat alias untuk perintah tertentu. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **sed -i 's/teks_lama/teks_baru/g' file.txt** - Mengedit teks dalam file secara otomatis. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **awk '{print $1}' file.txt** - Mengolah teks menggunakan AWK. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+8. Perintah Debugging & Logging
+• **dmesg | less** - Melihat log kernel. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **tail -f /var/log/syslog** - Menampilkan log sistem secara real-time. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **strace -c ./program** - Menampilkan sistem call yang digunakan oleh suatu program. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **lsof -i** - Menampilkan daftar koneksi jaringan yang aktif. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **tcpdump -i eth0** - Menganalisis lalu lintas jaringan pada antarmuka tertentu. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+9. Perintah Manajemen File dan Arsip
+• **find /path -name 'file'** - Mencari file berdasarkan nama. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **locate file** - Menemukan lokasi file dalam sistem. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **updatedb** - Memperbarui database `locate`. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **tar -cvf archive.tar folder** - Membuat arsip `.tar`. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **tar -xvf archive.tar** - Mengekstrak arsip `.tar`. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **zip -r archive.zip folder** - Membuat file ZIP. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **unzip archive.zip** - Mengekstrak file ZIP. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+10. Perintah Manajemen Proses
+• **ps aux** - Menampilkan daftar proses yang berjalan. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **kill PID** - Menghentikan proses berdasarkan PID. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **killall nama_proses** - Menghentikan semua proses dengan nama tertentu. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **nohup command &** - Menjalankan perintah di latar belakang. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **jobs** - Menampilkan daftar tugas yang berjalan di latar belakang. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **fg %1** - Mengembalikan proses latar belakang ke latar depan. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+11. Perintah Pentesting Lanjutan (Kali Linux)
+• **msfconsole** - Menjalankan Metasploit Framework. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **nikto -h [target]** - Melakukan pemindaian keamanan web. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **gobuster dir -u [target] -w wordlist.txt** - Melakukan pencarian direktori tersembunyi. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **hydra -l user -P passlist.txt [target] ssh** - Melakukan brute-force login SSH. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **sqlmap -u '[URL]' --dbs** - Melakukan SQL Injection. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **airmon-ng start wlan0** - Mengaktifkan mode monitor pada Wi-Fi. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **aircrack-ng -b [BSSID] -w wordlist.txt capture.cap** - Melakukan serangan cracking pada Wi-Fi. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **bettercap -iface wlan0** - Menjalankan bettercap untuk serangan MITM. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+12. Perintah Information Gathering (Reconnaissance)
+• **nmap -sV [target]** - Memindai layanan dan versinya pada target. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **whois [domain]** - Menampilkan informasi registrasi domain. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **dnsenum [domain]** - Melakukan enumerasi DNS. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **theHarvester -d [domain] -l 500 -b google** - Mengumpulkan email dan subdomain dari sumber publik. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **maltego** - Menjalankan Maltego untuk analisis hubungan data. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **recon-ng** - Menjalankan framework recon-ng untuk pengumpulan informasi. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **shodan [query]** - Mencari perangkat yang terhubung ke internet dengan Shodan. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+13. Perintah Vulnerability Analysis
+• **nikto -h [target]** - Melakukan pemindaian keamanan web server. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **nmap --script vuln [target]** - Memindai target untuk menemukan kerentanan. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **wpscan --url [target]** - Memindai kerentanan pada situs WordPress. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **lynis audit system** - Menjalankan audit keamanan sistem dengan Lynis. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **openvas** - Menjalankan OpenVAS untuk pemindaian kerentanan menyeluruh. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+14. Perintah Web Application Attacks
+• **sqlmap -u '[URL]' --dbs** - Melakukan SQL Injection pada target. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **burpsuite** - Menjalankan Burp Suite untuk pentesting aplikasi web. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **xsser --url [URL]** - Menyerang aplikasi web menggunakan XSS. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **zap** - Menjalankan OWASP ZAP untuk pengujian keamanan web. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **davtest -url [target]** - Menguji kelemahan WebDAV pada server. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+15. Perintah Password Attacks
+• **hydra -l user -P passlist.txt [target] ssh** - Melakukan brute-force login SSH. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **john --wordlist=[wordlist.txt] [hash.txt]** - Melakukan cracking password dengan John The Ripper. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **hashcat -m 0 -a 0 -o cracked.txt hash.txt wordlist.txt** - Melakukan cracking hash dengan Hashcat. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **cewl -w wordlist.txt -d 5 [target]** - Menghasilkan wordlist berdasarkan halaman web. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+16. Perintah Wireless Attacks
+• **airmon-ng start wlan0** - Mengaktifkan mode monitor pada adapter Wi-Fi. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **airodump-ng wlan0mon** - Menangkap lalu lintas jaringan Wi-Fi. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **aireplay-ng -0 10 -a [BSSID] wlan0mon** - Mengirimkan serangan deauthentication. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **aircrack-ng -b [BSSID] -w wordlist.txt capture.cap** - Melakukan cracking WPA/WEP. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **wifite** - Menjalankan Wifite untuk serangan otomatis terhadap jaringan Wi-Fi. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+17. Perintah Sniffing & Spoofing
+• **ettercap -G** - Menjalankan Ettercap dalam mode GUI untuk sniffing. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **driftnet -i wlan0** - Menampilkan gambar yang ditangkap dari lalu lintas jaringan. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **tcpdump -i eth0** - Menganalisis lalu lintas jaringan pada antarmuka tertentu. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **mitmproxy** - Menjalankan proxy MITM untuk intercept lalu lintas HTTP/HTTPS. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+18. Perintah Post-Exploitation
+• **meterpreter** - Menggunakan Meterpreter untuk eksploitasi pasca-penetrasi. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **empire** - Menjalankan framework Empire untuk serangan post-exploitation berbasis PowerShell. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **mimikatz** - Menjalankan Mimikatz untuk mendapatkan kredensial Windows. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **beef** - Menjalankan BeEF untuk mengeksploitasi browser. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+19. Perintah Forensic Tools
+• **volatility -f memory.img imageinfo** - Menampilkan informasi dari dump memori. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **autopsy** - Menjalankan Autopsy GUI untuk analisis forensik. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **foremost -t jpg -i disk.img** - Ekstrak file dari disk image. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **binwalk -e firmware.bin** - Menganalisis dan mengekstrak file dari firmware. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+20. Perintah Social Engineering
+• **setoolkit** - Menjalankan Social Engineering Toolkit (SET). - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **evilginx2** - Menjalankan Evilginx untuk serangan phishing. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+• **phishlets enable [phishlet]** - Mengaktifkan template phishing pada Evilginx. - [Kondisi Penggunaan: Tambahkan kapan atau dalam situasi apa perintah ini digunakan.]
+21. Perintah Exploitation Tools
+• **msfconsole** - Menjalankan Metasploit Framework untuk eksploitasi sistem. - [Contoh Penggunaan: Digunakan saat melakukan eksploitasi terhadap sistem target.]
+• **searchsploit [exploit_name]** - Mencari eksploitasi di database ExploitDB. - [Contoh Penggunaan: Digunakan saat melakukan eksploitasi terhadap sistem target.]
+• **evil-winrm -i [target] -u [user] -p [password]** - Melakukan Remote Code Execution pada sistem Windows. - [Contoh Penggunaan: Digunakan saat melakukan eksploitasi terhadap sistem target.]
+• **nc -lvnp [port]** - Mendengarkan koneksi masuk untuk sesi reverse shell. - [Contoh Penggunaan: Digunakan saat melakukan eksploitasi terhadap sistem target.]
+22. Perintah Privilege Escalation
+• **sudo -l** - Menampilkan daftar perintah yang bisa dijalankan dengan sudo. - [Contoh Penggunaan: Digunakan untuk menemukan celah agar mendapatkan hak akses lebih tinggi.]
+• **linux-exploit-suggester.sh** - Menganalisis potensi privilege escalation pada sistem Linux. - [Contoh Penggunaan: Digunakan untuk menemukan celah agar mendapatkan hak akses lebih tinggi.]
+• **windows-exploit-suggester.py** - Menganalisis eksploitasi privilege escalation untuk Windows. - [Contoh Penggunaan: Digunakan untuk menemukan celah agar mendapatkan hak akses lebih tinggi.]
+23. Perintah Reverse Engineering
+• **gdb [binary]** - Menjalankan GNU Debugger untuk debugging aplikasi biner. - [Contoh Penggunaan: Digunakan saat melakukan analisis terhadap aplikasi atau malware.]
+• **radare2 [binary]** - Menjalankan radare2 untuk menganalisis file biner. - [Contoh Penggunaan: Digunakan saat melakukan analisis terhadap aplikasi atau malware.]
+• **strings [file]** - Menampilkan teks yang bisa dibaca manusia dalam file biner. - [Contoh Penggunaan: Digunakan saat melakukan analisis terhadap aplikasi atau malware.]
+24. Perintah Mobile Hacking
+• **apktool d [apk_file]** - Membongkar APK menjadi kode yang dapat dibaca manusia. - [Contoh Penggunaan: Digunakan untuk membongkar dan menganalisis keamanan aplikasi mobile.]
+• **mobSF** - Menjalankan Mobile Security Framework untuk analisis aplikasi mobile. - [Contoh Penggunaan: Digunakan untuk membongkar dan menganalisis keamanan aplikasi mobile.]
+• **frida -U -n [app] -e '[code]'** - Melakukan hooking aplikasi mobile dengan Frida. - [Contoh Penggunaan: Digunakan untuk membongkar dan menganalisis keamanan aplikasi mobile.]
+25. Perintah Cloud Security Testing
+• **awscli** - Mengakses dan mengelola layanan AWS dari terminal. - [Contoh Penggunaan: Digunakan saat melakukan pentesting terhadap layanan cloud.]
+• **gcloud** - Mengelola sumber daya Google Cloud Platform (GCP). - [Contoh Penggunaan: Digunakan saat melakukan pentesting terhadap layanan cloud.]
+• **az** - Mengelola layanan Azure dari command line. - [Contoh Penggunaan: Digunakan saat melakukan pentesting terhadap layanan cloud.]
+26. Perintah Dasar Tambahan
+• **ls -lh** - Menampilkan daftar file dengan ukuran dalam format yang mudah dibaca. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, dan proses di Linux.]
+• **tree** - Menampilkan struktur direktori secara hierarkis. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, dan proses di Linux.]
+• **stat [file]** - Menampilkan informasi detail tentang file seperti ukuran, izin, dan waktu modifikasi. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, dan proses di Linux.]
+• **uname -r** - Menampilkan versi kernel Linux yang sedang digunakan. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, dan proses di Linux.]
+• **uptime** - Menampilkan lama waktu sistem telah berjalan sejak booting. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, dan proses di Linux.]
+• **hostname** - Menampilkan atau mengubah nama host sistem. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, dan proses di Linux.]
+• **grep 'teks' file.txt** - Mencari teks dalam file tertentu. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, dan proses di Linux.]
+• **find /home -name '*.txt'** - Mencari file berdasarkan nama dalam direktori tertentu. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, dan proses di Linux.]
+• **locate config** - Menemukan file yang mengandung kata 'config' dengan cepat. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, dan proses di Linux.]
+• **chmod +x script.sh** - Memberikan izin eksekusi pada file skrip. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, dan proses di Linux.]
+• **chown user:group file.txt** - Mengubah pemilik dan grup dari suatu file. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, dan proses di Linux.]
+• **jobs** - Menampilkan daftar proses yang berjalan di background. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, dan proses di Linux.]
+• **fg %1** - Mengembalikan proses background ke foreground. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, dan proses di Linux.]
+• **kill -9 [PID]** - Menghentikan proses tertentu secara paksa. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, dan proses di Linux.]
+27. Perintah Dasar Tambahan Lengkap
+• **touch file.txt** - Membuat file kosong baru. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **rm -rf folder/** - Menghapus folder beserta isinya secara permanen. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **basename /path/file.txt** - Menampilkan nama file tanpa path. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **dirname /path/file.txt** - Menampilkan path direktori dari suatu file. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **ln -s target link_name** - Membuat symbolic link ke file atau direktori. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **df -Th** - Menampilkan informasi penggunaan disk dengan format yang mudah dibaca. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **uptime -p** - Menampilkan lama waktu sistem berjalan dalam format lebih jelas. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **whoami** - Menampilkan nama pengguna yang sedang aktif. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **id** - Menampilkan UID dan GID pengguna. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **hostnamectl** - Menampilkan atau mengubah informasi sistem dan hostname. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **awk '{print $1}' file.txt** - Menampilkan kolom pertama dari setiap baris dalam file. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **cut -d':' -f1 /etc/passwd** - Menampilkan daftar semua pengguna di sistem. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **wc -l file.txt** - Menghitung jumlah baris dalam file. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **sort file.txt** - Mengurutkan isi file secara alfabet. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **uniq file.txt** - Menghapus baris duplikat dalam file. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **sed -i 's/lama/baru/g' file.txt** - Mengganti teks tertentu dalam file secara otomatis. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **nohup command &** - Menjalankan perintah di background agar tetap berjalan meskipun terminal ditutup. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **pkill process_name** - Menghentikan semua proses dengan nama tertentu. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **bg** - Melanjutkan proses yang dihentikan ke background. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **fg %1** - Mengembalikan proses background ke foreground. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **nice -n 10 command** - Menjalankan perintah dengan prioritas CPU lebih rendah. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **wget -c URL** - Mengunduh file dari internet dengan fitur resume. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **scp file user@host:/path/** - Mengirim file ke server lain melalui SSH. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **rsync -avz source/ user@host:/destination/** - Menyalin file atau direktori secara efisien melalui SSH. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **htop** - Menampilkan proses yang berjalan dalam mode interaktif. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **iotop** - Menampilkan proses yang menggunakan I/O disk terbanyak. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+• **strace -c command** - Menganalisis sistem call yang digunakan oleh suatu program. - [Contoh Penggunaan: Digunakan saat mengelola file, sistem, proses, atau jaringan.]
+28. Perintah Wireless Attacks Tambahan
+• **bettercap -iface wlan0** - Menjalankan bettercap untuk serangan Man-in-the-Middle pada jaringan Wi-Fi. - [Contoh Penggunaan: Digunakan untuk serangan dan eksploitasi jaringan Wi-Fi.]
+• **aircrack-ng -z capture.cap** - Menggunakan mode brute-force untuk memecahkan kunci WEP/WPA. - [Contoh Penggunaan: Digunakan untuk serangan dan eksploitasi jaringan Wi-Fi.]
+• **mdk3 wlan0mon d -c 6** - Menggunakan MDK3 untuk melakukan serangan deauthentication pada kanal tertentu. - [Contoh Penggunaan: Digunakan untuk serangan dan eksploitasi jaringan Wi-Fi.]
+29. Perintah Exploitation Frameworks Tambahan
+• **msfconsole** - Menjalankan Metasploit Framework untuk eksploitasi sistem. - [Contoh Penggunaan: Digunakan untuk eksploitasi sistem dan perangkat jaringan.]
+• **searchsploit windows** - Mencari eksploitasi khusus Windows di ExploitDB. - [Contoh Penggunaan: Digunakan untuk eksploitasi sistem dan perangkat jaringan.]
+• **routersploit** - Menjalankan RouterSploit untuk mengeksploitasi router dan perangkat IoT. - [Contoh Penggunaan: Digunakan untuk eksploitasi sistem dan perangkat jaringan.]
+30. Perintah Reverse Engineering & Malware Analysis
+• **ghidraRun** - Menjalankan Ghidra untuk analisis biner dan reverse engineering. - [Contoh Penggunaan: Digunakan dalam analisis malware dan reverse engineering.]
+• **radare2 -AA malware.bin** - Menganalisis file biner untuk mencari kerentanan. - [Contoh Penggunaan: Digunakan dalam analisis malware dan reverse engineering.]
+• **strings malware.exe** - Menampilkan teks yang bisa dibaca dalam file malware. - [Contoh Penggunaan: Digunakan dalam analisis malware dan reverse engineering.]
+31. Perintah Social Engineering Tambahan
+• **setoolkit** - Menjalankan Social Engineering Toolkit untuk simulasi serangan phishing. - [Contoh Penggunaan: Digunakan untuk simulasi serangan rekayasa sosial.]
+• **evilginx2** - Menjalankan Evilginx untuk serangan phishing berbasis reverse proxy. - [Contoh Penggunaan: Digunakan untuk simulasi serangan rekayasa sosial.]
+• **gophish** - Menjalankan GoPhish untuk kampanye phishing otomatis. - [Contoh Penggunaan: Digunakan untuk simulasi serangan rekayasa sosial.]
+32. Perintah Cloud & Container Security
+• **scout2 aws** - Menganalisis konfigurasi keamanan AWS dengan ScoutSuite. - [Contoh Penggunaan: Digunakan untuk mengaudit keamanan cloud dan container.]
+• **trivy image ubuntu:latest** - Memindai kerentanan pada container Docker menggunakan Trivy. - [Contoh Penggunaan: Digunakan untuk mengaudit keamanan cloud dan container.]
+• **kube-hunter** - Menjalankan kube-hunter untuk menemukan kelemahan dalam cluster Kubernetes. - [Contoh Penggunaan: Digunakan untuk mengaudit keamanan cloud dan container.]
+
+    </pre>
+</body>
+</html>
