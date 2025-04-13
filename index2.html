@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RisBrine404</title>
-    <!-- Link ke style.css jika ada styling eksternal -->
+    <!-- Link ke style.css jika ada styling eksternal (opsional, karena semua ada di sini) -->
     <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
     <style>
         *, *::after, *::before {
@@ -15,11 +15,11 @@
 
         body {
             background-image: url('backg.gif');
-            background-size: cover; /* Coba 'contain' atau 'auto' jika 'cover' terlalu stretch */
-            background-repeat: repeat; /* 'repeat' mungkin lebih cocok untuk gif tile */
-            background-attachment: fixed; /* Membuat background tetap saat scroll */
-            color: #fff; /* Default text color */
-            font-family: 'Courier New', Courier, monospace; /* Default font */
+            background-size: cover; /* Default untuk desktop */
+            background-repeat: repeat;
+            background-attachment: fixed;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
         }
 
         /* --- UTILITIES --- */
@@ -37,9 +37,8 @@
 
         /* --- HEADER & TITLES --- */
         .page-header {
-            /* background-color: C0C0C0; /* Original color - bisa di-uncomment jika diinginkan */
-            padding: 10px 0; /* Sedikit padding */
-            border-bottom: 3px solid #000dc6; /* Garis bawah seperti nav */
+            padding: 10px 0;
+            border-bottom: 3px solid #000dc6;
         }
 
         .main-title {
@@ -52,13 +51,13 @@
                          0 0 20px #ff000f,
                          0 0 30px #ff000f,
                          0 0 40px #ff000f;
-            line-height: 1.2; /* Spasi antar baris */
-            margin-bottom: 10px; /* Jarak bawah */
+            line-height: 1.2;
+            margin-bottom: 10px;
         }
 
         .section-title {
             text-align: center;
-            font-size: 30px; /* Ukuran h2 asli */
+            font-size: 30px;
             font-family: 'Courier New', Courier, monospace;
             color: #fff;
             text-shadow: 0 0 5px #0000ff,
@@ -71,7 +70,7 @@
 
         .arabic-greeting {
             text-align: center;
-            font-size: 57px; /* Ukuran h8 asli */
+            font-size: 57px;
             color: #fff;
             text-shadow: 0 0 5px #008000,
                          0 0 10px #008000,
@@ -84,7 +83,7 @@
 
         .welcome-text {
              text-align: center;
-            font-size: 57px; /* Ukuran h1 asli */
+            font-size: 57px;
             font-family: 'Courier New', Courier, monospace;
             color: #fff;
             text-shadow: 0 0 5px #ff000f,
@@ -98,193 +97,193 @@
 
         .warning-message {
             text-align: center;
-            font-size: 35px; /* Ukuran h9 asli */
+            font-size: 35px;
             color: red;
-            text-shadow: 0 0 3px #008000, /* Sedikit kurangi shadow agar lebih terbaca */
+            text-shadow: 0 0 3px #008000,
                          0 0 8px #008000,
                          0 0 15px #008000,
                          0 0 25px #008000;
             margin-top: 1rem;
             margin-bottom: 1rem;
-            font-weight: bold; /* Tegaskan pesan warning */
+            font-weight: bold;
         }
          .warning-container {
-            color: red; /* Warna teks container warning */
-            font-size: 1.1rem; /* Ukuran font sedikit lebih besar dari normal */
+            color: red;
+            font-size: 1.1rem;
             text-align: center;
             margin-bottom: 1.5rem;
             padding: 10px;
-            border: 2px dashed red; /* Border untuk menegaskan */
-            background-color: rgba(255, 0, 0, 0.1); /* Background transparan merah tipis */
+            border: 2px dashed red;
+            background-color: rgba(255, 0, 0, 0.1);
          }
 
         /* --- NAVIGATION --- */
         nav {
             background-color: #000dc6;
-            padding: 10px 0; /* Padding atas bawah */
+            padding: 10px 0;
             position: sticky;
             top: 0;
-            z-index: 1000; /* Pastikan nav di atas elemen lain */
-            border-bottom: 2px solid #fff; /* Garis pemisah tipis */
+            z-index: 1000;
+            border-bottom: 2px solid #fff;
         }
 
         nav ul {
-            padding-inline: 1rem; /* Padding kiri kanan list */
+            padding-inline: 1rem;
             display: flex;
-            justify-content: center; /* Pusatkan item nav */
-            gap: 1.5rem; /* Jarak antar item nav */
-            list-style-type: none; /* Hapus bullet points */
+            justify-content: center;
+            gap: 1.5rem;
+            list-style-type: none;
         }
 
         nav li {
-             /* Tidak perlu z-index di sini jika nav sudah punya */
+             /* No specific style needed here now */
         }
 
         nav a {
-            font-size: 25px; /* Sedikit lebih kecil agar muat di layar kecil */
+            font-size: 25px;
             font-weight: 400;
             text-decoration: none;
             color: white;
-            padding: 5px 10px; /* Padding di dalam link */
-            border-radius: 5px; /* Sudut sedikit melengkung */
+            padding: 5px 10px;
+            border-radius: 5px;
             transition: background-color 0.3s ease, color 0.3s ease, font-weight 0.2s ease;
         }
 
-        nav a:hover, nav a:focus { /* Tambahkan :focus untuk aksesibilitas */
+        nav a:hover, nav a:focus {
             font-weight: bold;
-            background-color: rgba(255, 255, 255, 0.2); /* Latar belakang transparan saat hover */
-            color: #adff2f; /* Warna hijau terang saat hover */
-            outline: none; /* Hapus outline default saat focus */
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #adff2f;
+            outline: none;
         }
 
         /* --- CONTENT STYLING --- */
         .intro-text {
             text-align: center;
-            font-size: 20px; /* Ukuran h2 asli (bagian halo selamat datang) */
+            font-size: 20px;
             font-family: 'Courier New', Courier, monospace;
             color: #fff;
-            text-shadow: 0 0 3px #0000ff, /* Shadow lebih tipis */
+            text-shadow: 0 0 3px #0000ff,
                          0 0 8px #0000ff;
             margin-bottom: 1.5rem;
-            line-height: 1.5; /* Spasi antar baris lebih nyaman */
-            max-width: 800px; /* Batasi lebar agar tidak terlalu panjang di layar lebar */
+            line-height: 1.5;
+            max-width: 800px;
             margin-left: auto;
-            margin-right: auto; /* Tengahkan container text */
-            padding: 0 1rem; /* Padding kiri kanan jika layar sempit */
+            margin-right: auto;
+            padding: 0 1rem;
         }
 
         .profile-link-container {
-            text-align: center; /* Gantikan <center> */
+            text-align: center;
             margin-top: 2rem;
             margin-bottom: 2rem;
         }
 
         .profile-link {
-            display: inline-block; /* Agar bisa diberi padding & border */
+            display: inline-block;
             border: 5px solid blue;
             padding: 10px 20px;
-            text-decoration: none; /* Hapus garis bawah link */
+            text-decoration: none;
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .profile-link:hover {
-             background-color: rgba(0, 0, 255, 0.1); /* Efek hover */
+             background-color: rgba(0, 0, 255, 0.1);
              border-color: lightblue;
         }
 
         .profile-link-text {
-             font-size: 35px; /* Ukuran h7 asli */
+             font-size: 35px;
              color: lightseagreen;
              text-shadow: 0 0 3px #ff000f,
                           0 0 8px #ff000f,
-                          0 0 15px #ff000f; /* Kurangi shadow */
+                          0 0 15px #ff000f;
         }
 
         .social-media-container {
             display: flex;
-            justify-content: center; /* Pusatkan ikon */
-            align-items: center; /* Sejajarkan ikon secara vertikal */
-            flex-wrap: wrap; /* Biarkan ikon turun jika layar sempit */
-            gap: 30px; /* Jarak antar ikon */
-            margin-bottom: 2rem; /* Jarak bawah */
-            padding: 0 1rem; /* Padding kiri kanan */
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
         }
 
         .social-link {
             text-align: center;
             text-decoration: none;
-            color: skyblue; /* Warna h10 asli */
-            transition: transform 0.2s ease; /* Efek hover kecil */
+            color: skyblue;
+            transition: transform 0.2s ease;
         }
          .social-link:hover {
-            transform: scale(1.1); /* Sedikit membesar saat hover */
+            transform: scale(1.1);
          }
 
         .social-link img {
-            display: block; /* Agar margin auto bekerja jika diperlukan */
+            display: block;
             width: 80px;
             height: 80px;
-            margin-bottom: 5px; /* Jarak antara ikon dan teks */
-            border-radius: 10px; /* Sedikit rounded corner */
-            box-shadow: 0 0 10px rgba(0, 191, 255, 0.5); /* Shadow tipis */
+            margin-bottom: 5px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
         }
 
         .social-link-text {
-            font-size: 20px; /* Ukuran h10 asli, disesuaikan */
-            display: block; /* Pastikan teks di bawah ikon */
+            font-size: 20px;
+            display: block;
         }
 
         /* --- LINUX SECTION --- */
         .linux-distro-list {
-            /* Menggunakan flexbox untuk layout yang lebih modern daripada tabel */
             display: flex;
-            flex-wrap: wrap; /* Biarkan item turun ke baris baru jika perlu */
-            justify-content: center; /* Pusatkan item */
-            gap: 2rem; /* Jarak antar item distro */
-            padding: 0 1rem; /* Padding kiri kanan */
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 0 1rem;
         }
 
         .distro-card {
             border: 7px solid blue;
-            max-width: 450px; /* Batasi lebar card */
-            width: 100%; /* Usahakan mengisi ruang */
-            background-color: rgba(0, 0, 0, 0.3); /* Background sedikit transparan */
-            padding: 15px; /* Padding dalam card */
-            display: flex; /* Gunakan flex untuk tata letak internal */
-            flex-direction: column; /* Susun elemen secara vertikal */
+            max-width: 450px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
         }
 
-        .distro-card a {
+        .distro-card a.distro-title-link { /* Specific class for the main link */
             text-decoration: none;
-            color: red; /* Warna link asli */
-            font-size: 1.1rem; /* Ukuran font link */
+            color: red;
+            font-size: 1.1rem;
             font-weight: bold;
-            display: flex; /* Flex untuk gambar dan teks link */
-            align-items: center; /* Sejajarkan gambar dan teks */
-            gap: 10px; /* Jarak antara gambar dan teks */
-            margin-bottom: 10px; /* Jarak bawah link */
+            display: block; /* Make it block to position image correctly if needed */
+            /* align-items: center; Remove alignment if image is separate */
+            /* gap: 10px; Remove gap if image is separate */
+            margin-bottom: 10px;
             transition: color 0.3s ease;
         }
-         .distro-card a:hover {
-             color: #ff4500; /* Warna hover oranye kemerahan */
+         .distro-card a.distro-title-link:hover {
+             color: #ff4500;
          }
 
         .distro-card img {
-            max-width: 100%; /* Gambar tidak akan meluber */
-            height: auto; /* Jaga rasio aspek */
-            display: block; /* Hapus spasi bawah default */
-            border: 1px solid #555; /* Border tipis di gambar */
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid #555;
+            margin-bottom: 10px; /* Add margin below image */
         }
 
         .distro-info {
-            font-size: 1rem; /* Ukuran font deskripsi */
-            color: lightgreen; /* Warna teks info asli */
-            line-height: 1.6; /* Spasi baris */
-            margin-bottom: 1rem; /* Jarak bawah info */
+            font-size: 1rem;
+            color: lightgreen;
+            line-height: 1.6;
+            margin-bottom: 1rem;
         }
-        .distro-info strong { /* Tegaskan Kelebihan/Kekurangan */
+        .distro-info strong {
             color: white;
-            display: block; /* Buat baris baru */
+            display: block;
             margin-top: 5px;
         }
 
@@ -293,8 +292,8 @@
             font-size: 1rem;
             color: red;
             text-decoration: underline;
-            margin-bottom: 0.5rem; /* Jarak bawah link */
-            display: inline-block; /* Agar margin bekerja */
+            margin-bottom: 0.5rem;
+            display: inline-block;
              transition: color 0.3s ease;
         }
         .distro-code-link:hover, .distro-additional-link:hover {
@@ -304,23 +303,25 @@
         .distro-notes {
             font-size: 0.95rem;
             color: lightgreen;
-            margin-top: 10px; /* Jarak atas catatan */
+            margin-top: 10px;
             line-height: 1.5;
         }
-        .distro-notes code { /* Styling untuk kode inline */
+        .distro-notes code {
             background-color: #333;
             padding: 2px 5px;
             border-radius: 3px;
             color: #f0f0f0;
+            font-family: 'Courier New', Courier, monospace; /* Ensure monospace */
+            font-size: 0.9em; /* Slightly smaller code */
         }
          .distro-install-link {
-             font-size: 25px; /* Ukuran h7 disesuaikan */
+             font-size: 25px;
              color: lightseagreen;
              text-shadow: 0 0 3px #ff000f, 0 0 8px #ff000f;
              text-decoration: none;
              font-weight: bold;
              transition: color 0.3s ease, text-shadow 0.3s ease;
-             display: inline-block; /* Agar margin bekerja */
+             display: inline-block;
              margin-top: 5px;
          }
           .distro-install-link:hover {
@@ -331,39 +332,43 @@
 
         /* --- CLASS & PROJECT SECTION --- */
         .recommendation-list {
-            list-style-type: none; /* Hapus bullet */
+            list-style-type: none;
             padding: 0;
-            display: flex; /* Gunakan flex untuk layout */
-            flex-direction: column; /* Susun vertikal */
-            align-items: center; /* Pusatkan item */
-            gap: 1.5rem; /* Jarak antar item */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
         }
 
         .recommendation-item a {
-            display: flex; /* Item sebagai flex container */
-            align-items: center; /* Sejajarkan ikon dan teks */
-            gap: 15px; /* Jarak antara ikon dan teks */
+            display: flex;
+            align-items: center;
+            gap: 15px;
             text-decoration: none;
             transition: transform 0.2s ease;
+            max-width: 90%; /* Prevent very long items */
+            width: 500px; /* Give a consistent width */
         }
         .recommendation-item a:hover {
-            transform: translateX(5px); /* Sedikit geser ke kanan saat hover */
+            transform: translateX(5px);
         }
 
         .recommendation-item img {
-            width: 75px; /* Ukuran ikon disesuaikan */
+            width: 75px;
             height: 75px;
-            object-fit: contain; /* Pastikan gambar terlihat utuh */
-            border-radius: 5px; /* Sudut sedikit bulat */
+            object-fit: contain;
+            border-radius: 5px;
              box-shadow: 0 0 8px rgba(0, 191, 255, 0.4);
+             flex-shrink: 0; /* Prevent icon from shrinking */
         }
 
         .recommendation-item-text {
-            font-size: 18px; /* Ukuran h3 asli disesuaikan */
+            font-size: 18px;
             color: skyblue;
             font-weight: bold;
+            line-height: 1.3; /* Add line height for multi-line text */
         }
-        .recommendation-item-text .subtitle { /* Untuk teks tambahan seperti (PENCEGAHAN) */
+        .recommendation-item-text .subtitle {
              display: block;
              font-size: 14px;
              color: lightgray;
@@ -373,50 +378,50 @@
 
         /* --- AUDIO PLAYER --- */
         .audio-player-container {
-            text-align: center; /* Pusatkan elemen di dalamnya */
+            text-align: center;
             margin-bottom: 1.5rem;
             padding: 10px;
-            border: 1px dashed #555; /* Border pemisah tipis */
-            max-width: 500px; /* Batasi lebar container audio */
+            border: 1px dashed #555;
+            max-width: 500px;
             margin-left: auto;
             margin-right: auto;
         }
         .audio-title {
-            display: block; /* Judul di baris sendiri */
-            font-size: 16px; /* Ukuran h5 asli disesuaikan */
+            display: block;
+            font-size: 16px;
             font-family: 'Courier New', Courier, monospace;
             color: greenyellow;
-            text-shadow: 0 0 3px #0000ff, /* Shadow tipis */
+            text-shadow: 0 0 3px #0000ff,
                          0 0 8px #0000ff;
-            margin-bottom: 8px; /* Jarak ke audio player */
-            white-space: nowrap; /* Cegah judul pindah baris */
-            overflow: hidden; /* Sembunyikan teks yang meluber */
-            text-overflow: ellipsis; /* Tampilkan ... jika teks terlalu panjang */
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         audio {
-            max-width: 100%; /* Pastikan player responsif */
-            display: block; /* Tampilkan sebagai block */
+            max-width: 100%;
+            display: block;
             margin-left: auto;
-            margin-right: auto; /* Pusatkan player */
+            margin-right: auto;
         }
         .audio-instruction {
-             font-size: 18px; /* Ukuran h4 asli disesuaikan */
+             font-size: 18px;
              font-family: 'Courier New', Courier, monospace;
              color: greenyellow;
-             text-shadow: 0 0 3px #ff000f, /* Shadow tipis */
+             text-shadow: 0 0 3px #ff000f,
                           0 0 8px #ff000f;
-             margin-top: 1rem; /* Jarak dari audio terakhir */
+             margin-top: 1rem;
              margin-bottom: 1.5rem;
-             font-style: italic; /* Miringkan instruksi */
+             font-style: italic;
          }
 
         /* --- BACK BUTTON --- */
         .back-button-container {
-            text-align: center; /* Gantikan <center> */
-            margin-bottom: 2rem; /* Jarak bawah */
+            text-align: center;
+            margin-bottom: 2rem;
         }
         .back-button {
-            background-color: #444; /* Warna latar tombol */
+            background-color: #444;
             color: white;
             border: 2px solid blue;
             padding: 10px 15px;
@@ -424,10 +429,10 @@
             font-size: 0.9rem;
             cursor: pointer;
             transition: background-color 0.3s ease, border-color 0.3s ease;
-            white-space: pre-wrap; /* Agar line break di value bekerja */
-            max-width: 400px; /* Batasi lebar tombol */
-            line-height: 1.4; /* Spasi baris di tombol */
-            display: inline-block; /* Agar text-align center bekerja */
+            white-space: pre-wrap;
+            max-width: 400px;
+            line-height: 1.4;
+            display: inline-block;
         }
         .back-button:hover {
             background-color: #555;
@@ -437,107 +442,335 @@
 
         /* --- PROFILE IMAGE --- */
         .profile-image-container {
-            text-align: center; /* Gantikan <center> */
-            margin-bottom: 0.5rem; /* Jarak bawah kecil */
+            text-align: center;
+            margin-bottom: 0.5rem;
         }
         .profile-image-wrapper {
-            display: inline-block; /* Agar border pas dengan gambar */
+            display: inline-block;
             border: 10px solid blue;
-            line-height: 0; /* Hapus spasi bawah gambar */
+            line-height: 0;
         }
         .profile-image {
-             width: 300px; /* Pertahankan ukuran asli */
+             width: 300px; /* Original size */
              height: 400px;
-             display: block; /* Hapus spasi bawah */
+             display: block;
         }
         .profile-caption {
-            font-size: 10px; /* Ukuran h6 asli */
+            font-size: 10px;
             font-family: 'Courier New', Courier, monospace;
             color: white;
-            margin-top: 5px; /* Jarak dari border gambar */
+            margin-top: 5px;
             font-style: italic;
         }
 
         /* --- FIXED ACTION BUTTONS --- */
         .action-button {
             background: rgb(7, 4, 196);
-            display: flex; /* Gunakan flex untuk center content */
+            display: flex;
             justify-content: center;
             align-items: center;
-            width: 110px; /* Sedikit lebih kecil */
-            height: 110px; /* Buat jadi lingkaran sempurna */
+            width: 110px;
+            height: 110px;
             text-align: center;
             color: white;
             font-weight: bold;
-            border-radius: 50%; /* Lingkaran */
+            border-radius: 50%;
             text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.3s ease; /* Perhalus transisi */
+            transition: background-color 0.3s ease, transform 0.3s ease;
             position: fixed;
-            right: 40px; /* Sesuaikan posisi */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Tambah shadow */
-            overflow: hidden; /* Pastikan gambar tidak keluar */
+            right: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            z-index: 999; /* Ensure they are above most content */
         }
         .action-button img {
-             max-width: 70%; /* Sesuaikan ukuran gambar di dalam */
+             max-width: 70%;
              max-height: 70%;
              object-fit: contain;
         }
 
         .act-hlm {
-            bottom: 40px; /* Posisi tombol bawah */
+            bottom: 40px;
         }
         .act-hlx {
-            bottom: 165px; /* Posisi tombol atas (40 + 110 + 15) */
+            bottom: 165px; /* 40 + 110 + 15 */
         }
 
         .action-button:hover {
             background: rgb(0, 204, 51);
-            transform: scale(1.05); /* Sedikit membesar saat hover */
+            transform: scale(1.05);
         }
 
         /* --- FOOTER --- */
         footer {
-            background-color: #696969; /* Warna footer asli */
-            padding: 1rem 0; /* Padding atas bawah */
-            margin-top: 3rem; /* Jarak dari konten terakhir */
-             border-top: 3px solid #333; /* Garis pemisah atas */
+            background-color: #696969;
+            padding: 1rem 0;
+            margin-top: 3rem;
+             border-top: 3px solid #333;
         }
         .footer-text {
-            font-family: 'Amatic SC', cursive; /* Pastikan font ini tersedia atau gunakan fallback */
-            font-size: 1rem; /* Sesuaikan ukuran */
+            font-family: 'Amatic SC', cursive;
+            font-size: 1rem;
             color: red;
             text-align: center;
-            line-height: 1.5; /* Spasi baris */
-            margin-bottom: 10px; /* Jarak ke teks "Thanks You" */
+            line-height: 1.5;
+            margin-bottom: 10px;
         }
         .footer-thanks {
              text-align: center;
-             font-size: 25px; /* Ukuran h2 disesuaikan */
+             font-size: 25px;
              font-family: 'Courier New', Courier, monospace;
              color: #fff;
              text-shadow: 0 0 3px #0000ff, 0 0 8px #0000ff;
              margin-top: 10px;
          }
 
-        /* Optional: Tambahkan style untuk font Amatic SC jika belum di-load */
+        /* Optional: Import Amatic SC font */
         @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
 
+
+        /* --- Responsive Styles for Mobile (Max Width 768px) --- */
+        @media (max-width: 768px) {
+
+            body {
+                background-size: auto; /* Better for repeating GIFs on mobile */
+            }
+
+            /* Kurangi ukuran font judul utama */
+            .main-title {
+                font-size: 38px;
+                line-height: 1.3;
+            }
+
+            .section-title {
+                font-size: 26px;
+                line-height: 1.4;
+            }
+
+            .arabic-greeting {
+                font-size: 38px;
+            }
+
+             .welcome-text {
+                font-size: 38px;
+                line-height: 1.3;
+            }
+
+            .warning-message {
+                font-size: 24px;
+            }
+             .warning-container {
+                 font-size: 1rem;
+             }
+
+             .profile-link-text {
+                 font-size: 24px;
+             }
+             .profile-link {
+                 padding: 8px 15px;
+                 border-width: 4px;
+             }
+
+             .distro-install-link {
+                 font-size: 20px;
+             }
+
+             /* --- Navigasi Mobile --- */
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+                padding-inline: 0.5rem;
+            }
+            nav a {
+                font-size: 20px;
+                padding: 8px 15px;
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+             nav li {
+                 width: 90%;
+                 max-width: 300px;
+             }
+
+
+            /* Kurangi ukuran teks umum */
+            .intro-text {
+                font-size: 16px;
+                max-width: 95%; /* Allow more width on mobile */
+            }
+
+            /* Sosial Media Icons */
+            .social-media-container {
+                gap: 20px;
+                padding: 0 0.5rem;
+            }
+            .social-link img {
+                width: 60px;
+                height: 60px;
+            }
+            .social-link-text {
+                font-size: 16px;
+            }
+
+            /* Linux Distro Cards */
+            .linux-distro-list {
+                gap: 1rem;
+                padding: 0 0.5rem;
+            }
+            .distro-card {
+                border-width: 5px;
+                padding: 10px;
+                max-width: 95%;
+            }
+            .distro-info, .distro-notes {
+                font-size: 0.9rem;
+            }
+             .distro-code-link, .distro-additional-link {
+                 font-size: 0.9rem;
+             }
+
+
+            /* Class & Project Recommendations */
+             .recommendation-list {
+                 gap: 1rem;
+             }
+             .recommendation-item a {
+                 width: 95%; /* Allow item to take more width */
+                 max-width: none; /* Remove fixed max-width */
+                 gap: 10px; /* Reduce gap */
+             }
+            .recommendation-item img {
+                width: 60px;
+                height: 60px;
+            }
+            .recommendation-item-text {
+                font-size: 16px;
+            }
+             .recommendation-item-text .subtitle {
+                 font-size: 12px;
+             }
+
+             /* Audio Player */
+            .audio-player-container {
+                 max-width: 95%;
+                 padding: 8px;
+             }
+             .audio-title {
+                 font-size: 14px;
+             }
+             .audio-instruction {
+                 font-size: 16px;
+                 padding: 0 1rem;
+             }
+
+            /* Tombol Kembali */
+            .back-button {
+                font-size: 0.8rem;
+                padding: 8px 12px;
+                max-width: 90%;
+            }
+
+            /* Gambar Profil */
+             .profile-image-wrapper {
+                 border-width: 7px;
+             }
+            .profile-image {
+                max-width: 250px;
+                width: 80%;
+                height: auto;
+            }
+            .profile-caption {
+                font-size: 9px;
+            }
+
+            /* Fixed Action Buttons */
+            .action-button {
+                width: 80px;
+                height: 80px;
+                right: 15px;
+            }
+            .act-hlm {
+                bottom: 15px;
+            }
+            .act-hlx {
+                bottom: 105px; /* 15 + 80 + 10 */
+            }
+            .action-button img {
+                 max-width: 60%;
+                 max-height: 60%;
+            }
+
+            /* Footer */
+            .footer-text {
+                font-size: 0.9rem;
+            }
+            .footer-thanks {
+                font-size: 20px;
+            }
+        }
+
+        /* Optional: Further adjustments for very small screens */
+        @media (max-width: 480px) {
+             .main-title, .arabic-greeting, .welcome-text {
+                 font-size: 30px;
+             }
+             .section-title {
+                 font-size: 22px;
+             }
+             .warning-message {
+                 font-size: 20px;
+             }
+              .warning-container {
+                  padding: 8px;
+              }
+             nav a {
+                 font-size: 18px;
+             }
+             .social-link img {
+                 width: 50px;
+                 height: 50px;
+             }
+              .social-link-text {
+                 font-size: 14px;
+             }
+             .recommendation-item img {
+                 width: 50px;
+                 height: 50px;
+             }
+              .recommendation-item-text {
+                 font-size: 14px;
+             }
+              .recommendation-item-text .subtitle {
+                  font-size: 11px;
+              }
+              .profile-link-text {
+                  font-size: 20px;
+              }
+              .profile-image {
+                 max-width: 200px;
+              }
+              .action-button {
+                  width: 65px;
+                  height: 65px;
+                  right: 10px;
+              }
+              .act-hlm { bottom: 10px; }
+              .act-hlx { bottom: 85px; } /* 10 + 65 + 10 */
+        }
 
     </style>
     <!-- Efek Salju Script -->
     <script src="https://cdn.rawgit.com/bungfrangki/efeksalju/2a7805c7/efek-salju.js" type="text/javascript"></script>
     <script>
       // Menghapus alert yang mengganggu
-      // alert('web yg akan terus di upgrade');
-      // alert('bila ada kendala beritahu lewat akun medsos yg sudah tercantum');
-      console.log("Selamat datang di RisBrine404! Web sedang dalam pengembangan."); // Pesan di console lebih baik
+      console.log("Selamat datang di RisBrine404! Web sedang dalam pengembangan."); // Pesan di console
     </script>
 </head>
 <body>
 
 <header class="page-header">
-    <!-- Garis pemisah bisa ditambahkan di CSS jika diinginkan -->
-    <!-- <h1 class="main-title text-center">______________________</h1> -->
     <h1 class="main-title text-center">/===================<span style="display: block;">/ >>> RisBrine404 <<< \</span>\=====================/</h1>
 </header>
 
@@ -579,7 +812,7 @@ KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
         </div>
         <div class="audio-player-container">
             <span class="audio-title">NAN KO PAHAM New Version.mp3</span>
-            <audio controls src="NAN KO PAHAM New Version.mp3" type="audio/mpeg"></audio> <!-- Hapus autoplay -->
+            <audio controls src="NAN KO PAHAM New Version.mp3" type="audio/mpeg"></audio>
         </div>
          <div class="audio-player-container">
             <span class="audio-title">Nanti Pasti Kau Mengerti Setelah Sa Hilang (Lirik Lagu) Nan Ko Paham.mp3</span>
@@ -602,7 +835,7 @@ KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
 
     <div class="profile-link-container">
          <a href="https://risbrine404.github.io/datadiri/" class="profile-link">
-            <span class="profile-link-text">  >>> [ RisBrine Profile Identity ] <<<  </span>
+            <span class="profile-link-text"> >>> [ RisBrine Profile Identity ] <<< </span> <!-- Reduced spaces -->
         </a>
     </div>
 
@@ -621,29 +854,29 @@ KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
     <section id="smedia" class="mb-3">
         <h2 class="section-title">SMEDIA</h2>
         <div class="social-media-container">
-            <a class="social-link" href="https://wa.me/+6285755498964">
+            <a class="social-link" href="https://wa.me/+6285755498964" target="_blank" rel="noopener noreferrer">
                 <img src="whatsapp.png" alt="WhatsApp">
                 <span class="social-link-text">》WhatsApp《</span>
             </a>
-            <a class="social-link" href="http://www.facebook.com/profile.php?id=100076396292235">
+            <a class="social-link" href="http://www.facebook.com/profile.php?id=100076396292235" target="_blank" rel="noopener noreferrer">
                 <img src="facebook.png" alt="Facebook">
                 <span class="social-link-text">》Facebook《</span>
             </a>
-            <a class="social-link" href="https://www.instagram.com/r15_br1ne49">
+            <a class="social-link" href="https://www.instagram.com/r15_br1ne49" target="_blank" rel="noopener noreferrer">
                 <img src="instagram.png" alt="Instagram">
                 <span class="social-link-text">》Instagram《</span>
             </a>
         </div>
          <div class="social-media-container">
-            <a class="social-link" href="https://youtube.com/channel/UCYy0Gydrz4gtX_9dVBc4ltA">
+            <a class="social-link" href="https://youtube.com/channel/UCYy0Gydrz4gtX_9dVBc4ltA" target="_blank" rel="noopener noreferrer">
                 <img src="youtube.png" alt="YouTube">
                 <span class="social-link-text">》YouTube《</span>
             </a>
-            <a class="social-link" href="https://repl.it/@risbrine404/">
+            <a class="social-link" href="https://repl.it/@risbrine404/" target="_blank" rel="noopener noreferrer">
                 <img src="replit.jpg" alt="Replit">
                 <span class="social-link-text">》Replit《</span>
             </a>
-            <a class="social-link" href="https://github.com/RisBrine404/RisBrine404">
+            <a class="social-link" href="https://github.com/RisBrine404/RisBrine404" target="_blank" rel="noopener noreferrer">
                 <img src="github.png" alt="Github">
                 <span class="social-link-text">》Github《</span>
             </a>
@@ -656,7 +889,7 @@ KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
         <div class="linux-distro-list">
             <!-- Kali Linux -->
             <article class="distro-card">
-                 <a href="https://www.kali.org/">•⟩ ~Web /Kali (Kernel Auditing LInux)</a>
+                 <a href="https://www.kali.org/" target="_blank" rel="noopener noreferrer" class="distro-title-link">•⟩ ~Web /Kali (Kernel Auditing LInux)</a>
                  <img src="kalnux.png" alt="Kali Linux Logo" width="400" height="auto">
                  <div class="distro-info mt-1">
                      <strong>Kelebihan:</strong>
@@ -687,7 +920,7 @@ KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
 
             <!-- Tails -->
              <article class="distro-card">
-                 <a href="https://tails.boum.org/install/">•⟩ ~Web /Tails</a>
+                 <a href="https://tails.boum.org/install/" target="_blank" rel="noopener noreferrer" class="distro-title-link">•⟩ ~Web /Tails</a>
                  <img src="tails.png" alt="Tails OS Logo" width="400" height="auto">
                  <div class="distro-info mt-1">
                      <strong>Kelebihan:</strong>
@@ -701,7 +934,7 @@ KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
 
              <!-- Arch Linux -->
              <article class="distro-card">
-                 <a href="https://archlinux.org/download/">•⟩ ~Web /Arch</a>
+                 <a href="https://archlinux.org/download/" target="_blank" rel="noopener noreferrer" class="distro-title-link">•⟩ ~Web /Arch</a>
                  <img src="anux.png" alt="Arch Linux Logo" width="400" height="auto">
                   <div class="distro-info mt-1">
                       <strong>Kelebihan:</strong>
@@ -716,7 +949,7 @@ KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
 
             <!-- Gentoo Linux -->
              <article class="distro-card">
-                 <a href="https://www.gentoo.org/">•⟩ ~Web /Gentoo Linux</a>
+                 <a href="https://www.gentoo.org/" target="_blank" rel="noopener noreferrer" class="distro-title-link">•⟩ ~Web /Gentoo Linux</a>
                  <img src="gentoolinux.png" alt="Gentoo Linux Logo" width="400" height="auto">
                  <div class="distro-info mt-1">
                      <strong>Kelebihan:</strong>
@@ -730,7 +963,7 @@ KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
 
             <!-- openSUSE -->
              <article class="distro-card">
-                 <a href="https://get.opensuse.org/">•⟩ ~Web /openSUSE</a>
+                 <a href="https://get.opensuse.org/" target="_blank" rel="noopener noreferrer" class="distro-title-link">•⟩ ~Web /openSUSE</a>
                  <img src="opensuse.png" alt="openSUSE Logo" width="400" height="auto">
                  <div class="distro-info mt-1">
                      <strong>Kelebihan:</strong>
@@ -745,7 +978,7 @@ KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
 
             <!-- Linux Mint -->
              <article class="distro-card">
-                 <a href="https://linuxmint.com/">•⟩ ~Web /Linux Mint</a>
+                 <a href="https://linuxmint.com/" target="_blank" rel="noopener noreferrer" class="distro-title-link">•⟩ ~Web /Linux Mint</a>
                  <img src="linuxmint.png" alt="Linux Mint Logo" width="400" height="auto">
                  <div class="distro-info mt-1">
                      <strong>Kelebihan:</strong>
@@ -760,7 +993,7 @@ KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
 
             <!-- Debian -->
              <article class="distro-card">
-                 <a href="https://www.debian.org/">•⟩ ~Web /Debian</a>
+                 <a href="https://www.debian.org/" target="_blank" rel="noopener noreferrer" class="distro-title-link">•⟩ ~Web /Debian</a>
                  <img src="debian.png" alt="Debian Logo" width="400" height="auto">
                  <div class="distro-info mt-1">
                      <strong>Kelebihan:</strong>
@@ -774,7 +1007,7 @@ KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
 
             <!-- Deepin -->
              <article class="distro-card">
-                 <a href="https://www.deepin.org/index/en">•⟩ ~Web /Deepin</a>
+                 <a href="https://www.deepin.org/index/en" target="_blank" rel="noopener noreferrer" class="distro-title-link">•⟩ ~Web /Deepin</a>
                  <img src="deepin.png" alt="Deepin OS Logo" width="400" height="auto">
                  <div class="distro-info mt-1">
                      <strong>Kelebihan:</strong>
@@ -788,7 +1021,7 @@ KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
 
             <!-- Ubuntu -->
             <article class="distro-card">
-                 <a href="https://ubuntu.com/">•⟩ ~Web /Ubuntu</a>
+                 <a href="https://ubuntu.com/" target="_blank" rel="noopener noreferrer" class="distro-title-link">•⟩ ~Web /Ubuntu</a>
                  <img src="ubuntu.png" alt="Ubuntu Logo" width="400" height="auto">
                  <div class="distro-info mt-1">
                      <strong>Kelebihan:</strong>
@@ -803,7 +1036,7 @@ KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
 
             <!-- Lubuntu -->
              <article class="distro-card">
-                 <a href="https://lubuntu.me/">•⟩ ~Web /Lubuntu</a>
+                 <a href="https://lubuntu.me/" target="_blank" rel="noopener noreferrer" class="distro-title-link">•⟩ ~Web /Lubuntu</a>
                  <img src="lubuntu.png" alt="Lubuntu Logo" width="400" height="auto">
                  <div class="distro-info mt-1">
                      <strong>Kelebihan:</strong>
@@ -817,7 +1050,7 @@ KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
 
             <!-- Peppermint OS -->
              <article class="distro-card">
-                 <a href="https://peppermintos.com/">•⟩ ~Web /Peppermint OS</a>
+                 <a href="https://peppermintos.com/" target="_blank" rel="noopener noreferrer" class="distro-title-link">•⟩ ~Web /Peppermint OS</a>
                  <img src="peppermint.png" alt="Peppermint OS Logo" width="400" height="auto">
                   <div class="distro-info mt-1">
                       <strong>Kelebihan:</strong>
@@ -832,7 +1065,7 @@ KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
 
              <!-- elementary OS -->
              <article class="distro-card">
-                 <a href="https://elementary.io/">•⟩ ~Web /elementary os</a>
+                 <a href="https://elementary.io/" target="_blank" rel="noopener noreferrer" class="distro-title-link">•⟩ ~Web /elementary os</a>
                  <img src="elementary.png" alt="elementary OS Logo" width="400" height="auto">
                  <div class="distro-info mt-1">
                      <strong>Kelebihan:</strong>
@@ -846,7 +1079,7 @@ KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
 
             <!-- CentOS -->
             <article class="distro-card">
-                 <a href="https://centos.org/">•⟩ ~Web /CentOS</a>
+                 <a href="https://centos.org/" target="_blank" rel="noopener noreferrer" class="distro-title-link">•⟩ ~Web /CentOS</a>
                  <img src="centos.png" alt="CentOS Logo" width="400" height="auto">
                  <div class="distro-info mt-1">
                      <strong>Kelebihan:</strong>
@@ -863,43 +1096,43 @@ KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
          <h2 class="section-title">/========================<span style="display:block;">/ Di Bawah ini Adalah Kelas \</span><span style="display:block;">\ Yang Recomended Banget. /</span>\========================/</h2>
          <ul class="recommendation-list">
              <li class="recommendation-item">
-                 <a href="https://www.cyberacademy.id/belajar-online">
+                 <a href="https://www.cyberacademy.id/belajar-online" target="_blank" rel="noopener noreferrer">
                      <img src="cyberacademy.png" alt="Cyber Academy Logo">
                      <span class="recommendation-item-text">•⟩ ~Cyber Academy</span>
                  </a>
              </li>
              <li class="recommendation-item">
-                 <a href="https://www.agunacourse.com/?standalone=true">
+                 <a href="https://www.agunacourse.com/?standalone=true" target="_blank" rel="noopener noreferrer">
                      <img src="agunacourse.png" alt="Aguna Course Logo">
                      <span class="recommendation-item-text">•⟩ ~Aguna Course</span>
                  </a>
              </li>
              <li class="recommendation-item">
-                 <a href="https://tujuhub-303131.tujuhub.com/student/home">
+                 <a href="https://tujuhub-303131.tujuhub.com/student/home" target="_blank" rel="noopener noreferrer">
                      <img src="tujuhub.png" alt="Tujuhub Logo">
                      <span class="recommendation-item-text">•⟩ ~Tujuhub</span>
                  </a>
              </li>
              <li class="recommendation-item">
-                 <a href="https://myskill.id/">
+                 <a href="https://myskill.id/" target="_blank" rel="noopener noreferrer">
                      <img src="myskill.png" alt="My Skill Logo">
                      <span class="recommendation-item-text">•⟩ ~My Skill</span>
                  </a>
              </li>
              <li class="recommendation-item">
-                 <a href="https://www.dicoding.com/">
+                 <a href="https://www.dicoding.com/" target="_blank" rel="noopener noreferrer">
                      <img src="new-ui-logo.png" alt="Dicoding Logo">
                      <span class="recommendation-item-text">•⟩ ~Dicoding</span>
                  </a>
              </li>
              <li class="recommendation-item">
-                 <a href="https://www.idn.id/">
+                 <a href="https://www.idn.id/" target="_blank" rel="noopener noreferrer">
                      <img src="id.png" alt="IDN Logo">
                      <span class="recommendation-item-text">•⟩ ~Idn.Id</span>
                  </a>
              </li>
               <li class="recommendation-item">
-                 <a href="https://matahacker.id/">
+                 <a href="https://matahacker.id/" target="_blank" rel="noopener noreferrer">
                      <img src="matahacker.png" alt="Mata Hacker Logo">
                      <span class="recommendation-item-text">•⟩ ~Mata Hacker</span>
                  </a>
