@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RisBrine404 - Portfolio & Links</title>
+    <!-- Font Awesome untuk ikon (opsional, tapi bagus untuk ikon sosial media) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* Reset Dasar & Box Sizing */
+        *, *::after, *::before {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* Variabel CSS (Opsional, tapi membantu konsistensi) */
+        :root {
+            --primary-color: #000dc6; /* Biru navigasi */
+            --secondary-color: skyblue;
+            --accent-red: #ff000f;
+            --accent-blue: #0000ff;
+            --accent-green: #008000;
+            --text-light: #fff;
+            --text-greenyellow: greenyellow;
+            --text-lightseagreen: lightseagreen;
+            --footer-bg: #333; /* Warna footer lebih gelap */
+            --card-bg: rgba(0, 0, 0, 0.6); /* Latar belakang kartu semi-transparan */
+            --border-color: blue;
+
+            --font-main: 'Courier New', Courier, monospace;
+            --font-alt: Courier, monospace;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Efek scroll halus saat klik navigasi */
+        }
+
+        body {
+            background-image: url('backg.gif');
+            background-size: cover; /* Menutupi seluruh area */
+            background-repeat: no-repeat; /* Biasanya 'cover' tidak perlu 'repeat' */
+            background-attachment: fixed; /* Membuat background tetap saat scroll */
+            background-color: #111; /* Fallback jika gambar tidak load */
+            color: var(--text-light);
+            font-family: var(--font-main);
+            line-height: 1.6;
+        }
+
+        /* Helper Class */
+        .text-center {
+            text-align: center;
+        }
+
+        /* Efek Neon (Contoh) */
+        .neon-glow-red {
+            color: var(--text-light);
+            text-shadow:
+                0 0 5px var(--accent-red),
+                0 0 10px var(--accent-red),
+                0 0 20px var(--accent-red),
+                0 0 30px var(--accent-red),
+                0 0 40px var(--accent-red);
+        }
+
+        .neon-glow-blue {
+            color: var(--text-light);
+            text-shadow:
+                0 0 5px var(--accent-blue),
+                0 0 10px var(--accent-blue),
+                0 0 20px var(--accent-blue);
+        }
+
+        .neon-glow-green {
+            color: var(--text-light); /* Ubah warna dasar jika perlu */
+            text-shadow:
+                0 0 5px var(--accent-green),
+                0 0 10px var(--accent-green),
+                0 0 20px var(--accent-green),
+                0 0 30px var(--accent-green),
+                0 0 40px var(--accent-green);
+        }
+
+        .neon-glow-yellow {
+            color: var(--text-greenyellow);
+            text-shadow:
+                0 0 5px var(--text-greenyellow),
+                0 0 10px var(--text-greenyellow),
+                0 0 15px var(--text-greenyellow);
+        }
+
+        /* --- Header --- */
+        .site-header {
+            padding: 1rem 0;
+            text-align: center;
+            background-color: rgba(192, 192, 192, 0.1); /* Sedikit transparan */
+        }
+
+        .header-decoration {
+            color: var(--accent-red); /* Atau warna lain */
+            margin-bottom: 0.5rem;
+        }
+
+        .main-title {
+            font-size: clamp(2rem, 6vw, 3.5rem); /* Ukuran font responsif */
+            font-family: var(--font-main);
+            line-height: 1.2;
+            margin-bottom: 0;
+            /* Terapkan efek neon */
+            color: var(--text-light);
+            text-shadow:
+                0 0 5px var(--accent-red),
+                0 0 10px var(--accent-red),
+                0 0 20px var(--accent-red),
+                0 0 30px var(--accent-red),
+                0 0 40px var(--accent-red);
+        }
+
+        /* --- Navigasi --- */
+        .main-nav {
+            background-color: var(--primary-color);
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Agar wrap di layar kecil */
+            gap: 1rem 2rem; /* Jarak vertikal dan horizontal */
+            padding: 0 1rem; /* Padding samping */
+        }
+
+        .main-nav a {
+            font-size: clamp(1rem, 3vw, 1.5rem); /* Ukuran font responsif */
+            font-weight: 400;
+            text-decoration: none;
+            color: var(--text-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, color 0.3s ease, font-weight 0.3s ease;
+        }
+
+        .main-nav a:hover,
+        .main-nav a:focus { /* Tambahkan :focus untuk aksesibilitas */
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--text-greenyellow);
+            outline: none; /* Hapus outline default jika ada styling focus lain */
+        }
+
+        /* --- Main Content Area --- */
+        .content-area {
+            max-width: 1200px; /* Batas lebar maksimum konten */
+            margin: 2rem auto; /* Tengah secara horizontal, spasi atas/bawah */
+            padding: 0 1rem; /* Padding samping */
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 3rem; /* Jarak antar section */
+            padding: 1.5rem;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            font-family: var(--font-alt);
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* --- Welcome Section --- */
+        .welcome-section .greeting {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            color: var(--text-light);
+            text-shadow:
+                0 0 5px var(--accent-green),
+                0 0 10px var(--accent-green),
+                0 0 20px var(--accent-green);
+            margin-bottom: 1rem;
+        }
+        .welcome-section .welcome-message {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .back-button {
+            display: inline-block; /* Agar bisa diatur margin auto jika perlu */
+            background-color: var(--accent-red);
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-family: var(--font-main);
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+            margin-top: 1rem;
+            white-space: normal; /* Memungkinkan teks wrap */
+            line-height: 1.4;
+        }
+
+        .back-button:hover {
+            background-color: #cc0000; /* Warna merah lebih gelap */
+            transform: scale(1.03);
+        }
+
+        /* --- Profile Section --- */
+        .profile-card {
+            border: 5px solid var(--border-color);
+            display: inline-block; /* Agar border sesuai ukuran konten */
+            padding: 1rem;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 10px;
+        }
+
+        .profile-image {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto 1rem auto; /* Tengah dan spasi bawah */
+            border-radius: 5px;
+        }
+
+        .profile-caption {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+
+        /* --- Audio Section --- */
+        .audio-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .audio-player {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+        .audio-player p {
+            font-size: 0.9rem;
+            color: var(--text-greenyellow);
+            margin-bottom: 0.5rem;
+            font-family: var(--font-alt);
+        }
+        .audio-player audio {
+            width: 100%; /* Membuat player responsif */
+            max-width: 400px; /* Batas lebar maks player */
+            display: block;
+            margin: 0 auto;
+        }
+        .audio-info {
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
+        /* --- Identity Link Section --- */
+        .identity-link-section {
+            border: 3px solid var(--border-color);
+            padding: 1rem;
+        }
+        .identity-link {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--accent-blue);
+            color: var(--text-light);
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: bold;
+            text-shadow: 0 0 5px var(--accent-red), 0 0 10px var(--accent-red); /* Contoh shadow berbeda */
+        }
+        .identity-link:hover {
+            background-color: #0000cc;
+            transform: scale(1.05);
+        }
+
+        /* --- Warning Section --- */
+        .warning-text {
+            color: var(--accent-red);
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        /* --- Intro Section --- */
+        .intro-section h2 {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            line-height: 1.5;
+        }
+
+
+        /* --- Social Media Section --- */
+        .social-links-container {
+            display: flex;
+            flex-wrap: wrap; /* Biarkan ikon wrap ke baris baru */
+            justify-content: center; /* Pusatkan ikon */
+            gap: 1.5rem; /* Jarak antar ikon */
+        }
+
+        .social-link {
+            display: flex;
+            flex-direction: column; /* Tumpuk gambar dan teks */
+            align-items: center;
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .social-link img {
+            width: 60px; /* Ukuran tetap atau bisa pakai clamp() */
+            height: 60px;
+            margin-bottom: 0.5rem;
+            border-radius: 8px; /* Sedikit rounded corner */
+            transition: box-shadow 0.3s ease;
+        }
+
+        .social-link:hover img {
+            box-shadow: 0 0 10px var(--secondary-color);
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px); /* Efek angkat saat hover */
+        }
+
+        .social-link .link-text {
+            font-size: 0.9rem;
+        }
+
+        /* --- Linux Distro Section --- */
+        .linux-distro-container {
+            display: grid;
+            /* Buat 1 kolom di mobile, 2 di tablet, 3 di desktop */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .distro-card {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .distro-link {
+            text-decoration: none;
+            color: var(--accent-red);
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: block; /* Agar bisa diatur margin bawah */
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+        .distro-link:hover {
+            color: #ff4d4d; /* Warna merah lebih terang */
+        }
+
+        .distro-logo {
+            max-width: 100%;
+            height: auto;
+            max-height: 200px; /* Batasi tinggi logo */
+            object-fit: contain; /* Agar logo tidak terdistorsi */
+            display: block;
+            margin: 0 auto 1rem auto; /* Tengah dan spasi bawah */
+            border-radius: 5px;
+        }
+
+        .distro-info {
+            font-size: 0.95rem;
+            color: var(--text-greenyellow);
+            flex-grow: 1; /* Agar info mengisi sisa ruang */
+        }
+        .distro-info p {
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+        }
+        .distro-info strong {
+            color: var(--text-light);
+        }
+        .distro-info hr {
+            border: 0;
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 1rem 0;
+        }
+        .distro-info code {
+            background-color: #333;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #eee;
+            display: inline-block; /* Agar tidak full width */
+            margin-right: 5px; /* Jarak antar kode */
+            margin-bottom: 5px;
+        }
+
+        .code-link, .external-link {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .code-link:hover, .external-link:hover {
+            color: #ff4d4d;
+            text-decoration: underline;
+        }
+        .external-link { /* Style berbeda sedikit untuk link eksternal */
+            color: var(--text-lightseagreen);
+            text-shadow: 0 0 5px var(--accent-red);
+        }
+        .external-link:hover {
+            color: #33d1c8;
+        }
+
+
+        /* --- Recommend Class & My Project Section --- */
+        .class-links-container,
+        .project-links-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem; /* Jarak antar link */
+        }
+
+        .class-link,
+        .project-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--secondary-color);
+            background-color: rgba(0,0,0,0.5);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            min-width: 150px; /* Lebar minimum */
+            text-align: center;
+        }
+
+        .class-link:hover,
+        .project-link:hover {
+            transform: translateY(-5px);
+            background-color: rgba(0, 50, 150, 0.6); /* Warna hover */
+        }
+
+        .class-link img,
+        .project-link img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 0.7rem;
+            object-fit: contain; /* Agar logo tidak gepeng */
+        }
+
+        .class-link span,
+        .project-link span {
+            font-size: 0.9rem;
+            line-height: 1.3;
+        }
+
+        /* --- Closing Section --- */
+        .closing-message {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            color: var(--text-light);
+            text-shadow:
+                0 0 5px var(--accent-green),
+                0 0 10px var(--accent-green),
+                0 0 20px var(--accent-green);
+            line-height: 1.4;
+            margin-top: 2rem;
+        }
+
+        /* --- Footer --- */
+        .site-footer {
+            padding: 1.5rem 1rem;
+            background-color: var(--footer-bg);
+            color: #aaa; /* Warna teks lebih redup */
+            text-align: center;
+            margin-top: 3rem; /* Jarak dari konten terakhir */
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--accent-red);
+            /* font-family: 'Amatic SC', cursive; */ /* Hapus atau pastikan font tersedia */
+            margin-bottom: 0.5rem;
+        }
+
+        .thank-you {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            font-weight: bold;
+        }
+
+
+        /* --- Floating Buttons --- */
+        .float-button {
+            background: rgba(7, 4, 196, 0.8); /* Sedikit transparan */
+            display: flex; /* Untuk centering gambar */
+            justify-content: center;
+            align-items: center;
+            width: 70px;  /* Ukuran lebih kecil */
+            height: 70px;
+            text-align: center;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: fixed;
+            right: 20px; /* Jarak dari kanan */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+            z-index: 999; /* Di atas konten lain kecuali mungkin modal */
+        }
+
+        .float-button img {
+            max-width: 60%;
+            max-height: 60%;
+            object-fit: contain;
+        }
+
+        .portfolio-button {
+            bottom: 20px; /* Jarak dari bawah */
+        }
+
+        .code-button {
+            bottom: 100px; /* Jarak dari bawah, di atas tombol portfolio */
+        }
+
+        .float-button:hover {
+            background: rgba(0, 204, 51, 0.9); /* Warna hijau saat hover */
+            transform: scale(1.1);
+        }
+
+
+        /* --- Media Queries for Responsiveness --- */
+
+        /* Tampilan Tablet (misal: <= 992px) */
+        @media (max-width: 992px) {
+            .linux-distro-container {
+                /* Mungkin tetap 2 kolom atau jadi 1 tergantung preferensi */
+                /* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */
+            }
+            .main-nav ul {
+                gap: 0.8rem 1.5rem;
+            }
+        }
+
+
+        /* Tampilan Mobile (misal: <= 768px) */
+        @media (max-width: 768px) {
+            .main-nav ul {
+                justify-content: space-around; /* Lebih merata di mobile */
+                gap: 0.5rem 1rem;
+            }
+            .main-nav a {
+                padding: 0.2rem 0.5rem;
+            }
+
+            .content-area {
+                margin-top: 1rem;
+                padding: 0 0.8rem;
+            }
+
+            section {
+                padding: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .linux-distro-container {
+                grid-template-columns: 1fr; /* Pastikan 1 kolom di mobile */
+            }
+
+            .social-links-container,
+            .class-links-container,
+            .project-links-container {
+                gap: 1rem;
+            }
+
+            .social-link img {
+                width: 50px;
+                height: 50px;
+            }
+            .class-link img, .project-link img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .float-button {
+                width: 60px;
+                height: 60px;
+                right: 15px;
+            }
+            .portfolio-button {
+                bottom: 15px;
+            }
+            .code-button {
+                bottom: 85px;
+            }
+
+            .back-button {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+                width: 90%; /* Buat lebih lebar di mobile */
+                max-width: 300px; /* Batas maks */
+            }
+        }
+
+        /* Tampilan Mobile Sangat Kecil (misal: <= 480px) */
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 1.8rem; /* Perkecil lagi jika perlu */
+            }
+            .main-nav a {
+                font-size: 0.9rem;
+            }
+            .section-title,
+            .welcome-section .greeting,
+            .welcome-section .welcome-message,
+            .closing-message {
+                font-size: 1.5rem; /* Perkecil judul section */
+            }
+            .identity-link {
+                font-size: 1rem;
+                padding: 0.6rem 1rem;
+            }
+            .distro-card {
+                padding: 1rem;
+            }
+        }
+    </style>
+
+    <!-- Efek Salju (jika masih ingin digunakan) -->
+    <script src="https://cdn.rawgit.com/bungfrangki/efeksalju/2a7805c7/efek-salju.js" type="text/javascript"></script>
+    <script>
+      // Mengganti alert dengan console log agar tidak mengganggu
+      console.log('Web yg akan terus di upgrade');
+      console.log('Bila ada kendala beritahu lewat akun medsos yg sudah tercantum');
+    </script>
+</head>
+<body>
+
+    <header class="site-header" id="HOME">
+        <div class="header-decoration">______________________</div>
+        <h1 class="main-title">
+            /===================\<br>
+            / >>> RisBrine404 <<< \<br>
+            \=====================/
+        </h1>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#HOME">HOME</a></li>
+            <li><a href="#SMEDIA">SMEDIA</a></li>
+            <li><a href="#LINUX">LINUX</a></li>
+            <li><a href="#CLASS">RECOMEND_CLASS</a></li>
+            <li><a href="#PROJECT">MYPROJECT</a></li>
+        </ul>
+    </nav>
+
+    <main class="content-area">
+        <section class="welcome-section text-center">
+            <h2 class="greeting">
+                {| اَلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُاللَّهِ وَبَرَكَاتُهُ |}
+            </h2>
+            <h1 class="welcome-message neon-glow-red">
+                /---------------------\<br>
+                \ [≤/≥] WELCOME [1\0] /<br>
+                \___________________/
+            </h1>
+            <button class="back-button" onclick="history.back()">
+                KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)
+            </button>
+        </section>
+
+        <section class="profile-section text-center">
+            <div class="profile-card">
+                <img src="fotohcking.png" alt="Foto Profil RisBrine404" width="300" height="400" class="profile-image">
+                <p class="profile-caption">Share Hack System Technologi</p>
+            </div>
+        </section>
+
+        <section class="audio-section text-center">
+             <h3>Dengarkan Musik:</h3>
+             <div class="audio-player">
+                 <p>Oh-Simple-Things-Where-Have-You-Gone...</p>
+                 <audio controls src="Oh-Simple-Things-Where-Have-You-Gone-Lyrics-Terjemahan-Somewhere-Only-We-Know-Keane-Cover_k7hArQL_m1k.mp3" type="audio/mpeg"></audio>
+             </div>
+             <div class="audio-player">
+                 <p>NAN KO PAHAM New Version.mp3</p>
+                 <audio controls src="NAN KO PAHAM New Version.mp3" type="audio/mpeg"></audio> <!-- Hapus autoplay jika tidak diinginkan -->
+             </div>
+              <div class="audio-player">
+                 <p>Nanti Pasti Kau Mengerti Setelah Sa Hilang...</p>
+                 <audio controls src="Nanti Pasti Kau Mengerti Setelah Sa Hilang (Lirik Lagu) Nan Ko Paham - BLG Rap (Tiktok Version)_2jv0yjVD2Pc.mp3" type="audio/mpeg"></audio>
+             </div>
+             <div class="audio-player">
+                 <p>lagu AIO.mp3</p>
+                 <audio controls src="laguaio.mp3" type="audio/mpeg"></audio>
+             </div>
+             <div class="audio-player">
+                 <p>Chiisana Koi no Uta...</p>
+                 <audio controls src="Chiisana Koi no Uta [Yui Aragaki] with Lyrics romanji and english sub.mp3" type="audio/mpeg"></audio>
+             </div>
+             <div class="audio-player">
+                 <p>Kawtar - Ya Lalali (Sped Up).mp3</p>
+                 <audio controls src="Kawtar - Ya Lalali (Sped Up).mp3" type="audio/mpeg"></audio>
+             </div>
+             <p class="audio-info neon-glow-yellow">Nyalakan Atau Matikan Sound Sesuai Keinginan Anda</p>
+        </section>
+
+        <section class="identity-link-section text-center">
+             <a href="https://risbrine404.github.io/datadiri/" class="identity-link" target="_blank" rel="noopener noreferrer">
+                >>> [ RisBrine Profile Identity ] <<<
+             </a>
+        </section>
+
+        <section class="warning-section text-center">
+            <p class="warning-text neon-glow-green">[--!!.:WARNING : BEBERAPA SCRIPT.!!--]<br>[---------!!.MENGALAMI ERROR.!!---------]</p>
+        </section>
+
+        <section class="intro-section text-center">
+            <h2 class="section-title neon-glow-blue">
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br>
+                Halo selamat datang di website saya.<br>
+                Dibawah ini ialah akun media sosial saya<br>
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br>
+                Bila bisa tolong Bantu follow/ikuti/subscribe<br>
+                /like akun yang ada di bawah ini
+            </h2>
+        </section>
+
+        <section id="SMEDIA" class="social-media-section text-center">
+            <h2 class="section-title">SMEDIA</h2>
+            <div class="social-links-container">
+                <a class="social-link" href="https://wa.me/+6285755498964" target="_blank" rel="noopener noreferrer">
+                    <img src="whatsapp.png" alt="WhatsApp" width="60" height="60"><span class="link-text">WhatsApp</span>
+                </a>
+                <a class="social-link" href="http://www.facebook.com/profile.php?id=100076396292235" target="_blank" rel="noopener noreferrer">
+                    <img src="facebook.png" alt="Facebook" width="60" height="60"><span class="link-text">Facebook</span>
+                </a>
+                <a class="social-link" href="https://www.instagram.com/r15_br1ne49" target="_blank" rel="noopener noreferrer">
+                    <img src="instagram.png" alt="Instagram" width="60" height="60"><span class="link-text">Instagram</span>
+                </a>
+                <a class="social-link" href="https://youtube.com/channel/UCYy0Gydrz4gtX_9dVBc4ltA" target="_blank" rel="noopener noreferrer">
+                    <img src="youtube.png" alt="YouTube" width="60" height="60"><span class="link-text">YouTube</span>
+                </a>
+                <a class="social-link" href="https://repl.it/@risbrine404/" target="_blank" rel="noopener noreferrer">
+                    <img src="replit.jpg" alt="Replit" width="60" height="60"><span class="link-text">Replit</span>
+                </a>
+                <a class="social-link" href="https://github.com/RisBrine404/RisBrine404" target="_blank" rel="noopener noreferrer">
+                    <img src="github.png" alt="Github" width="60" height="60"><span class="link-text">Github</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="LINUX" class="linux-section">
+            <h2 class="section-title text-center neon-glow-blue">
+                /=======================\<br>
+                / Web Installasi Beberapa \<br>
+                \ Distro Linux & kegunaan /<br>
+                \=======================/
+            </h2>
+            <h2 class="section-title text-center">LINUX</h2>
+            <div class="linux-distro-container">
+                <!-- Contoh 1 Distro (Ulangi pola ini untuk distro lain) -->
+                <div class="distro-card">
+                    <a href="https://www.kali.org/" target="_blank" rel="noopener noreferrer" class="distro-link">
+                        <img src="kalnux.png" alt="Kali Linux Logo" class="distro-logo">
+                        <span class="distro-name">•⟩ ~Web /Kali (Kernel Auditing LInux)</span>
+                    </a>
+                    <div class="distro-info">
+                        <p><strong>Kelebihan:</strong><br> > Fokus ke keamanan<br> > Ringan dan cepat</p>
+                        <p><strong>Kekurangan:</strong><br> > Tidak ramah pengguna umum</p>
+                        <p><strong>Cocok untuk:</strong> developer yang melakukan tes penetrasi/ethical hackers</p>
+                        <hr>
+                        <a href="kode.html" class="code-link">THIS IS CODE</a>
+                        <hr>
+                        <p>Lihat Cara Install Net Hunter Di Android<br> <a href="https://www.kali.org/docs/nethunter/nethunter-rootless/" target="_blank" rel="noopener noreferrer" class="external-link">Click Here</a></p>
+                        <p><strong>Kode tambahan:</strong><br> <code>$ termux-change-repo</code><br> <code>$ apt upgrade -y</code><br> <code>$ apt update</code><br> <code>$ neofetch</code></p>
+                        <p><strong>Aplikasi Tambahan:</strong><br> <a href="https://f-droid.org/id/packages/com.termux/" target="_blank" rel="noopener noreferrer" class="external-link">Termux F-Droid</a><br> <a href="https://store.nethunter.com/" target="_blank" rel="noopener noreferrer" class="external-link">Nethunter F-Droid</a></p>
+                    </div>
+                </div>
+                <!-- Distro Lainnya -->
+                 <div class="distro-card">
+                    <a href="https://tails.boum.org/install/" target="_blank" rel="noopener noreferrer" class="distro-link">
+                       <img src="tails.png" alt="Tails OS Logo" class="distro-logo">
+                       <span class="distro-name">•⟩ ~Web /Tails</span>
+                    </a>
+                    <div class="distro-info">
+                        <p><strong>Kelebihan:</strong><br> > Sistem keamanan terbaik<br> > Ringan</p>
+                        <p><strong>Kekurangan:</strong><br> > Sebagian orang mungkin tidak cocok dengan booting-nya yang cabut pasang, meskipun ini untuk keamanan</p>
+                        <p><strong>Cocok untuk:</strong> pengguna yang mengharapkan keamanan tingkat tinggi</p>
+                    </div>
+                </div>
+                 <div class="distro-card">
+                    <a href="https://archlinux.org/download/" target="_blank" rel="noopener noreferrer" class="distro-link">
+                        <img src="anux.png" alt="Arch Linux Logo" class="distro-logo">
+                        <span class="distro-name">•⟩ ~Web /Arch</span>
+                    </a>
+                    <div class="distro-info">
+                       <p><strong>Kelebihan:</strong><br> > Mudah untuk melakukan kustomisasi<br> > Banyak tools advanced<br> > Dukungan komunitas kuat</p>
+                       <p><strong>Kekurangan:</strong><br> > Butuh pengetahuan dasar tentang Linux untuk penyesuaian dalam pemakaian</p>
+                       <p><strong>Cocok untuk:</strong> pengguna advanced</p>
+                    </div>
+                </div>
+                 <!-- Tambahkan distro lainnya di sini dengan struktur yang sama -->
+                 <div class="distro-card">
+                     <a href="https://www.gentoo.org/" target="_blank" rel="noopener noreferrer" class="distro-link">
+                         <img src="gentoolinux.png" alt="Gentoo Linux Logo" class="distro-logo">
+                         <span class="distro-name">•⟩ ~Web /Gentoo Linux</span>
+                     </a>
+                     <div class="distro-info">
+                         <p><strong>Kelebihan:</strong><br>> Ringan dan cepat<br>> Memberi kontrol kustomisasi penuh</p>
+                         <p><strong>Kekurangan:</strong><br>> Butuh pengetahuan yang cukup sebelum melakukan kustomisasi</p>
+                         <p><strong>Cocok untuk:</strong> pengguna advanced</p>
+                     </div>
+                 </div>
+                 <div class="distro-card">
+                     <a href="https://get.opensuse.org/" target="_blank" rel="noopener noreferrer" class="distro-link">
+                         <img src="opensuse.png" alt="openSUSE Logo" class="distro-logo">
+                         <span class="distro-name">•⟩ ~Web /openSUSE</span>
+                     </a>
+                     <div class="distro-info">
+                         <p><strong>Kelebihan:</strong><br>> Fitur lengkap<br>> Dukungan multimedia terbaik<br>> Implementasi paket efisien</p>
+                         <p><strong>Kekurangan:</strong><br>> Bukan untuk pengguna pemula</p>
+                         <p><strong>Cocok untuk:</strong> sysadmins dan developers</p>
+                     </div>
+                 </div>
+                 <div class="distro-card">
+                    <a href="https://linuxmint.com/" target="_blank" rel="noopener noreferrer" class="distro-link">
+                        <img src="linuxmint.png" alt="Linux Mint Logo" class="distro-logo">
+                        <span class="distro-name">•⟩ ~Web /Linux Mint</span>
+                    </a>
+                    <div class="distro-info">
+                        <p><strong>Kelebihan:</strong><br>> Cocok untuk multimedia<br>> Sistem stabil<br>> Akses ringan</p>
+                        <p><strong>Kekurangan:</strong><br>> Tampilan standar desktop klasik</p>
+                        <p><strong>Cocok untuk:</strong> pemula</p>
+                    </div>
+                </div>
+                <div class="distro-card">
+                    <a href="https://www.debian.org/" target="_blank" rel="noopener noreferrer" class="distro-link">
+                        <img src="debian.png" alt="Debian Logo" class="distro-logo">
+                        <span class="distro-name">•⟩ ~Web /Debian</span>
+                    </a>
+                    <div class="distro-info">
+                        <p><strong>Kelebihan:</strong><br>> Aman<br>> Akses ringan</p>
+                        <p><strong>Kekurangan:</strong><br>> Tampilannya yang sangat jadul mungkin tidak cocok</p>
+                        <p><strong>Cocok untuk:</strong> semua orang</p>
+                    </div>
+                </div>
+                 <div class="distro-card">
+                    <a href="https://www.deepin.org/index/en" target="_blank" rel="noopener noreferrer" class="distro-link">
+                        <img src="deepin.png" alt="Deepin Logo" class="distro-logo">
+                        <span class="distro-name">•⟩ ~Web /Deepin</span>
+                    </a>
+                    <div class="distro-info">
+                        <p><strong>Kelebihan:</strong><br>> Tampilan stylish<br>> Memiliki semua paket dari Debian</p>
+                        <p><strong>Kekurangan:</strong><br>> Berat, lambat, dan boros memori</p>
+                        <p><strong>Cocok untuk:</strong> pengguna rumahan</p>
+                    </div>
+                </div>
+                <div class="distro-card">
+                    <a href="https://ubuntu.com/" target="_blank" rel="noopener noreferrer" class="distro-link">
+                        <img src="ubuntu.png" alt="Ubuntu Logo" class="distro-logo">
+                        <span class="distro-name">•⟩ ~Web /Ubuntu</span>
+                    </a>
+                    <div class="distro-info">
+                        <p><strong>Kelebihan:</strong><br>> Ramah pengguna<br>> Stabil dan aman<br>> Update berkala</p>
+                        <p><strong>Kekurangan:</strong><br>> Tampilan standar desktop</p>
+                        <p><strong>Cocok untuk:</strong> pemula</p>
+                    </div>
+                </div>
+                <div class="distro-card">
+                    <a href="https://lubuntu.me/" target="_blank" rel="noopener noreferrer" class="distro-link">
+                        <img src="lubuntu.png" alt="Lubuntu Logo" class="distro-logo">
+                        <span class="distro-name">•⟩ ~Web /Lubuntu</span>
+                    </a>
+                    <div class="distro-info">
+                        <p><strong>Kelebihan:</strong><br>> Cocok untuk sistem jadul<br>> Ringan dan efisien</p>
+                        <p><strong>Kekurangan:</strong><br>> Tidak cocok untuk penggunaan berat</p>
+                        <p><strong>Cocok untuk:</strong> instalasi di hardware jadul</p>
+                    </div>
+                </div>
+                <div class="distro-card">
+                    <a href="https://peppermintos.com/" target="_blank" rel="noopener noreferrer" class="distro-link">
+                        <img src="peppermint.png" alt="Peppermint OS Logo" class="distro-logo">
+                        <span class="distro-name">•⟩ ~Web /Peppermint OS</span>
+                    </a>
+                    <div class="distro-info">
+                        <p><strong>Kelebihan:</strong><br>> Tampilan bersih dan modern<br>> Ramah pengguna<br>> Integrasi aplikasi lokal dan cloud</p>
+                        <p><strong>Kekurangan:</strong><br>> Jarang memberikan update sistem</p>
+                        <p><strong>Cocok untuk:</strong> semua pengguna</p>
+                    </div>
+                </div>
+                <div class="distro-card">
+                    <a href="https://elementary.io/" target="_blank" rel="noopener noreferrer" class="distro-link">
+                        <img src="elementary.png" alt="elementary OS Logo" class="distro-logo">
+                        <span class="distro-name">•⟩ ~Web /elementary os</span>
+                    </a>
+                    <div class="distro-info">
+                        <p><strong>Kelebihan:</strong><br>> Terkesan muda dan segar<br>> Cocok untuk kebutuhan desktop</p>
+                        <p><strong>Kekurangan:</strong><br>> Sebagian orang mengkritisi tampilannya yang mirip Mac</p>
+                        <p><strong>Cocok untuk:</strong> pengguna pemula</p>
+                    </div>
+                </div>
+                <div class="distro-card">
+                    <a href="https://centos.org/" target="_blank" rel="noopener noreferrer" class="distro-link">
+                        <img src="centos.png" alt="CentOS Logo" class="distro-logo">
+                        <span class="distro-name">•⟩ ~Web /CentOS</span>
+                    </a>
+                    <div class="distro-info">
+                        <p><strong>Kelebihan:</strong><br>> stabil</p>
+                        <p><strong>Kekurangan:</strong><br>> Bukan untuk penggunaan desktop sehari-hari</p>
+                        <p><strong>Cocok untuk:</strong> home server</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="CLASS" class="recommend-class-section text-center">
+             <h2 class="section-title neon-glow-blue">
+                 /========================\<br>
+                 / Di Bawah ini Adalah Kelas \<br>
+                 \ Yang Recomended Banget. /<br>
+                 \========================/
+             </h2>
+            <h2 class="section-title">RECOMEND CLASS</h2>
+            <div class="class-links-container">
+                <a href="https://www.cyberacademy.id/belajar-online" target="_blank" rel="noopener noreferrer" class="class-link">
+                    <img src="cyberacademy.png" alt="Cyber Academy Logo" width="80" height="80"><span>•⟩ ~Cyber Academy</span>
+                </a>
+                <a href="https://www.agunacourse.com/?standalone=true" target="_blank" rel="noopener noreferrer" class="class-link">
+                    <img src="agunacourse.png" alt="Aguna Course Logo" width="80" height="80"><span>•⟩ ~Aguna Course</span>
+                </a>
+                <a href="https://tujuhub-303131.tujuhub.com/student/home" target="_blank" rel="noopener noreferrer" class="class-link">
+                    <img src="tujuhub.png" alt="Tujuhub Logo" width="80" height="80"><span>•⟩ ~Tujuhub</span>
+                </a>
+                 <a href="https://myskill.id/" target="_blank" rel="noopener noreferrer" class="class-link">
+                    <img src="myskill.png" alt="MySkill Logo" width="80" height="80"><span>•⟩ ~My Skill</span>
+                 </a>
+                 <a href="https://www.dicoding.com/" target="_blank" rel="noopener noreferrer" class="class-link">
+                     <img src="new-ui-logo.png" alt="Dicoding Logo" width="80" height="80"><span>•⟩ ~Dicoding</span>
+                 </a>
+                 <a href="https://www.idn.id/" target="_blank" rel="noopener noreferrer" class="class-link">
+                     <img src="id.png" alt="IDN Logo" width="80" height="80"><span>•⟩ ~Idn.Id</span>
+                 </a>
+                 <a href="https://matahacker.id/" target="_blank" rel="noopener noreferrer" class="class-link">
+                     <img src="matahacker.png" alt="Mata Hacker Logo" width="80" height="80"><span>•⟩ ~Mata Hacker</span>
+                 </a>
+            </div>
+        </section>
+
+        <section id="PROJECT" class="my-project-section text-center">
+             <h2 class="section-title neon-glow-blue">
+                 /========================\<br>
+                 / Di Bawah contoh Web Yang \<br>
+                 \ pernah saya buat & edit. /<br>
+                 \========================/
+            </h2>
+            <h2 class="section-title">MY PROJECT</h2>
+            <div class="project-links-container">
+                <!-- Contoh 1 Project -->
+                <a href="https://risbrine404.github.io/smk5sila/" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <img src="website.png" alt="Website icon" width="80" height="80">
+                    <span>•⟩ ~Website Official School</span>
+                </a>
+                <!-- Project Lainnya -->
+                <a href="https://risbrine404.github.io/manipulasi/" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <img src="website.png" alt="Website icon" width="80" height="80">
+                    <span>•⟩ ~Website Belajar Manipulasi (PENCEGAHAN)</span>
+                </a>
+                 <a href="https://risbrine404.github.io/money/" target="_blank" rel="noopener noreferrer" class="project-link">
+                     <img src="website.png" alt="Website icon" width="80" height="80">
+                     <span>•⟩ ~Catatan Keuangan (pengeluaran/pemasukan)</span>
+                 </a>
+                 <a href="https://risbrine404.github.io/money/detail.html" target="_blank" rel="noopener noreferrer" class="project-link">
+                     <img src="website.png" alt="Website icon" width="80" height="80">
+                     <span>•⟩ ~Catatan Keuangan (Penghasilan/grafix)</span>
+                 </a>
+                 <a href="https://risbrine404.github.io/kredivo/" target="_blank" rel="noopener noreferrer" class="project-link">
+                     <img src="website.png" alt="Website icon" width="80" height="80">
+                     <span>•⟩ ~Catatan Transanksi Kredivo</span>
+                 </a>
+                 <a href="https://risbrine404.github.io/shst/" target="_blank" rel="noopener noreferrer" class="project-link">
+                     <img src="website.png" alt="Website icon" width="80" height="80">
+                     <span>•⟩ ~Web Quote+audio<br>Share Hack System Technologi</span>
+                 </a>
+                 <a href="https://risbrine404.github.io/Its/" target="_blank" rel="noopener noreferrer" class="project-link">
+                     <img src="website.png" alt="Website icon" width="80" height="80">
+                     <span>•⟩ ~Slide Video JOb</span>
+                 </a>
+                 <a href="https://risbrine404.github.io/shop/" target="_blank" rel="noopener noreferrer" class="project-link">
+                     <img src="website.png" alt="Website icon" width="80" height="80">
+                     <span>•⟩ ~E-Comerce Go WhatsApp</span>
+                 </a>
+                 <a href="https://risbrine404.github.io/sdnmjwr1-18/" target="_blank" rel="noopener noreferrer" class="project-link">
+                     <img src="website.png" alt="Website icon" width="80" height="80">
+                     <span>•⟩ ~Web Daftar Nama <br>Alumni SDN Mojowarno 1 (2017/2018)</span>
+                 </a>
+                 <a href="https://risbrine404.github.io/lebaran/" target="_blank" rel="noopener noreferrer" class="project-link">
+                     <img src="website.png" alt="Website icon" width="80" height="80">
+                     <span>•⟩ ~Web Ucapan Idul Fitri 2025</span>
+                 </a>
+                  <a href="https://risbrine404.github.io/ramadhan2022/" target="_blank" rel="noopener noreferrer" class="project-link">
+                      <img src="website.png" alt="Website icon" width="80" height="80">
+                      <span>•⟩ ~Web Menyambut Ramadhan 2022</span>
+                  </a>
+                  <a href="https://risbrine404.github.io/datadiri/" target="_blank" rel="noopener noreferrer" class="project-link">
+                      <img src="website.png" alt="Website icon" width="80" height="80">
+                      <span>•⟩ ~Web RisBrine Profile Identity</span>
+                  </a>
+                  <a href="https://risbrine404.github.io/list/" target="_blank" rel="noopener noreferrer" class="project-link">
+                      <img src="website.png" alt="Website icon" width="80" height="80">
+                      <span>•⟩ ~Web List Latihan Olga/BelDir</span>
+                  </a>
+                  <a href="https://risbrine404.github.io/faster_eye/" target="_blank" rel="noopener noreferrer" class="project-link">
+                      <img src="website.png" alt="Website icon" width="80" height="80">
+                      <span>•⟩ ~Web Game Faster Eye Ball</span>
+                  </a>
+                  <a href="https://risbrine404.github.io/portfolio1.0/" target="_blank" rel="noopener noreferrer" class="project-link">
+                      <img src="website.png" alt="Website icon" width="80" height="80">
+                      <span>•⟩ ~Web Personal Portfolio Animation<br>khusus windows crhome</span>
+                  </a>
+                  <a href="https://risbrine404.github.io/portofolio_one/" target="_blank" rel="noopener noreferrer" class="project-link">
+                      <img src="website.png" alt="Website icon" width="80" height="80">
+                      <span>•⟩ ~Web Personal Portofolio</span>
+                  </a>
+                  <a href="https://risbrine404.github.io/ry/" target="_blank" rel="noopener noreferrer" class="project-link">
+                      <img src="website.png" alt="Website icon" width="80" height="80">
+                      <span>•⟩ ~Web Ultah (one target)</span>
+                  </a>
+            </div>
+        </section>
+
+        <section class="closing-section text-center">
+            <h2 class="closing-message">
+                =========================<br>
+                 وَالسَّلَامُ عَلَيْكُمْ وَرَحْمَةُاللَّهِ وَبَرَكَاتُه<br>
+                 =========================
+             </h2>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p class="copyright">
+            -Copyright©2022/RisBrine<br>Supported by SHST
+        </p>
+        <p class="thank-you">THANKS YOU FOR STAY</p>
+    </footer>
+
+    <!-- Tombol Floating -->
+    <a href="https://risbrine404.github.io/portofolio_one/" class="float-button portfolio-button" title="Lihat Portofolio Lain" target="_blank" rel="noopener noreferrer">
+        <img src="website.png" alt="ikon portofolio">
+    </a>
+    <a href="https://risbrine404.github.io/runone/" class="float-button code-button" title="Lihat Kode" target="_blank" rel="noopener noreferrer">
+        <img src="kodeone.png" alt="ikon kode">
+    </a>
+
+</body>
+</html>
