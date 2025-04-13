@@ -15,7 +15,6 @@
     html {
       scroll-behavior: smooth;
       font-size: 16px; /* Base font size */
-      /* Pastikan tidak ada overflow tersembunyi di sini */
     }
 
     body {
@@ -24,10 +23,9 @@
       background-color: #1a1a1a;
       background-image: url('backg.gif');
       background-size: cover;
-      background-attachment: fixed; /* Fixed agar tidak scroll bersama konten */
+      background-attachment: fixed;
       background-repeat: repeat;
       line-height: 1.6;
-       /* Pastikan tidak ada overflow: hidden di sini yang bisa mengganggu sticky */
     }
 
     /* Container Utama */
@@ -35,18 +33,14 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 1rem;
-      /* Hapus overflow-x: hidden jika menyebabkan masalah sticky,
-         tapi idealnya ini tidak mempengaruhi sticky vertikal */
-      /* overflow-x: hidden; */
     }
 
-    /* Header Styling (Bagian atas sebelum nav) */
+    /* Header Styling */
     .page-header {
       background-color: rgba(192, 192, 192, 0.1);
       padding: 1rem 0;
       text-align: center;
-      margin-bottom: 0; /* Hapus margin bawah jika nav langsung di bawahnya */
-      /* Header TIDAK BOLEH sticky jika nav mau sticky tepat di bawahnya */
+      margin-bottom: 0;
     }
 
     .page-header .separator {
@@ -63,30 +57,28 @@
       line-height: 1.2;
     }
 
-    /* ===== Navigasi Sticky (Dashboard) ===== */
+    /* Navigasi Sticky */
     nav.main-nav {
-      background-color: #000dc6; /* Warna latar belakang navigasi */
-      padding: 0.8rem 0;      /* Padding atas/bawah di dalam nav */
-      position: sticky;       /* KUNCI: Membuat elemen menempel */
-      top: 0;                 /* KUNCI: Menempel di bagian paling atas viewport saat scroll */
-      left: 0;                /* Pastikan menempel dari kiri */
-      right: 0;               /* Pastikan menempel sampai kanan (opsional, width cukup) */
-      z-index: 1000;          /* KUNCI: Memastikan navigasi di atas konten lain saat scroll */
-      width: 100%;            /* Penting agar mengambil lebar penuh viewport */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Tambahkan shadow agar terlihat terpisah */
-      /* Pastikan tidak ada elemen parent dengan overflow:hidden/scroll/auto
-         yang membatasi ruang scroll navigasi */
+      background-color: #000dc6;
+      padding: 0.8rem 0;
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      width: 100%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
     nav.main-nav ul {
       list-style-type: none;
       display: flex;
-      justify-content: center; /* Pusatkan item link */
-      flex-wrap: wrap;         /* Biarkan item wrap di layar kecil */
-      gap: 1rem;               /* Jarak antar item link */
-      padding: 0 1rem;         /* Padding di dalam container ul */
-      max-width: 1200px;       /* Samakan dengan main-container agar align */
-      margin: 0 auto;          /* Pusatkan ul di dalam nav bar */
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     nav.main-nav a {
@@ -97,7 +89,7 @@
       padding: 0.5rem 1rem;
       border-radius: 5px;
       transition: background-color 0.3s ease, color 0.3s ease, font-weight 0.3s ease;
-      display: inline-block; /* Pastikan padding bekerja baik */
+      display: inline-block;
     }
 
     nav.main-nav a:hover,
@@ -107,20 +99,16 @@
       color: #e0e0e0;
       outline: none;
     }
-    /* ===== Akhir Navigasi Sticky ===== */
-
 
     /* Styling Judul Bagian */
     .section-title {
       text-align: center;
       font-size: 2rem;
-      margin-top: 2.5rem; /* Beri jarak dari atas (setelah nav) */
+      margin-top: 2.5rem;
       margin-bottom: 1.5rem;
       color: #fff;
       text-shadow: 0 0 5px #0000ff, 0 0 10px #0000ff;
       line-height: 1.3;
-      /* Perhatikan: Jika konten pertama persis di bawah nav,
-         mungkin perlu padding-top pada body atau main agar tidak tertutup nav */
     }
 
     .section-title::before,
@@ -138,7 +126,7 @@
         color: #fff;
         text-shadow: 0 0 5px #008000, 0 0 10px #008000, 0 0 15px #008000;
         margin: 1.5rem 0;
-        padding-top: 2rem; /* Tambahkan padding atas agar tidak terlalu dekat/tertutup nav sticky */
+        padding-top: 2rem;
     }
 
     .warning-text {
@@ -177,18 +165,11 @@
     /* Konten Utama */
     main {
       padding: 1rem 0;
-      /* Jika konten pertama (misal #home) langsung di bawah nav,
-         mungkin perlu padding-top di sini atau di section pertama (#home)
-         agar tidak tertutup nav saat scroll ke paling atas */
     }
 
-    /* Atur padding atas untuk section pertama jika perlu */
     #home {
-        padding-top: 1rem; /* Sesuaikan nilai ini jika perlu */
+        padding-top: 1rem;
     }
-
-
-    /* ... (Sisa CSS lainnya tetap sama seperti sebelumnya) ... */
 
     /* Gambar Profile */
     .profile-section { text-align: center; margin-bottom: 2rem; }
@@ -252,7 +233,7 @@
     @media (max-width: 768px) {
       html { font-size: 14px; }
       .page-header h1 { font-size: 2rem; }
-      .greeting-arabic { font-size: 1.8rem; padding-top: 1.5rem; /* Sesuaikan padding */ }
+      .greeting-arabic { font-size: 1.8rem; padding-top: 1.5rem; }
       .section-title { font-size: 1.7rem; }
       nav.main-nav ul { justify-content: flex-start; gap: 0.5rem; padding: 0 0.5rem; }
       nav.main-nav a { font-size: 1rem; padding: 0.4rem 0.6rem; }
@@ -264,10 +245,23 @@
       #class .class-item a, #project .project-item a { flex-direction: column; align-items: center; text-align: center; gap: 0.5rem; }
       #class .class-title, #project .project-title { text-align: center; }
       #project .project-description { margin-left: 0; text-align: center; margin-top: 0.3rem; }
-      .fab { width: 60px; height: 60px; line-height: 60px; right: 15px; }
-      .fab-portfolio { bottom: 15px; }
-      .fab-code { bottom: 85px; }
-      #home { padding-top: 0.5rem; /* Sesuaikan padding atas section pertama di mobile */ }
+
+      /* >>> PERUBAHAN POSISI FAB DI MOBILE <<< */
+      .fab {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        right: 25px; /* Geser ke kiri dengan menambah nilai right */
+      }
+      .fab-portfolio {
+        bottom: 15px;
+      }
+      .fab-code {
+        bottom: 85px; /* Jarak vertikal dari tombol bawah */
+      }
+      /* >>> AKHIR PERUBAHAN POSISI FAB <<< */
+
+      #home { padding-top: 0.5rem; }
     }
 
     @media (min-width: 769px) {
@@ -276,7 +270,7 @@
     }
 
     @media (min-width: 1920px) {
-      /* Mungkin perlu penyesuaian font atau layout lebih lanjut */
+      /* Styling tambahan jika diperlukan */
     }
 
   </style>
@@ -290,12 +284,9 @@
 
     <header class="page-header">
       <div class="separator">______________________</div>
-      <h1>/===============\<br>/ > RisBrine404 < \<br>\=================/</h1>
+      <h1>/===============\<br>/ > RisBrine404 < \<br>\=================/</h1> <!-- Sedikit penyesuaian teks H1 -->
     </header>
 
-    <!-- ======================================= -->
-    <!-- == Navigasi (Dashboard) yang Sticky == -->
-    <!-- ======================================= -->
     <nav class="main-nav">
       <ul>
         <li><a href="#home">HOME</a></li>
@@ -305,12 +296,9 @@
         <li><a href="#project">MY PROJECT</a></li>
       </ul>
     </nav>
-    <!-- ======================================= -->
 
     <main>
-      <!-- Bagian Home (Konten di bawah navigasi) -->
       <section id="home">
-          <!-- Konten Home Anda di sini -->
           <p class="greeting-arabic"> اَلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُاللَّهِ وَبَرَكَاتُهُ </p>
           <h2 class="section-title">/---------------------\<br>\ [≤/≥] WELCOME [1\0] /<br>\___________________/</h2>
           <button class="back-button" onclick="history.back()">KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
@@ -332,7 +320,6 @@
           <p class="intro-text">Halo selamat datang di website saya.<br>Dibawah ini ialah akun media sosial saya<br>Bila bisa tolong Bantu follow/ikuti/subscribe/like akun yang ada di bawah ini</p>
       </section>
 
-      <!-- Bagian Social Media -->
       <section id="smedia">
           <h2 class="section-title">SOCIAL MEDIA</h2>
           <div class="social-container">
@@ -345,11 +332,10 @@
           </div>
       </section>
 
-      <!-- Bagian Linux -->
       <section id="linux">
          <h2 class="section-title">/=======================\<br>/ Web Installasi Beberapa \<br>\ Distro Linux & Kegunaan /<br>\=======================/</h2>
          <ul class="linux-list">
-            <li class="linux-item">
+             <li class="linux-item">
                 <a href="https://www.kali.org/" target="_blank" rel="noopener noreferrer"><img src="kalnux.png" alt="Kali Linux Logo"><span class="distro-title">•⟩ ~Web /Kali Linux</span></a>
                 <div class="distro-details"><strong>Kelebihan:</strong><br>  > Fokus ke keamanan<br>  > Ringan dan cepat<br><strong>Kekurangan:</strong><br>  > Tidak ramah pengguna umum<br><br>Cocok untuk: ethical hackers/testers</div>
                  <div class="distro-links"><a href="kode.html">THIS IS CODE</a><a href="https://www.kali.org/docs/nethunter/nethunter-rootless/" target="_blank" rel="noopener noreferrer">Install Net Hunter</a></div>
@@ -406,11 +392,10 @@
         </ul>
       </section>
 
-      <!-- Bagian Class -->
       <section id="class">
          <h2 class="section-title">/========================\<br>/ Di Bawah Ini Adalah Kelas \<br>\ Yang Recomended Banget. /<br>\========================/</h2>
          <ul class="class-list">
-            <li class="class-item"><a href="https://www.cyberacademy.id/belajar-online" target="_blank" rel="noopener noreferrer"><img src="cyberacademy.png" alt="Cyber Academy Logo"><span class="class-title">•⟩ ~Cyber Academy</span></a></li>
+             <li class="class-item"><a href="https://www.cyberacademy.id/belajar-online" target="_blank" rel="noopener noreferrer"><img src="cyberacademy.png" alt="Cyber Academy Logo"><span class="class-title">•⟩ ~Cyber Academy</span></a></li>
              <li class="class-item"><a href="https://www.agunacourse.com/?standalone=true" target="_blank" rel="noopener noreferrer"><img src="agunacourse.png" alt="Aguna Course Logo"><span class="class-title">•⟩ ~Aguna Course</span></a></li>
              <li class="class-item"><a href="https://tujuhub-303131.tujuhub.com/student/home" target="_blank" rel="noopener noreferrer"><img src="tujuhub.png" alt="Tujuhub Logo"><span class="class-title">•⟩ ~Tujuhub</span></a></li>
              <li class="class-item"><a href="https://myskill.id/" target="_blank" rel="noopener noreferrer"><img src="myskill.png" alt="MySkill Logo"><span class="class-title">•⟩ ~My Skill</span></a></li>
@@ -420,11 +405,10 @@
          </ul>
       </section>
 
-      <!-- Bagian Project -->
       <section id="project">
          <h2 class="section-title">/========================\<br>/ Contoh Web Yang Pernah \<br>\ Saya Buat & Edit. /<br>\========================/</h2>
          <ul class="project-list">
-            <li class="project-item"><a href="https://risbrine404.github.io/smk5sila/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Website Official School</span></a></li>
+             <li class="project-item"><a href="https://risbrine404.github.io/smk5sila/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Website Official School</span></a></li>
             <li class="project-item"><a href="https://risbrine404.github.io/manipulasi/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Website Belajar Manipulasi (PENCEGAHAN)</span></a></li>
              <li class="project-item"><a href="https://risbrine404.github.io/money/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Catatan Keuangan (Pengeluaran/Pemasukan)</span></a></li>
              <li class="project-item"><a href="https://risbrine404.github.io/money/detail.html" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Catatan Keuangan (Grafik Penghasilan)</span></a></li>
