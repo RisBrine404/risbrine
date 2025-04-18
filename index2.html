@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RisBrine404 - Perbaikan UI</title>
-  <!-- Memindahkan semua CSS ke dalam tag <style> -->
+  <title>RisBrine404 - UI Diperbaiki & Nav Sticky + Animasi Scroll</title>
   <style>
     /* Reset Dasar & Box Sizing */
     *, *::after, *::before {
@@ -14,83 +13,85 @@
     }
 
     html {
-      scroll-behavior: smooth; /* Efek scroll halus saat klik navigasi */
-      font-size: 16px; /* Base font size for rem units */
+      scroll-behavior: smooth;
+      font-size: 16px; /* Base font size */
     }
 
     body {
-      font-family: 'Courier New', Courier, monospace; /* Konsistensi font */
-      color: #fff; /* Warna teks default */
-      background-color: #1a1a1a; /* Fallback background color */
+      font-family: 'Courier New', Courier, monospace;
+      color: #fff;
+      background-color: #1a1a1a;
       background-image: url('backg.gif');
       background-size: cover;
-      background-attachment: fixed; /* Fixed agar tidak scroll bersama konten */
+      background-attachment: fixed;
       background-repeat: repeat;
       line-height: 1.6;
+      overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
     }
 
     /* Container Utama */
     .main-container {
-      max-width: 1200px; /* Batasi lebar maks di layar besar */
-      margin: 0 auto; /* Pusatkan container */
-      padding: 0 1rem; /* Padding samping */
-      overflow-x: hidden; /* Hindari scroll horizontal */
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      overflow: hidden; /* Mencegah konten animasi keluar batas */
     }
 
     /* Header Styling */
     .page-header {
-      background-color: rgba(192, 192, 192, 0.1); /* Warna header C0C0C0 dengan transparansi */
+      background-color: rgba(192, 192, 192, 0.1);
       padding: 1rem 0;
       text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 0;
     }
 
     .page-header .separator {
         color: #fff;
-        font-size: 1.5rem; /* Ukuran separator */
+        font-size: 1.5rem;
         margin-bottom: 1rem;
-        /* Text shadow bisa ditambahkan jika suka */
     }
 
     .page-header h1 {
-      font-size: 2.5rem; /* Ukuran font relatif */
+      font-size: 2.5rem;
       color: #fff;
       text-shadow: 0 0 5px #ff000f, 0 0 10px #ff000f, 0 0 15px #ff000f;
       margin-bottom: 0.5rem;
       line-height: 1.2;
     }
 
-    /* Navigasi */
+    /* Navigasi Sticky */
     nav.main-nav {
       background-color: #000dc6;
       padding: 0.8rem 0;
       position: sticky;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 1000;
-      width: 100%; /* Agar sticky bekerja dengan baik */
+      width: 100%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
     nav.main-nav ul {
       list-style-type: none;
       display: flex;
-      justify-content: center; /* Pusatkan item nav */
-      flex-wrap: wrap; /* Biarkan item wrap di layar kecil */
-      gap: 1rem; /* Jarak antar item nav */
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
       padding: 0 1rem;
-    }
-
-    nav.main-nav li {
-      /* Tidak perlu styling khusus di sini */
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     nav.main-nav a {
-      font-size: 1.1rem; /* Ukuran font relatif */
+      font-size: 1.1rem;
       font-weight: 400;
       text-decoration: none;
       color: white;
       padding: 0.5rem 1rem;
       border-radius: 5px;
       transition: background-color 0.3s ease, color 0.3s ease, font-weight 0.3s ease;
+      display: inline-block;
     }
 
     nav.main-nav a:hover,
@@ -101,7 +102,7 @@
       outline: none;
     }
 
-    /* Styling Judul Bagian (Section Titles) */
+    /* Styling Judul Bagian */
     .section-title {
       text-align: center;
       font-size: 2rem;
@@ -120,13 +121,14 @@
         font-size: 1.2rem;
     }
 
-    /* Styling Heading Lainnya (Contoh pengganti h8, h9, dll.) */
+    /* Styling Heading Lainnya */
     .greeting-arabic {
         text-align: center;
         font-size: 2.2rem;
         color: #fff;
         text-shadow: 0 0 5px #008000, 0 0 10px #008000, 0 0 15px #008000;
         margin: 1.5rem 0;
+        padding-top: 2rem;
     }
 
     .warning-text {
@@ -141,7 +143,7 @@
 
     /* Tombol Kembali */
     .back-button {
-      display: block; /* Agar bisa diatur margin auto */
+      display: block;
       margin: 1.5rem auto;
       padding: 1rem 1.5rem;
       background-color: #444;
@@ -153,8 +155,8 @@
       cursor: pointer;
       transition: background-color 0.3s ease, border-color 0.3s ease;
       text-align: center;
-      max-width: 90%; /* Agar tidak terlalu lebar di mobile */
-      white-space: normal; /* Biarkan teks wrap */
+      max-width: 90%;
+      white-space: normal;
     }
 
     .back-button:hover {
@@ -167,454 +169,144 @@
       padding: 1rem 0;
     }
 
+    #home {
+        padding-top: 1rem;
+    }
+
     /* Gambar Profile */
-    .profile-section {
-        text-align: center; /* Pusatkan isi */
-        margin-bottom: 2rem;
-    }
-
-    .profile-image-container {
-        display: inline-block; /* Agar border pas dengan gambar */
-        border: 10px solid blue;
-        margin-bottom: 0.5rem; /* Jarak antara gambar dan caption */
-    }
-
-    .profile-image {
-        display: block; /* Hapus spasi bawah ekstra */
-        max-width: 100%; /* Responsif */
-        height: auto; /* Pertahankan rasio aspek */
-        width: 300px; /* Lebar tetap jika diinginkan, tapi max-width akan override */
-    }
-
-    .profile-caption {
-        font-size: 0.9rem;
-        color: #ccc;
-        font-style: italic;
-    }
+    .profile-section { text-align: center; margin-bottom: 2rem; }
+    .profile-image-container { display: inline-block; border: 10px solid blue; margin-bottom: 0.5rem; }
+    .profile-image { display: block; max-width: 100%; height: auto; width: 300px; }
+    .profile-caption { font-size: 0.9rem; color: #ccc; font-style: italic; }
 
     /* Kontrol Audio */
-    .audio-player-section {
-        text-align: center;
-        margin: 1.5rem 0;
-        padding: 1rem;
-        background-color: rgba(0, 0, 0, 0.3);
-        border-radius: 8px;
-    }
-
-    .audio-player-section p {
-        font-size: 1rem;
-        color: greenyellow;
-        margin-bottom: 0.8rem;
-        font-family: 'Arial', sans-serif; /* Font lebih standar untuk deskripsi */
-    }
-
-    .audio-player-section audio {
-        width: 80%; /* Lebar audio player */
-        max-width: 500px; /* Batas lebar maks */
-        margin-bottom: 1rem; /* Jarak antar player */
-    }
-
-    .audio-instruction {
-        font-size: 1rem;
-        color: greenyellow;
-        margin-top: 1rem;
-        font-weight: bold;
-        text-shadow: 0 0 5px #ff000f;
-    }
+    .audio-player-section { text-align: center; margin: 1.5rem 0; padding: 1rem; background-color: rgba(0, 0, 0, 0.3); border-radius: 8px; }
+    .audio-player-section p { font-size: 1rem; color: greenyellow; margin-bottom: 0.8rem; font-family: 'Arial', sans-serif; }
+    .audio-player-section audio { width: 80%; max-width: 500px; margin-bottom: 1rem; }
+    .audio-instruction { font-size: 1rem; color: greenyellow; margin-top: 1rem; font-weight: bold; text-shadow: 0 0 5px #ff000f; }
 
     /* Link Profile Identity */
-    .profile-link-container {
-        text-align: center;
-        margin: 2rem 0;
-    }
-
-    .profile-link {
-        display: inline-block;
-        border: 5px solid blue;
-        padding: 0.8rem 1.5rem;
-        text-decoration: none;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .profile-link span { /* Mengganti h7 */
-        font-size: 1.5rem;
-        color: lightseagreen;
-        text-shadow: 0 0 5px #ff000f, 0 0 10px #ff000f;
-        font-weight: bold;
-    }
-
-    .profile-link:hover {
-        background-color: rgba(0, 128, 128, 0.2);
-        transform: scale(1.05);
-    }
+    .profile-link-container { text-align: center; margin: 2rem 0; }
+    .profile-link { display: inline-block; border: 5px solid blue; padding: 0.8rem 1.5rem; text-decoration: none; transition: background-color 0.3s ease, transform 0.3s ease; }
+    .profile-link span { font-size: 1.5rem; color: lightseagreen; text-shadow: 0 0 5px #ff000f, 0 0 10px #ff000f; font-weight: bold; }
+    .profile-link:hover { background-color: rgba(0, 128, 128, 0.2); transform: scale(1.05); }
 
     /* Intro Text */
-    .intro-text {
-        text-align: center;
-        font-size: 1.3rem; /* Mengganti h2 */
-        color: #fff;
-        text-shadow: 0 0 3px #0000ff, 0 0 6px #0000ff;
-        margin: 2rem 0;
-        line-height: 1.5;
-    }
-    .intro-text::before,
-    .intro-text::after {
-        content: '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~';
-        display: block;
-        color: #666;
-    }
-
+    .intro-text { text-align: center; font-size: 1.3rem; color: #fff; text-shadow: 0 0 3px #0000ff, 0 0 6px #0000ff; margin: 2rem 0; line-height: 1.5; }
+    .intro-text::before, .intro-text::after { content: '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'; display: block; color: #666; }
 
     /* Social Media Section */
-    #smedia .social-container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start; /* Align items to the top for text alignment */
-      flex-wrap: wrap; /* Wrap items on smaller screens */
-      gap: 2rem; /* Jarak antar grup ikon */
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-      padding: 0 1rem;
-    }
-
-    #smedia .social-link {
-      display: flex;
-      flex-direction: column; /* Stack image and text vertically */
-      align-items: center; /* Center items horizontally */
-      text-decoration: none;
-      color: skyblue; /* Mengganti h10 color */
-      font-size: 1.1rem; /* Mengganti h10 font-size */
-      transition: transform 0.3s ease;
-      text-align: center;
-      min-width: 100px; /* Ensure some minimum width */
-    }
-
-    #smedia .social-link img {
-      width: 60px; /* Ukuran ikon lebih kecil */
-      height: 60px;
-      margin-bottom: 0.5rem; /* Jarak antara ikon dan teks */
-      transition: transform 0.3s ease;
-    }
-
-    #smedia .social-link:hover {
-        transform: scale(1.1); /* Efek zoom saat hover */
-    }
-
-    #smedia .social-link:hover img {
-         transform: rotate(10deg); /* Sedikit rotasi pada ikon */
-    }
-
+    #smedia .social-container { display: flex; justify-content: center; align-items: flex-start; flex-wrap: wrap; gap: 2rem; margin-top: 1rem; margin-bottom: 2rem; padding: 0 1rem; }
+    #smedia .social-link { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: skyblue; font-size: 1.1rem; transition: transform 0.3s ease; text-align: center; min-width: 100px; }
+    #smedia .social-link img { width: 60px; height: 60px; margin-bottom: 0.5rem; transition: transform 0.3s ease; }
+    #smedia .social-link:hover { transform: scale(1.1); }
+    #smedia .social-link:hover img { transform: rotate(10deg); }
 
     /* Linux Distro Section */
-    #linux .linux-list,
-    #class .class-list,
-    #project .project-list {
-        list-style: none;
-        padding: 0;
-        display: grid; /* Gunakan Grid untuk layout kartu */
-        gap: 1.5rem; /* Jarak antar kartu */
-        /* Default 1 kolom, akan diubah di media query */
-        grid-template-columns: 1fr;
-    }
-
-    #linux .linux-item,
-    #class .class-item,
-    #project .project-item {
-        background-color: rgba(0, 0, 50, 0.3); /* Background sedikit transparan */
-        border: 5px solid blue;
-        border-radius: 10px;
-        padding: 1rem;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    #linux .linux-item:hover,
-    #class .class-item:hover,
-    #project .project-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 255, 0.3);
-    }
-
-    #linux .linux-item a,
-    #class .class-item a,
-    #project .project-item a {
-        text-decoration: none;
-        display: flex; /* Untuk align gambar dan teks jika perlu */
-        flex-direction: column; /* Default: stack vertikal */
-        align-items: center; /* Pusatkan konten */
-        color: inherit; /* Warisi warna teks dari parent */
-    }
-
-    #linux .linux-item img {
-        max-width: 250px; /* Batasi lebar gambar distro */
-        height: auto;
-        margin-bottom: 1rem;
-        border-radius: 5px;
-    }
-
-    #linux .distro-title,
-    #class .class-title,
-    #project .project-title {
-        font-size: 1.2rem;
-        color: red;
-        margin-bottom: 0.8rem;
-        font-weight: bold;
-        text-align: center;
-    }
-
-     #linux .distro-details {
-        font-size: 0.95rem;
-        color: lightgreen;
-        margin-bottom: 1rem;
-        text-align: left; /* Detail rata kiri */
-        width: 100%; /* Pastikan lebar penuh dalam card */
-        padding: 0 0.5rem; /* Padding dalam detail */
-     }
-     #linux .distro-details strong {
-        color: #fff; /* Sorot Kelebihan/Kekurangan */
-     }
-
-     #linux .distro-links {
-        text-align: center;
-        margin-top: 1rem;
-     }
-
-     #linux .distro-links a {
-         display: inline-block; /* Agar link tidak full width */
-         margin: 0.5rem;
-         padding: 0.5rem 1rem;
-         background-color: #0056b3;
-         color: white;
-         border-radius: 5px;
-         font-size: 1rem;
-         font-weight: bold;
-         transition: background-color 0.3s ease;
-     }
-     #linux .distro-links a:hover {
-        background-color: #003d80;
-     }
-
-     /* Class & Project Section Specifics */
-     #class .class-item a,
-     #project .project-item a {
-        flex-direction: row; /* Buat item berdampingan */
-        align-items: center;
-        justify-content: flex-start; /* Rata kiri */
-        gap: 1rem;
-     }
-
-     #class .class-item img,
-     #project .project-item img {
-        width: 60px; /* Ukuran ikon/logo */
-        height: 60px;
-        object-fit: contain; /* Agar gambar tidak terdistorsi */
-     }
-
-     #class .class-title,
-     #project .project-title {
-        font-size: 1.1rem; /* Sesuaikan ukuran font */
-        color: skyblue; /* Mengganti h3 color */
-        text-align: left; /* Rata kiri */
-        margin-bottom: 0; /* Hapus margin bawah */
-     }
-
-     #project .project-description {
-        font-size: 0.9rem;
-        color: #ccc;
-        display: block; /* Pastikan deskripsi di baris baru jika perlu */
-        margin-left: 70px; /* Sesuaikan indentasi jika ikon 60px + gap 10px */
-        margin-top: -0.8rem; /* Tarik sedikit ke atas */
-     }
-
+    #linux .linux-list, #class .class-list, #project .project-list { list-style: none; padding: 0; display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+    #linux .linux-item, #class .class-item, #project .project-item { background-color: rgba(0, 0, 50, 0.3); border: 5px solid blue; border-radius: 10px; padding: 1rem; transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi hover tetap ada */ }
+    #linux .linux-item:hover, #class .class-item:hover, #project .project-item:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 0, 255, 0.3); }
+    #linux .linux-item a, #class .class-item a, #project .project-item a { text-decoration: none; display: flex; flex-direction: column; align-items: center; color: inherit; }
+    #linux .linux-item img { max-width: 250px; height: auto; margin-bottom: 1rem; border-radius: 5px; }
+    #linux .distro-title, #class .class-title, #project .project-title { font-size: 1.2rem; color: red; margin-bottom: 0.8rem; font-weight: bold; text-align: center; }
+    #linux .distro-details { font-size: 0.95rem; color: lightgreen; margin-bottom: 1rem; text-align: left; width: 100%; padding: 0 0.5rem; }
+    #linux .distro-details strong { color: #fff; }
+    #linux .distro-links { text-align: center; margin-top: 1rem; }
+    #linux .distro-links a { display: inline-block; margin: 0.5rem; padding: 0.5rem 1rem; background-color: #0056b3; color: white; border-radius: 5px; font-size: 1rem; font-weight: bold; transition: background-color 0.3s ease; }
+    #linux .distro-links a:hover { background-color: #003d80; }
+    #class .class-item a, #project .project-item a { flex-direction: row; align-items: center; justify-content: flex-start; gap: 1rem; }
+    #class .class-item img, #project .project-item img { width: 60px; height: 60px; object-fit: contain; }
+    #class .class-title, #project .project-title { font-size: 1.1rem; color: skyblue; text-align: left; margin-bottom: 0; }
+    #project .project-description { font-size: 0.9rem; color: #ccc; display: block; margin-left: 70px; margin-top: -0.8rem; }
 
     /* Footer Styling */
-    .page-footer {
-      background-color: rgba(105, 105, 105, 0.2); /* Warna footer 696969 dengan transparansi */
-      padding: 1.5rem 1rem;
-      margin-top: 3rem;
-      text-align: center;
-    }
-
-    .page-footer .footer-text { /* Mengganti font tag */
-      font-family: 'Amatic SC', cursive; /* Atau font lain jika Amatic SC tidak tersedia */
-      font-size: 1.2rem; /* Ukuran font relatif */
-      color: red;
-      margin-bottom: 0.5rem;
-    }
-
-    .page-footer .thanks-text { /* Mengganti h2 di footer */
-      font-size: 1.5rem;
-      color: #eee;
-      font-weight: bold;
-      margin-top: 1rem;
-    }
+    .page-footer { background-color: rgba(105, 105, 105, 0.2); padding: 1.5rem 1rem; margin-top: 3rem; text-align: center; }
+    .page-footer .footer-text { font-family: 'Amatic SC', cursive; font-size: 1.2rem; color: red; margin-bottom: 0.5rem; }
+    .page-footer .thanks-text { font-size: 1.5rem; color: #eee; font-weight: bold; margin-top: 1rem; }
 
     /* Floating Action Buttons (FAB) */
-    .fab {
-      display: block;
-      width: 70px; /* Ukuran lebih kecil */
-      height: 70px;
-      line-height: 70px; /* Sesuaikan line-height */
-      text-align: center;
-      color: white;
-      font-weight: bold;
-      border-radius: 50%;
-      text-decoration: none;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      position: fixed;
-      right: 20px; /* Jarak dari kanan */
-      background-color: rgb(7, 4, 196);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      z-index: 1001; /* Di atas konten lain */
-      overflow: hidden; /* Agar gambar tidak keluar */
+    .fab { display: block; width: 70px; height: 70px; line-height: 70px; text-align: center; color: white; font-weight: bold; border-radius: 50%; text-decoration: none; transition: background-color 0.3s ease, transform 0.3s ease; position: fixed; right: 20px; background-color: rgb(7, 4, 196); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); z-index: 1001; overflow: hidden; }
+    .fab img { width: 70%; height: auto; vertical-align: middle; margin-top: -4px; }
+    .fab-portfolio { bottom: 20px; }
+    .fab-code { bottom: 100px; }
+    .fab:hover { background-color: rgb(0, 204, 51); transform: scale(1.1); }
+
+
+    /* --- >>> STYLING UNTUK ANIMASI SCROLL <<< --- */
+    .animate-on-scroll {
+      opacity: 0; /* Mulai dari transparan */
+      transform: translateY(40px); /* Mulai sedikit di bawah posisi asli */
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      /* ease-out: animasi cepat di awal, melambat di akhir */
+      will-change: opacity, transform; /* Optimasi performa browser */
     }
 
-    .fab img {
-        width: 70%; /* Ukuran gambar di dalam FAB */
-        height: auto;
-        vertical-align: middle; /* Pusatkan gambar vertikal */
-        margin-top: -4px; /* Koreksi posisi vertikal jika perlu */
+    /* Class ini akan ditambahkan oleh JavaScript saat elemen terlihat */
+    .animate-on-scroll.is-visible {
+      opacity: 1; /* Jadi terlihat */
+      transform: translateY(0); /* Kembali ke posisi asli */
     }
+    /* --- >>> AKHIR STYLING ANIMASI SCROLL <<< --- */
 
 
-    .fab-portfolio {
-      bottom: 20px; /* Jarak dari bawah */
-    }
-
-    .fab-code {
-      bottom: 100px; /* Jarak dari bawah untuk tombol kedua */
-    }
-
-    .fab:hover {
-      background-color: rgb(0, 204, 51);
-      transform: scale(1.1); /* Efek zoom saat hover */
-    }
-
-
-    /* --- Media Queries for Responsiveness --- */
-
-    /* Tablet and Smaller (<= 768px) */
+    /* --- Media Queries --- */
     @media (max-width: 768px) {
-      html {
-        font-size: 14px; /* Kecilkan base font size sedikit */
-      }
+      html { font-size: 14px; }
+      .page-header h1 { font-size: 2rem; }
+      .greeting-arabic { font-size: 1.8rem; padding-top: 1.5rem; }
+      .section-title { font-size: 1.7rem; }
+      nav.main-nav ul { justify-content: flex-start; gap: 0.5rem; padding: 0 0.5rem; }
+      nav.main-nav a { font-size: 1rem; padding: 0.4rem 0.6rem; }
+      #smedia .social-container { gap: 1rem; justify-content: space-around; }
+      #smedia .social-link { font-size: 1rem; min-width: 70px; }
+      #smedia .social-link img { width: 45px; height: 45px; }
+      #linux .linux-list, #class .class-list, #project .project-list { gap: 1rem; }
+      #linux .linux-item img { max-width: 200px; }
+      #class .class-item a, #project .project-item a { flex-direction: column; align-items: center; text-align: center; gap: 0.5rem; }
+      #class .class-title, #project .project-title { text-align: center; }
+      #project .project-description { margin-left: 0; text-align: center; margin-top: 0.3rem; }
 
-      .page-header h1 {
-        font-size: 2rem; /* Kecilkan judul utama */
-      }
-
-       .greeting-arabic {
-           font-size: 1.8rem;
-       }
-
-      .section-title {
-        font-size: 1.7rem; /* Kecilkan judul bagian */
-      }
-
-      nav.main-nav ul {
-        justify-content: flex-start; /* Mulai dari kiri di mobile */
-        gap: 0.5rem; /* Kurangi jarak antar item nav */
-      }
-
-      nav.main-nav a {
-        font-size: 1rem; /* Kecilkan font nav */
-        padding: 0.4rem 0.8rem;
-      }
-
-      /* Social Media Icons */
-      #smedia .social-container {
-        gap: 1.5rem; /* Kurangi jarak */
-        justify-content: space-around; /* Sebar merata */
-      }
-      #smedia .social-link {
-        font-size: 1rem; /* Kecilkan label */
-        min-width: 80px; /* Sesuaikan min-width */
-      }
-      #smedia .social-link img {
-        width: 50px; /* Kecilkan ikon */
-        height: 50px;
-      }
-
-      /* Linux/Class/Project Lists - Tetap 1 kolom atau jadi 2 jika mau */
-       #linux .linux-list,
-       #class .class-list,
-       #project .project-list {
-           gap: 1rem; /* Kurangi jarak antar kartu */
-           /* Jika ingin 2 kolom di tablet:
-           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-           */
-       }
-
-       #linux .linux-item img {
-           max-width: 200px; /* Kecilkan gambar distro */
-       }
-
-      #class .class-item a,
-      #project .project-item a {
-        flex-direction: column; /* Stack logo dan teks di mobile */
-        align-items: center; /* Pusatkan */
-        text-align: center;
-        gap: 0.5rem;
-      }
-      #class .class-title,
-      #project .project-title {
-        text-align: center;
-      }
-       #project .project-description {
-          margin-left: 0; /* Reset indentasi */
-          text-align: center;
-          margin-top: 0.3rem;
-       }
-
-
-      /* Floating Action Buttons */
       .fab {
         width: 60px;
         height: 60px;
         line-height: 60px;
-        right: 15px;
+        right: 10px;
       }
-       .fab-portfolio {
-          bottom: 15px;
-       }
-       .fab-code {
-          bottom: 85px; /* Sesuaikan jarak tombol kedua */
-       }
+      .fab-portfolio {
+        bottom: 15px;
+      }
+      .fab-code {
+        bottom: 85px;
+      }
+      #home { padding-top: 0.5rem; }
+
+      /* Sesuaikan nilai translateY untuk animasi di mobile jika perlu */
+      .animate-on-scroll {
+        transform: translateY(25px);
+      }
     }
 
-    /* Larger Desktops (>= 1024px) - bisa ditambahkan 2 atau 3 kolom */
-    @media (min-width: 769px) { /* Mulai dari setelah 768px */
-        #linux .linux-list {
-             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* 2-3 kolom otomatis */
-        }
-         #class .class-list,
-         #project .project-list {
-             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2-3 kolom otomatis */
-         }
+    @media (min-width: 769px) {
+      #linux .linux-list { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
+      #class .class-list, #project .project-list { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
     }
 
-
-    /* Styling khusus jika diperlukan untuk layar sangat besar (1920px),
-       biasanya max-width di .main-container sudah cukup */
     @media (min-width: 1920px) {
-      html {
-         /* font-size: 18px; */ /* Opsional: Besarkan font dasar sedikit */
-      }
-      /* Styling tambahan jika ada */
+      /* Styling tambahan jika diperlukan */
     }
 
   </style>
 </head>
 <body>
 
-  <!-- Efek Salju (opsional, bisa dihapus jika tidak suka/berpengaruh ke performa) -->
+  <!-- Efek Salju -->
   <script src="https://cdn.rawgit.com/bungfrangki/efeksalju/2a7805c7/efek-salju.js" type="text/javascript"></script>
-  <!-- Menghapus alert() dari sini -->
 
   <div class="main-container">
 
-    <header class="page-header">
+    <header class="page-header"> <!-- Bisa ditambahkan class="animate-on-scroll" jika ingin header juga animasi -->
       <div class="separator">______________________</div>
-      <h1>/===================\<br>/ >>> RisBrine404 <<< \<br>\=====================/</h1>
+      <h1>/===============\<br>/ > RisBrine404 < \<br>\=================/</h1>
     </header>
 
     <nav class="main-nav">
@@ -629,507 +321,209 @@
 
     <main>
       <section id="home">
-        <p class="greeting-arabic">{| اَلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُاللَّهِ وَبَرَكَاتُهُ |}</p>
-
-        <h2 class="section-title">/---------------------\<br>\ [≤/≥] WELCOME [1\0] /<br>\___________________/</h2>
-
-        <button class="back-button" onclick="history.back()">
-          KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)
-        </button>
-
-        <div class="profile-section">
-            <div class="profile-image-container">
-                <img src="fotohcking.png" alt="Profile Hacking Illustration" class="profile-image">
-            </div>
-            <p class="profile-caption">Share Hack System Technologi</p>
-        </div>
-
-        <!-- Kontrol Audio -->
-        <div class="audio-player-section">
-            <p>Oh-Simple-Things-Where-Have-You-Gone-Lyrics-Somewhere-Only-We-Know-Keane-Cover.mp3</p>
-            <audio controls src="Oh-Simple-Things-Where-Have-You-Gone-Lyrics-Terjemahan-Somewhere-Only-We-Know-Keane-Cover_k7hArQL_m1k.mp3" type="audio/mpeg"></audio>
-
-            <p>NAN KO PAHAM New Version.mp3</p>
-            <audio controls src="NAN KO PAHAM New Version.mp3" type="audio/mpeg"></audio> <!-- Hapus autoplay -->
-
-            <p>Nanti Pasti Kau Mengerti Setelah Sa Hilang (Lirik Lagu) Nan Ko Paham.mp3</p>
-            <audio controls src="Nanti Pasti Kau Mengerti Setelah Sa Hilang (Lirik Lagu) Nan Ko Paham - BLG Rap (Tiktok Version)_2jv0yjVD2Pc.mp3" type="audio/mpeg"></audio>
-
-            <p>lagu AIO.mp3</p>
-            <audio controls src="laguaio.mp3" type="audio/mpeg"></audio>
-
-            <p>Chiisana Koi no Uta [Yui Aragaki] with Lyrics romanji and english sub.mp3</p>
-            <audio controls src="Chiisana Koi no Uta [Yui Aragaki] with Lyrics romanji and english sub.mp3" type="audio/mpeg"></audio>
-
-            <p>Kawtar - Ya Lalali (Sped Up).mp3</p>
-            <audio controls src="Kawtar - Ya Lalali (Sped Up).mp3" type="audio/mpeg"></audio>
-
-            <p class="audio-instruction">Nyalakan Atau Matikan Sound Sesuai Keinginan Anda</p>
-        </div>
-
-
-        <div class="profile-link-container">
-            <a href="https://risbrine404.github.io/datadiri/" class="profile-link">
-                <span>  >>> [ RisBrine Profile Identity ] <<<  </span>
-            </a>
-        </div>
-
-        <div>
-            <p class="warning-text">[--!!.:WARNING : BEBERAPA SCRIPT MENGALAMI ERROR.!!:--]<br>[---------!!.MOHON DIMAKLUMI.!!---------]</p>
-        </div>
-
-        <p class="intro-text">
-          Halo selamat datang di website saya.<br>
-          Dibawah ini ialah akun media sosial saya<br>
-          Bila bisa tolong Bantu follow/ikuti/subscribe/like akun yang ada di bawah ini
-        </p>
+          <p class="greeting-arabic animate-on-scroll"> اَلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُاللَّهِ وَبَرَكَاتُهُ </p>
+          <h2 class="section-title animate-on-scroll">/---------------------\<br>\ [≤/≥] WELCOME [1\0] /<br>\___________________/</h2>
+          <button class="back-button animate-on-scroll" onclick="history.back()">KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
+          <div class="profile-section animate-on-scroll">
+              <div class="profile-image-container"><img src="fotohcking.png" alt="Profile Hacking Illustration" class="profile-image"></div>
+              <p class="profile-caption">Share Hack System Technologi</p>
+          </div>
+          <div class="audio-player-section animate-on-scroll">
+              <p>Oh-Simple-Things-Where-Have-You-Gone-Lyrics-Somewhere-Only-We-Know-Keane-Cover.mp3</p><audio controls src="Oh-Simple-Things-Where-Have-You-Gone-Lyrics-Terjemahan-Somewhere-Only-We-Know-Keane-Cover_k7hArQL_m1k.mp3" type="audio/mpeg"></audio>
+              <p>NAN KO PAHAM New Version.mp3</p><audio controls src="NAN KO PAHAM New Version.mp3" type="audio/mpeg"></audio>
+              <p>Nanti Pasti Kau Mengerti Setelah Sa Hilang (Lirik Lagu) Nan Ko Paham.mp3</p><audio controls src="Nanti Pasti Kau Mengerti Setelah Sa Hilang (Lirik Lagu) Nan Ko Paham - BLG Rap (Tiktok Version)_2jv0yjVD2Pc.mp3" type="audio/mpeg"></audio>
+              <p>lagu AIO.mp3</p><audio controls src="laguaio.mp3" type="audio/mpeg"></audio>
+              <p>Chiisana Koi no Uta [Yui Aragaki] with Lyrics romanji and english sub.mp3</p><audio controls src="Chiisana Koi no Uta [Yui Aragaki] with Lyrics romanji and english sub.mp3" type="audio/mpeg"></audio>
+              <p>Kawtar - Ya Lalali (Sped Up).mp3</p><audio controls src="Kawtar - Ya Lalali (Sped Up).mp3" type="audio/mpeg"></audio>
+              <p class="audio-instruction">Nyalakan Atau Matikan Sound Sesuai Keinginan Anda</p>
+          </div>
+          <div class="profile-link-container animate-on-scroll"><a href="https://risbrine404.github.io/datadiri/" class="profile-link"><span> [Profile Identity] </span></a></div>
+          <div class="animate-on-scroll"><p class="warning-text">[--!!:WARNING:!!--]<br>SEBAGIAN SCRIPT MENGALAMI<br>!!! ERROR / MASALAH !!!<br>[ >> MOHON DIMAKLUMI << ]</p></div>
+          <p class="intro-text animate-on-scroll">Halo selamat datang di website saya.<br>Dibawah ini ialah akun media sosial saya<br>Bila bisa tolong Bantu follow/ikuti/subscribe/like akun yang ada di bawah ini</p>
       </section>
 
       <section id="smedia">
-        <h2 class="section-title">SOCIAL MEDIA</h2>
-        <div class="social-container">
-          <a class="social-link" href="https://wa.me/+6285755498964">
-            <img src="whatsapp.png" alt="WhatsApp"><span>》WhatsApp《</span>
-          </a>
-          <a class="social-link" href="http://www.facebook.com/profile.php?id=100076396292235">
-            <img src="facebook.png" alt="Facebook"><span>》Facebook《</span>
-          </a>
-          <a class="social-link" href="https://www.instagram.com/r15_br1ne49">
-            <img src="instagram.png" alt="Instagram"><span>》Instagram《</span>
-          </a>
-          <a class="social-link" href="https://youtube.com/channel/UCYy0Gydrz4gtX_9dVBc4ltA">
-            <img src="youtube.png" alt="YouTube"><span>》YouTube《</span>
-          </a>
-          <a class="social-link" href="https://repl.it/@risbrine404/">
-            <img src="replit.jpg" alt="Replit"><span>》Replit《</span>
-          </a>
-          <a class="social-link" href="https://github.com/RisBrine404/RisBrine404">
-            <img src="github.png" alt="Github"><span>》Github《</span>
-          </a>
-        </div>
+          <h2 class="section-title animate-on-scroll">SOCIAL MEDIA</h2>
+          <div class="social-container">
+              <!-- Tambahkan class animate-on-scroll ke setiap link sosial media -->
+              <a class="social-link animate-on-scroll" href="https://wa.me/+6285755498964"><img src="whatsapp.png" alt="WhatsApp"><span>》WhatsApp《</span></a>
+              <a class="social-link animate-on-scroll" href="http://www.facebook.com/profile.php?id=100076396292235"><img src="facebook.png" alt="Facebook"><span>》Facebook《</span></a>
+              <a class="social-link animate-on-scroll" href="https://www.instagram.com/r15_br1ne49"><img src="instagram.png" alt="Instagram"><span>》Instagram《</span></a>
+              <a class="social-link animate-on-scroll" href="https://youtube.com/channel/UCYy0Gydrz4gtX_9dVBc4ltA"><img src="youtube.png" alt="YouTube"><span>》YouTube《</span></a>
+              <a class="social-link animate-on-scroll" href="https://repl.it/@risbrine404/"><img src="replit.jpg" alt="Replit"><span>》Replit《</span></a>
+              <a class="social-link animate-on-scroll" href="https://github.com/RisBrine404/RisBrine404"><img src="github.png" alt="Github"><span>》Github《</span></a>
+          </div>
       </section>
 
       <section id="linux">
-         <h2 class="section-title">/=======================\<br>/ Web Installasi Beberapa \<br>\ Distro Linux & Kegunaan /<br>\=======================/</h2>
+         <h2 class="section-title animate-on-scroll">/==============\
+                              <br>/ Web Installasi \
+                              <br>\ .Distro Linux. /
+                               <br>\==============/</h2>
          <ul class="linux-list">
-            <!-- Item Linux 1: Kali -->
-            <li class="linux-item">
-                <a href="https://www.kali.org/" target="_blank" rel="noopener noreferrer">
-                    <img src="kalnux.png" alt="Kali Linux Logo">
-                    <span class="distro-title">•⟩ ~Web /Kali (Kernel Auditing LInux)</span>
-                </a>
-                <div class="distro-details">
-                    <strong>Kelebihan:</strong><br>
-                      > Fokus ke keamanan<br>
-                      > Ringan dan cepat<br>
-                    <strong>Kekurangan:</strong><br>
-                      > Tidak ramah pengguna umum<br><br>
-                    Cocok untuk: developer yang melakukan tes penetrasi/ethical hackers<br>
-                </div>
-                 <div class="distro-links">
-                    <a href="kode.html">THIS IS CODE</a>
-                    <a href="https://www.kali.org/docs/nethunter/nethunter-rootless/" target="_blank" rel="noopener noreferrer">Install Net Hunter (Android)</a>
-                </div>
-                 <div class="distro-details" style="margin-top:1rem;">
-                     Kode Tambahan Termux:<br>
-                      $ termux-change-repo<br>
-                      $ apt update && apt upgrade -y<br>
-                      $ pkg install neofetch<br>
-                      $ neofetch<br><br>
-                    Aplikasi Tambahan:<br>
-                      <a href="https://f-droid.org/id/packages/com.termux/" target="_blank" rel="noopener noreferrer" style="color: skyblue;">Termux F-Droid</a><br>
-                      <a href="https://store.nethunter.com/" target="_blank" rel="noopener noreferrer" style="color: skyblue;">Nethunter Store</a>
-                 </div>
+             <!-- Tambahkan class animate-on-scroll ke setiap linux-item -->
+             <li class="linux-item animate-on-scroll">
+                <a href="https://www.kali.org/" target="_blank" rel="noopener noreferrer"><img src="kalnux.png" alt="Kali Linux Logo"><span class="distro-title">•⟩ ~Web /Kali Linux</span></a>
+                <div class="distro-details"><strong>Kelebihan:</strong><br>  > Fokus ke keamanan<br>  > Ringan dan cepat<br><strong>Kekurangan:</strong><br>  > Tidak ramah pengguna umum<br><br>Cocok untuk: ethical hackers/testers</div>
+                 <div class="distro-links"><a href="kode.html">THIS IS CODE</a><a href="https://www.kali.org/docs/nethunter/nethunter-rootless/" target="_blank" rel="noopener noreferrer">Install Net Hunter</a></div>
+                 <div class="distro-details" style="margin-top:1rem;">Kode Tambahan Termux:<br>  $ termux-change-repo<br>  $ apt update && apt upgrade -y<br>  $ pkg install neofetch<br>  $ neofetch<br><br>Aplikasi Tambahan:<br>  <a href="https://f-droid.org/id/packages/com.termux/" target="_blank" rel="noopener noreferrer" style="color: skyblue;">Termux F-Droid</a><br>  <a href="https://store.nethunter.com/" target="_blank" rel="noopener noreferrer" style="color: skyblue;">Nethunter Store</a></div>
             </li>
-
-            <!-- Item Linux 2: Tails -->
-            <li class="linux-item">
-                <a href="https://tails.boum.org/install/" target="_blank" rel="noopener noreferrer">
-                    <img src="tails.png" alt="Tails OS Logo">
-                    <span class="distro-title">•⟩ ~Web /Tails</span>
-                </a>
-                <div class="distro-details">
-                    <strong>Kelebihan:</strong><br>
-                      > Sistem keamanan terbaik<br>
-                      > Ringan<br>
-                    <strong>Kekurangan:</strong><br>
-                      > Sebagian orang mungkin tidak cocok dengan booting-nya yang cabut pasang (meskipun ini untuk keamanan)<br><br>
-                    Cocok untuk: pengguna yang mengharapkan keamanan tingkat tinggi<br>
-                </div>
+            <li class="linux-item animate-on-scroll">
+                <a href="https://tails.boum.org/install/" target="_blank" rel="noopener noreferrer"><img src="tails.png" alt="Tails OS Logo"><span class="distro-title">•⟩ ~Web /Tails</span></a>
+                <div class="distro-details"><strong>Kelebihan:</strong><br>  > Sistem keamanan terbaik<br>  > Ringan<br><strong>Kekurangan:</strong><br>  > Booting cabut pasang (untuk keamanan)<br><br>Cocok untuk: pengguna privasi tinggi</div>
             </li>
-
-             <!-- Item Linux 3: Arch -->
-             <li class="linux-item">
-                 <a href="https://archlinux.org/download/" target="_blank" rel="noopener noreferrer">
-                    <img src="anux.png" alt="Arch Linux Logo">
-                    <span class="distro-title">•⟩ ~Web /Arch</span>
-                 </a>
-                 <div class="distro-details">
-                     <strong>Kelebihan:</strong><br>
-                      > Mudah untuk melakukan kustomisasi<br>
-                      > Banyak tools advanced<br>
-                      > Dukungan komunitas kuat<br>
-                    <strong>Kekurangan:</strong><br>
-                      > Butuh pengetahuan dasar tentang Linux untuk penyesuaian<br><br>
-                    Cocok untuk: pengguna advanced<br>
-                 </div>
+             <li class="linux-item animate-on-scroll">
+                 <a href="https://archlinux.org/download/" target="_blank" rel="noopener noreferrer"><img src="anux.png" alt="Arch Linux Logo"><span class="distro-title">•⟩ ~Web /Arch</span></a>
+                 <div class="distro-details"><strong>Kelebihan:</strong><br>  > Kustomisasi tinggi<br>  > Tools advanced<br>  > Komunitas kuat<br><strong>Kekurangan:</strong><br>  > Butuh pengetahuan Linux<br><br>Cocok untuk: pengguna advanced</div>
             </li>
-
-             <!-- Item Linux 4: Gentoo -->
-             <li class="linux-item">
-                 <a href="https://www.gentoo.org/" target="_blank" rel="noopener noreferrer">
-                    <img src="gentoolinux.png" alt="Gentoo Linux Logo">
-                    <span class="distro-title">•⟩ ~Web /Gentoo Linux</span>
-                 </a>
-                 <div class="distro-details">
-                     <strong>Kelebihan:</strong><br>
-                      > Ringan dan cepat<br>
-                      > Memberi kontrol kustomisasi penuh<br>
-                    <strong>Kekurangan:</strong><br>
-                      > Butuh pengetahuan yang cukup sebelum melakukan kustomisasi<br><br>
-                    Cocok untuk: pengguna advanced<br>
-                 </div>
+            <li class="linux-item animate-on-scroll">
+                 <a href="https://www.gentoo.org/" target="_blank" rel="noopener noreferrer"><img src="gentoolinux.png" alt="Gentoo Linux Logo"><span class="distro-title">•⟩ ~Web /Gentoo Linux</span></a>
+                 <div class="distro-details"><strong>Kelebihan:</strong><br>  > Ringan dan cepat<br>  > Kontrol kustomisasi penuh<br><strong>Kekurangan:</strong><br>  > Butuh pengetahuan cukup<br><br>Cocok untuk: pengguna advanced</div>
             </li>
-
-             <!-- Item Linux 5: openSUSE -->
-             <li class="linux-item">
-                 <a href="https://get.opensuse.org/" target="_blank" rel="noopener noreferrer">
-                    <img src="opensuse.png" alt="openSUSE Logo">
-                    <span class="distro-title">•⟩ ~Web /openSUSE</span>
-                 </a>
-                 <div class="distro-details">
-                     <strong>Kelebihan:</strong><br>
-                      > Fitur lengkap<br>
-                      > Dukungan multimedia terbaik<br>
-                      > Implementasi paket efisien<br>
-                    <strong>Kekurangan:</strong><br>
-                      > Bukan untuk pengguna pemula<br><br>
-                    Cocok untuk: sysadmins dan developers<br>
-                 </div>
+            <li class="linux-item animate-on-scroll">
+                 <a href="https://get.opensuse.org/" target="_blank" rel="noopener noreferrer"><img src="opensuse.png" alt="openSUSE Logo"><span class="distro-title">•⟩ ~Web /openSUSE</span></a>
+                 <div class="distro-details"><strong>Kelebihan:</strong><br>  > Fitur lengkap<br>  > Multimedia terbaik<br>  > Paket efisien<br><strong>Kekurangan:</strong><br>  > Bukan untuk pemula<br><br>Cocok untuk: sysadmins & developers</div>
             </li>
-
-            <!-- Item Linux 6: Linux Mint -->
-             <li class="linux-item">
-                 <a href="https://linuxmint.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="linuxmint.png" alt="Linux Mint Logo">
-                    <span class="distro-title">•⟩ ~Web /Linux Mint</span>
-                 </a>
-                 <div class="distro-details">
-                     <strong>Kelebihan:</strong><br>
-                      > Cocok untuk multimedia<br>
-                      > Sistem stabil<br>
-                      > Akses ringan<br>
-                    <strong>Kekurangan:</strong><br>
-                      > Tampilan standar desktop klasik<br><br>
-                    Cocok untuk: pemula<br>
-                 </div>
+            <li class="linux-item animate-on-scroll">
+                 <a href="https://linuxmint.com/" target="_blank" rel="noopener noreferrer"><img src="linuxmint.png" alt="Linux Mint Logo"><span class="distro-title">•⟩ ~Web /Linux Mint</span></a>
+                 <div class="distro-details"><strong>Kelebihan:</strong><br>  > Multimedia<br>  > Stabil & ringan<br><strong>Kekurangan:</strong><br>  > Tampilan desktop klasik<br><br>Cocok untuk: pemula</div>
             </li>
-
-             <!-- Item Linux 7: Debian -->
-             <li class="linux-item">
-                 <a href="https://www.debian.org/" target="_blank" rel="noopener noreferrer">
-                    <img src="debian.png" alt="Debian Logo">
-                    <span class="distro-title">•⟩ ~Web /Debian</span>
-                 </a>
-                 <div class="distro-details">
-                     <strong>Kelebihan:</strong><br>
-                      > Aman<br>
-                      > Akses ringan<br>
-                    <strong>Kekurangan:</strong><br>
-                      > Tampilannya yang sangat jadul mungkin tidak cocok buat sebagian pengguna<br><br>
-                    Cocok untuk: semua orang<br>
-                 </div>
+             <li class="linux-item animate-on-scroll">
+                 <a href="https://www.debian.org/" target="_blank" rel="noopener noreferrer"><img src="debian.png" alt="Debian Logo"><span class="distro-title">•⟩ ~Web /Debian</span></a>
+                 <div class="distro-details"><strong>Kelebihan:</strong><br>  > Aman & ringan<br><strong>Kekurangan:</strong><br>  > Tampilan jadul<br><br>Cocok untuk: semua orang</div>
             </li>
-
-             <!-- Item Linux 8: Deepin -->
-             <li class="linux-item">
-                 <a href="https://www.deepin.org/index/en" target="_blank" rel="noopener noreferrer">
-                    <img src="deepin.png" alt="Deepin OS Logo">
-                    <span class="distro-title">•⟩ ~Web /Deepin</span>
-                 </a>
-                 <div class="distro-details">
-                     <strong>Kelebihan:</strong><br>
-                      > Tampilan stylish<br>
-                      > Memiliki semua paket dari Debian<br>
-                    <strong>Kekurangan:</strong><br>
-                      > Berat, lambat, dan boros memori<br><br>
-                    Cocok untuk: pengguna rumahan<br>
-                 </div>
+             <li class="linux-item animate-on-scroll">
+                 <a href="https://www.deepin.org/index/en" target="_blank" rel="noopener noreferrer"><img src="deepin.png" alt="Deepin OS Logo"><span class="distro-title">•⟩ ~Web /Deepin</span></a>
+                 <div class="distro-details"><strong>Kelebihan:</strong><br>  > Tampilan stylish<br>  > Paket Debian<br><strong>Kekurangan:</strong><br>  > Berat & lambat<br><br>Cocok untuk: pengguna rumahan</div>
             </li>
-
-             <!-- Item Linux 9: Ubuntu -->
-             <li class="linux-item">
-                 <a href="https://ubuntu.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="ubuntu.png" alt="Ubuntu Logo">
-                    <span class="distro-title">•⟩ ~Web /Ubuntu</span>
-                 </a>
-                 <div class="distro-details">
-                     <strong>Kelebihan:</strong><br>
-                      > Ramah pengguna<br>
-                      > Stabil dan aman<br>
-                      > Update berkala<br>
-                    <strong>Kekurangan:</strong><br>
-                      > Tampilan standar desktop<br><br>
-                    Cocok untuk: pemula<br>
-                 </div>
+             <li class="linux-item animate-on-scroll">
+                 <a href="https://ubuntu.com/" target="_blank" rel="noopener noreferrer"><img src="ubuntu.png" alt="Ubuntu Logo"><span class="distro-title">•⟩ ~Web /Ubuntu</span></a>
+                 <div class="distro-details"><strong>Kelebihan:</strong><br>  > Ramah pengguna<br>  > Stabil & aman<br>  > Update berkala<br><strong>Kekurangan:</strong><br>  > Tampilan standar<br><br>Cocok untuk: pemula</div>
             </li>
-
-             <!-- Item Linux 10: Lubuntu -->
-             <li class="linux-item">
-                 <a href="https://lubuntu.me/" target="_blank" rel="noopener noreferrer">
-                    <img src="lubuntu.png" alt="Lubuntu Logo">
-                    <span class="distro-title">•⟩ ~Web /Lubuntu</span>
-                 </a>
-                 <div class="distro-details">
-                     <strong>Kelebihan:</strong><br>
-                      > Cocok untuk sistem jadul<br>
-                      > Ringan dan efisien<br>
-                    <strong>Kekurangan:</strong><br>
-                      > Tidak cocok untuk penggunaan berat<br><br>
-                    Cocok untuk: instalasi di hardware jadul<br>
-                 </div>
+             <li class="linux-item animate-on-scroll">
+                 <a href="https://lubuntu.me/" target="_blank" rel="noopener noreferrer"><img src="lubuntu.png" alt="Lubuntu Logo"><span class="distro-title">•⟩ ~Web /Lubuntu</span></a>
+                 <div class="distro-details"><strong>Kelebihan:</strong><br>  > Sistem jadul<br>  > Ringan & efisien<br><strong>Kekurangan:</strong><br>  > Penggunaan berat<br><br>Cocok untuk: hardware jadul</div>
             </li>
-
-             <!-- Item Linux 11: Peppermint OS -->
-             <li class="linux-item">
-                 <a href="https://peppermintos.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="peppermint.png" alt="Peppermint OS Logo">
-                    <span class="distro-title">•⟩ ~Web /Peppermint OS</span>
-                 </a>
-                 <div class="distro-details">
-                     <strong>Kelebihan:</strong><br>
-                      > Tampilan bersih dan modern<br>
-                      > Ramah pengguna<br>
-                      > Integrasi aplikasi lokal dan cloud<br>
-                    <strong>Kekurangan:</strong><br>
-                      > Jarang memberikan update sistem<br><br>
-                    Cocok untuk: semua pengguna<br>
-                 </div>
+             <li class="linux-item animate-on-scroll">
+                 <a href="https://peppermintos.com/" target="_blank" rel="noopener noreferrer"><img src="peppermint.png" alt="Peppermint OS Logo"><span class="distro-title">•⟩ ~Web /Peppermint OS</span></a>
+                 <div class="distro-details"><strong>Kelebihan:</strong><br>  > Bersih & modern<br>  > Ramah pengguna<br>  > Integrasi cloud<br><strong>Kekurangan:</strong><br>  > Update jarang<br><br>Cocok untuk: semua pengguna</div>
             </li>
-
-            <!-- Item Linux 12: elementary OS -->
-            <li class="linux-item">
-                <a href="https://elementary.io/" target="_blank" rel="noopener noreferrer">
-                    <img src="elementary.png" alt="elementary OS Logo">
-                    <span class="distro-title">•⟩ ~Web /elementary OS</span>
-                </a>
-                <div class="distro-details">
-                    <strong>Kelebihan:</strong><br>
-                      > Terkesan muda dan segar<br>
-                      > Cocok untuk kebutuhan desktop<br>
-                    <strong>Kekurangan:</strong><br>
-                      > Sebagian orang mengkritisi tampilannya yang mirip Mac<br><br>
-                    Cocok untuk: pengguna pemula<br>
-                </div>
+            <li class="linux-item animate-on-scroll">
+                <a href="https://elementary.io/" target="_blank" rel="noopener noreferrer"><img src="elementary.png" alt="elementary OS Logo"><span class="distro-title">•⟩ ~Web /elementary OS</span></a>
+                <div class="distro-details"><strong>Kelebihan:</strong><br>  > Muda & segar<br>  > Kebutuhan desktop<br><strong>Kekurangan:</strong><br>  > Mirip Mac<br><br>Cocok untuk: pemula</div>
             </li>
-
-            <!-- Item Linux 13: CentOS -->
-            <li class="linux-item">
-                <a href="https://centos.org/" target="_blank" rel="noopener noreferrer">
-                    <img src="centos.png" alt="CentOS Logo">
-                    <span class="distro-title">•⟩ ~Web /CentOS</span>
-                </a>
-                <div class="distro-details">
-                    <strong>Kelebihan:</strong><br>
-                      > Stabil<br>
-                    <strong>Kekurangan:</strong><br>
-                      > Bukan untuk penggunaan desktop sehari-hari<br><br>
-                    Cocok untuk: home server<br>
-                </div>
+            <li class="linux-item animate-on-scroll">
+                <a href="https://centos.org/" target="_blank" rel="noopener noreferrer"><img src="centos.png" alt="CentOS Logo"><span class="distro-title">•⟩ ~Web /CentOS</span></a>
+                <div class="distro-details"><strong>Kelebihan:</strong><br>  > Stabil<br><strong>Kekurangan:</strong><br>  > Bukan desktop harian<br><br>Cocok untuk: home server</div>
             </li>
         </ul>
       </section>
 
       <section id="class">
-         <h2 class="section-title">/========================\<br>/ Di Bawah Ini Adalah Kelas \<br>\ Yang Recomended Banget. /<br>\========================/</h2>
+         <h2 class="section-title animate-on-scroll">/================\
+                              <br>/ Recomended Kawan \
+                              <br>\ Kelas Belajar IT /
+                               <br>\================/</h2>
          <ul class="class-list">
-            <li class="class-item">
-                <a href="https://www.cyberacademy.id/belajar-online" target="_blank" rel="noopener noreferrer">
-                    <img src="cyberacademy.png" alt="Cyber Academy Logo">
-                    <span class="class-title">•⟩ ~Cyber Academy</span>
-                </a>
-            </li>
-             <li class="class-item">
-                <a href="https://www.agunacourse.com/?standalone=true" target="_blank" rel="noopener noreferrer">
-                    <img src="agunacourse.png" alt="Aguna Course Logo">
-                    <span class="class-title">•⟩ ~Aguna Course</span>
-                </a>
-            </li>
-             <li class="class-item">
-                <a href="https://tujuhub-303131.tujuhub.com/student/home" target="_blank" rel="noopener noreferrer">
-                    <img src="tujuhub.png" alt="Tujuhub Logo">
-                    <span class="class-title">•⟩ ~Tujuhub</span>
-                </a>
-            </li>
-             <li class="class-item">
-                <a href="https://myskill.id/" target="_blank" rel="noopener noreferrer">
-                    <img src="myskill.png" alt="MySkill Logo">
-                    <span class="class-title">•⟩ ~My Skill</span>
-                </a>
-            </li>
-             <li class="class-item">
-                <a href="https://www.dicoding.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="new-ui-logo.png" alt="Dicoding Logo">
-                    <span class="class-title">•⟩ ~Dicoding</span>
-                </a>
-            </li>
-             <li class="class-item">
-                <a href="https://www.idn.id/" target="_blank" rel="noopener noreferrer">
-                    <img src="id.png" alt="IDN Logo">
-                    <span class="class-title">•⟩ ~Idn.Id</span>
-                </a>
-            </li>
-             <li class="class-item">
-                <a href="https://matahacker.id/" target="_blank" rel="noopener noreferrer">
-                    <img src="matahacker.png" alt="Mata Hacker Logo">
-                    <span class="class-title">•⟩ ~Mata Hacker</span>
-                </a>
-            </li>
+             <!-- Tambahkan class animate-on-scroll ke setiap class-item -->
+             <li class="class-item animate-on-scroll"><a href="https://www.cyberacademy.id/belajar-online" target="_blank" rel="noopener noreferrer"><img src="cyberacademy.png" alt="Cyber Academy Logo"><span class="class-title">•⟩ ~Cyber Academy</span></a></li>
+             <li class="class-item animate-on-scroll"><a href="https://www.agunacourse.com/?standalone=true" target="_blank" rel="noopener noreferrer"><img src="agunacourse.png" alt="Aguna Course Logo"><span class="class-title">•⟩ ~Aguna Course</span></a></li>
+             <li class="class-item animate-on-scroll"><a href="https://tujuhub-303131.tujuhub.com/student/home" target="_blank" rel="noopener noreferrer"><img src="tujuhub.png" alt="Tujuhub Logo"><span class="class-title">•⟩ ~Tujuhub</span></a></li>
+             <li class="class-item animate-on-scroll"><a href="https://myskill.id/" target="_blank" rel="noopener noreferrer"><img src="myskill.png" alt="MySkill Logo"><span class="class-title">•⟩ ~My Skill</span></a></li>
+             <li class="class-item animate-on-scroll"><a href="https://www.dicoding.com/" target="_blank" rel="noopener noreferrer"><img src="new-ui-logo.png" alt="Dicoding Logo"><span class="class-title">•⟩ ~Dicoding</span></a></li>
+             <li class="class-item animate-on-scroll"><a href="https://www.idn.id/" target="_blank" rel="noopener noreferrer"><img src="id.png" alt="IDN Logo"><span class="class-title">•⟩ ~Idn.Id</span></a></li>
+             <li class="class-item animate-on-scroll"><a href="https://matahacker.id/" target="_blank" rel="noopener noreferrer"><img src="matahacker.png" alt="Mata Hacker Logo"><span class="class-title">•⟩ ~Mata Hacker</span></a></li>
          </ul>
       </section>
 
       <section id="project">
-         <h2 class="section-title">/========================\<br>/ Contoh Web Yang Pernah \<br>\ Saya Buat & Edit. /<br>\========================/</h2>
+         <h2 class="section-title animate-on-scroll">/===========\
+                              <br>/ My__Projeck \
+                              <br>\ ..<(^_^)>.. /
+                               <br>\===========/</h2>
          <ul class="project-list">
-            <li class="project-item">
-                <a href="https://risbrine404.github.io/smk5sila/" target="_blank" rel="noopener noreferrer">
-                    <img src="website.png" alt="Project Icon">
-                    <span class="project-title">•⟩ ~Website Official School</span>
-                </a>
-            </li>
-            <li class="project-item">
-                <a href="https://risbrine404.github.io/manipulasi/" target="_blank" rel="noopener noreferrer">
-                    <img src="website.png" alt="Project Icon">
-                    <span class="project-title">•⟩ ~Website Belajar Manipulasi (PENCEGAHAN)</span>
-                </a>
-            </li>
-             <li class="project-item">
-                <a href="https://risbrine404.github.io/money/" target="_blank" rel="noopener noreferrer">
-                    <img src="website.png" alt="Project Icon">
-                    <span class="project-title">•⟩ ~Catatan Keuangan (Pengeluaran/Pemasukan)</span>
-                </a>
-            </li>
-             <li class="project-item">
-                <a href="https://risbrine404.github.io/money/detail.html" target="_blank" rel="noopener noreferrer">
-                    <img src="website.png" alt="Project Icon">
-                    <span class="project-title">•⟩ ~Catatan Keuangan (Grafik Penghasilan)</span>
-                </a>
-            </li>
-             <li class="project-item">
-                <a href="https://risbrine404.github.io/kredivo/" target="_blank" rel="noopener noreferrer">
-                    <img src="website.png" alt="Project Icon">
-                    <span class="project-title">•⟩ ~Catatan Transaksi Kredivo</span>
-                </a>
-            </li>
-             <li class="project-item">
-                <a href="https://risbrine404.github.io/shst/" target="_blank" rel="noopener noreferrer">
-                    <img src="website.png" alt="Project Icon">
-                    <div>
-                        <span class="project-title">•⟩ ~Web Quote+Audio</span>
-                        <span class="project-description">Share Hack System Technologi</span>
-                    </div>
-                </a>
-            </li>
-             <li class="project-item">
-                <a href="https://risbrine404.github.io/Its/" target="_blank" rel="noopener noreferrer">
-                    <img src="website.png" alt="Project Icon">
-                    <span class="project-title">•⟩ ~Slide Video Job</span>
-                </a>
-            </li>
-            <li class="project-item">
-                <a href="https://risbrine404.github.io/shop/" target="_blank" rel="noopener noreferrer">
-                    <img src="website.png" alt="Project Icon">
-                    <span class="project-title">•⟩ ~E-Commerce Go WhatsApp</span>
-                </a>
-            </li>
-            <li class="project-item">
-                <a href="https://risbrine404.github.io/sdnmjwr1-18/" target="_blank" rel="noopener noreferrer">
-                    <img src="website.png" alt="Project Icon">
-                     <div>
-                        <span class="project-title">•⟩ ~Web Daftar Nama Alumni</span>
-                        <span class="project-description">SDN Mojowarno 1 (2017/2018)</span>
-                    </div>
-                </a>
-            </li>
-             <li class="project-item">
-                <a href="https://risbrine404.github.io/lebaran/" target="_blank" rel="noopener noreferrer">
-                    <img src="website.png" alt="Project Icon">
-                    <span class="project-title">•⟩ ~Web Ucapan Idul Fitri 2025</span>
-                </a>
-            </li>
-             <li class="project-item">
-                <a href="https://risbrine404.github.io/ramadhan2022/" target="_blank" rel="noopener noreferrer">
-                    <img src="website.png" alt="Project Icon">
-                    <span class="project-title">•⟩ ~Web Menyambut Ramadhan 2022</span>
-                </a>
-            </li>
-             <li class="project-item">
-                <a href="https://risbrine404.github.io/datadiri/" target="_blank" rel="noopener noreferrer">
-                    <img src="website.png" alt="Project Icon">
-                    <span class="project-title">•⟩ ~Web RisBrine Profile Identity</span>
-                </a>
-            </li>
-            <li class="project-item">
-                <a href="https://risbrine404.github.io/list/" target="_blank" rel="noopener noreferrer">
-                    <img src="website.png" alt="Project Icon">
-                    <span class="project-title">•⟩ ~Web List Latihan Olahraga/Bela Diri</span>
-                </a>
-            </li>
-             <li class="project-item">
-                <a href="https://risbrine404.github.io/faster_eye/" target="_blank" rel="noopener noreferrer">
-                    <img src="website.png" alt="Project Icon">
-                    <span class="project-title">•⟩ ~Web Game Faster Eye Ball</span>
-                </a>
-            </li>
-             <li class="project-item">
-                <a href="https://risbrine404.github.io/portfolio1.0/" target="_blank" rel="noopener noreferrer">
-                    <img src="website.png" alt="Project Icon">
-                     <div>
-                        <span class="project-title">•⟩ ~Web Personal Portfolio Animation</span>
-                        <span class="project-description">(Khusus Windows Chrome)</span>
-                    </div>
-                </a>
-            </li>
-             <li class="project-item">
-                <a href="https://risbrine404.github.io/portofolio_one/" target="_blank" rel="noopener noreferrer">
-                    <img src="website.png" alt="Project Icon">
-                    <span class="project-title">•⟩ ~Web Personal Portfolio</span>
-                </a>
-            </li>
-             <li class="project-item">
-                <a href="https://risbrine404.github.io/ry/" target="_blank" rel="noopener noreferrer">
-                    <img src="website.png" alt="Project Icon">
-                    <span class="project-title">•⟩ ~Web Ultah (One Target)</span>
-                </a>
-            </li>
+             <!-- Tambahkan class animate-on-scroll ke setiap project-item -->
+             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/smk5sila/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Website Official School</span></a></li>
+            <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/manipulasi/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Website Belajar Manipulasi (PENCEGAHAN)</span></a></li>
+             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/money/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Catatan Keuangan (Pengeluaran/Pemasukan)</span></a></li>
+             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/money/detail.html" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Catatan Keuangan (Grafik Penghasilan)</span></a></li>
+             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/kredivo/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Catatan Transaksi Kredivo</span></a></li>
+             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/shst/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><div><span class="project-title">•⟩ ~Web Quote+Audio</span><span class="project-description">Share Hack System Technologi</span></div></a></li>
+             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/Its/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Slide Video Job</span></a></li>
+            <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/shop/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~E-Commerce Go WhatsApp</span></a></li>
+            <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/sdnmjwr1-18/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><div><span class="project-title">•⟩ ~Web Daftar Nama Alumni</span><span class="project-description">SDN Mojowarno 1 (2017/2018)</span></div></a></li>
+             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/lebaran/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web Ucapan Idul Fitri 2025</span></a></li>
+             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/ramadhan2022/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web Menyambut Ramadhan 2022</span></a></li>
+             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/datadiri/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web RisBrine Profile Identity</span></a></li>
+            <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/list/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web List Latihan Olahraga/Bela Diri</span></a></li>
+             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/faster_eye/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web Game Faster Eye Ball</span></a></li>
+             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/portfolio1.0/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><div><span class="project-title">•⟩ ~Web Personal Portfolio Animation</span><span class="project-description">(Khusus Windows Chrome)</span></div></a></li>
+             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/portofolio_one/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web Personal Portfolio</span></a></li>
+             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/ry/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web Ultah (One Target)</span></a></li>
          </ul>
       </section>
 
-       <p class="greeting-arabic" style="margin-top: 3rem;">
-          =========================<br>
+       <p class="greeting-arabic animate-on-scroll" style="margin-top: 3rem;">
+          =====================<br>
            وَالسَّلَامُ عَلَيْكُمْ وَرَحْمَةُاللَّهِ وَبَرَكَاتُه<br>
-          =========================
+          =====================
       </p>
 
     </main>
 
     <!-- Floating Action Buttons -->
-    <a href="https://risbrine404.github.io/portofolio_one/" class="fab fab-portfolio" title="Lihat Portofolio">
-      <img src="website.png" alt="portofolio">
-    </a>
-    <a href="https://risbrine404.github.io/runone/" class="fab fab-code" title="Lihat Kode">
-      <img src="kodeone.png" alt="kode">
-    </a>
+    <a href="https://risbrine404.github.io/portofolio_one/" class="fab fab-portfolio" title="Lihat Portofolio"><img src="website.png" alt="portofolio"></a>
+    <a href="https://risbrine404.github.io/runone/" class="fab fab-code" title="Lihat Kode"><img src="kodeone.png" alt="kode"></a>
 
   </div> <!-- End .main-container -->
 
-  <footer class="page-footer">
+  <footer class="page-footer animate-on-scroll"> <!-- Footer juga bisa dianimasikan -->
     <p class="footer-text">
         -Copyright©2022-Sekarang / RisBrine<br>
         Supported by SHST
     </p>
     <p class="thanks-text">TERIMA KASIH TELAH BERKUNJUNG</p>
   </footer>
+
+  <!-- --- >>> JAVASCRIPT UNTUK ANIMASI SCROLL <<< --- -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const observerOptions = {
+        root: null, // Menggunakan viewport sebagai root
+        rootMargin: '0px',
+        threshold: 0.1 // Memicu ketika 10% elemen terlihat
+      };
+
+      const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+          // Jika elemen masuk ke viewport
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            // Hentikan pengamatan elemen ini setelah animasi dijalankan sekali
+            observer.unobserve(entry.target);
+          }
+          // Jika ingin animasi berjalan setiap kali masuk/keluar viewport,
+          // hapus baris observer.unobserve(entry.target); di atas
+          // dan tambahkan logika untuk menghapus class 'is-visible':
+          // else {
+          //   entry.target.classList.remove('is-visible');
+          // }
+        });
+      };
+
+      // Buat observer
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+      // Pilih semua elemen yang ingin dianimasikan
+      const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+
+      // Mulai amati setiap elemen
+      elementsToAnimate.forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+  <!-- --- >>> AKHIR JAVASCRIPT ANIMASI SCROLL <<< --- -->
 
 </body>
 </html>
