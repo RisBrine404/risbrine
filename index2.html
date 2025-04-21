@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RisBrine404 - UI Diperbaiki & Nav Sticky + Animasi Scroll</title>
+  <title>RisBrine404 - UI Diperbaiki & Nav Sticky</title>
   <style>
     /* Reset Dasar & Box Sizing */
     *, *::after, *::before {
@@ -26,7 +26,6 @@
       background-attachment: fixed;
       background-repeat: repeat;
       line-height: 1.6;
-      overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
     }
 
     /* Container Utama */
@@ -34,7 +33,6 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 1rem;
-      overflow: hidden; /* Mencegah konten animasi keluar batas */
     }
 
     /* Header Styling */
@@ -179,11 +177,11 @@
     .profile-image { display: block; max-width: 100%; height: auto; width: 300px; }
     .profile-caption { font-size: 0.9rem; color: #ccc; font-style: italic; }
 
-    /* Kontrol Audio */
-    .audio-player-section { text-align: center; margin: 1.5rem 0; padding: 1rem; background-color: rgba(0, 0, 0, 0.3); border-radius: 8px; }
+    /* Kontrol Audio di Main - DIHAPUS */
+    /* .audio-player-section { text-align: center; margin: 1.5rem 0; padding: 1rem; background-color: rgba(0, 0, 0, 0.3); border-radius: 8px; }
     .audio-player-section p { font-size: 1rem; color: greenyellow; margin-bottom: 0.8rem; font-family: 'Arial', sans-serif; }
     .audio-player-section audio { width: 80%; max-width: 500px; margin-bottom: 1rem; }
-    .audio-instruction { font-size: 1rem; color: greenyellow; margin-top: 1rem; font-weight: bold; text-shadow: 0 0 5px #ff000f; }
+    .audio-instruction { font-size: 1rem; color: greenyellow; margin-top: 1rem; font-weight: bold; text-shadow: 0 0 5px #ff000f; } */
 
     /* Link Profile Identity */
     .profile-link-container { text-align: center; margin: 2rem 0; }
@@ -204,7 +202,7 @@
 
     /* Linux Distro Section */
     #linux .linux-list, #class .class-list, #project .project-list { list-style: none; padding: 0; display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
-    #linux .linux-item, #class .class-item, #project .project-item { background-color: rgba(0, 0, 50, 0.3); border: 5px solid blue; border-radius: 10px; padding: 1rem; transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi hover tetap ada */ }
+    #linux .linux-item, #class .class-item, #project .project-item { background-color: rgba(0, 0, 50, 0.3); border: 5px solid blue; border-radius: 10px; padding: 1rem; transition: transform 0.3s ease, box-shadow 0.3s ease; }
     #linux .linux-item:hover, #class .class-item:hover, #project .project-item:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 0, 255, 0.3); }
     #linux .linux-item a, #class .class-item a, #project .project-item a { text-decoration: none; display: flex; flex-direction: column; align-items: center; color: inherit; }
     #linux .linux-item img { max-width: 250px; height: auto; margin-bottom: 1rem; border-radius: 5px; }
@@ -225,28 +223,86 @@
     .page-footer .thanks-text { font-size: 1.5rem; color: #eee; font-weight: bold; margin-top: 1rem; }
 
     /* Floating Action Buttons (FAB) */
-    .fab { display: block; width: 70px; height: 70px; line-height: 70px; text-align: center; color: white; font-weight: bold; border-radius: 50%; text-decoration: none; transition: background-color 0.3s ease, transform 0.3s ease; position: fixed; right: 20px; background-color: rgb(7, 4, 196); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); z-index: 1001; overflow: hidden; }
-    .fab img { width: 70%; height: auto; vertical-align: middle; margin-top: -4px; }
+    .fab { display: block; width: 70px; height: 70px; line-height: 70px; text-align: center; color: white; font-weight: bold; border-radius: 50%; text-decoration: none; transition: background-color 0.3s ease, transform 0.3s ease, bottom 0.3s ease; /* Tambahkan transisi bottom */ position: fixed; right: 20px; background-color: rgb(7, 4, 196); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); z-index: 1001; overflow: hidden; cursor: pointer; /* Tambahkan cursor pointer */ }
+    .fab img { width: 70%; height: auto; vertical-align: middle; margin-top: -4px; pointer-events: none; /* Agar klik pada img tidak mengganggu klik pada a/div */ }
     .fab-portfolio { bottom: 20px; }
     .fab-code { bottom: 100px; }
+    /* Tombol Musik Baru */
+    .fab-music {
+        bottom: 180px; /* Posisikan di atas tombol Kode */
+        background-color: #ff6347; /* Warna berbeda untuk membedakan */
+    }
     .fab:hover { background-color: rgb(0, 204, 51); transform: scale(1.1); }
+    .fab-music:hover { background-color: #e55337; transform: scale(1.1); } /* Hover spesifik */
 
-
-    /* --- >>> STYLING UNTUK ANIMASI SCROLL <<< --- */
-    .animate-on-scroll {
-      opacity: 0; /* Mulai dari transparan */
-      transform: translateY(40px); /* Mulai sedikit di bawah posisi asli */
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-      /* ease-out: animasi cepat di awal, melambat di akhir */
-      will-change: opacity, transform; /* Optimasi performa browser */
+    /* --- Music Sidebar Styling --- */
+    #music-sidebar {
+        position: fixed;
+        top: 0;
+        right: -350px; /* Mulai dari luar layar kanan (lebar 300px + padding) */
+        width: 320px; /* Lebar sidebar */
+        height: 100%;
+        background-color: rgba(26, 26, 26, 0.97); /* Background semi-transparan gelap */
+        padding: 20px;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+        z-index: 1002; /* Di atas FAB */
+        overflow-y: auto; /* Scroll jika konten lebih tinggi */
+        transition: right 0.4s ease-in-out; /* Animasi slide */
+        color: #fff;
+        font-family: 'Arial', sans-serif; /* Font yang lebih mudah dibaca untuk daftar */
     }
 
-    /* Class ini akan ditambahkan oleh JavaScript saat elemen terlihat */
-    .animate-on-scroll.is-visible {
-      opacity: 1; /* Jadi terlihat */
-      transform: translateY(0); /* Kembali ke posisi asli */
+    #music-sidebar.open {
+        right: 0; /* Munculkan sidebar */
     }
-    /* --- >>> AKHIR STYLING ANIMASI SCROLL <<< --- */
+
+    #music-sidebar h3 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #ff6347;
+        text-shadow: 1px 1px 2px black;
+    }
+
+    #music-sidebar .music-item {
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #444;
+    }
+    #music-sidebar .music-item:last-child {
+        border-bottom: none;
+        margin-bottom: 50px; /* Beri ruang ekstra di bawah item terakhir sebelum tombol close */
+    }
+
+    #music-sidebar .music-item p {
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+        color: #eee;
+        word-wrap: break-word; /* Wrap teks panjang */
+    }
+
+    #music-sidebar audio {
+        width: 100%;
+        height: 40px; /* Tinggi standar kontrol audio */
+    }
+
+    #close-sidebar-btn {
+        position: absolute; /* Relatif terhadap sidebar */
+        top: 15px;
+        right: 15px;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.8rem;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 5px;
+        line-height: 1;
+        transition: color 0.3s ease;
+    }
+    #close-sidebar-btn:hover {
+        color: #ff6347;
+    }
+    /* --- End Music Sidebar Styling --- */
 
 
     /* --- Media Queries --- */
@@ -266,24 +322,47 @@
       #class .class-title, #project .project-title { text-align: center; }
       #project .project-description { margin-left: 0; text-align: center; margin-top: 0.3rem; }
 
+      /* >>> PERUBAHAN POSISI FAB DI MOBILE <<< */
       .fab {
         width: 60px;
         height: 60px;
         line-height: 60px;
-        right: 10px;
+        right: 15px; /* Geser ke kiri sedikit */
       }
+       .fab img {
+           width: 60%; /* Sesuaikan ukuran ikon di mobile */
+       }
       .fab-portfolio {
         bottom: 15px;
       }
       .fab-code {
-        bottom: 85px;
+        bottom: 85px; /* Jarak dari tombol bawah */
       }
-      #home { padding-top: 0.5rem; }
+      /* Tombol Musik Baru di Mobile */
+      .fab-music {
+        bottom: 155px; /* Jarak dari tombol kode */
+      }
+      /* >>> AKHIR PERUBAHAN POSISI FAB <<< */
 
-      /* Sesuaikan nilai translateY untuk animasi di mobile jika perlu */
-      .animate-on-scroll {
-        transform: translateY(25px);
+      /* --- Music Sidebar Styling Mobile --- */
+      #music-sidebar {
+          width: 85%; /* Lebar sidebar lebih besar di mobile */
+          right: -90%; /* Sesuaikan posisi awal agar tersembunyi */
       }
+       #music-sidebar.open {
+           right: 0;
+       }
+       #music-sidebar h3 {
+           font-size: 1.5rem; /* Sedikit lebih kecil */
+       }
+       #close-sidebar-btn {
+           font-size: 1.6rem;
+           top: 10px;
+           right: 10px;
+       }
+      /* --- End Music Sidebar Styling Mobile --- */
+
+      #home { padding-top: 0.5rem; }
     }
 
     @media (min-width: 769px) {
@@ -304,9 +383,9 @@
 
   <div class="main-container">
 
-    <header class="page-header"> <!-- Bisa ditambahkan class="animate-on-scroll" jika ingin header juga animasi -->
+    <header class="page-header">
       <div class="separator">______________________</div>
-      <h1>/===============\<br>/ > RisBrine404 < \<br>\=================/</h1>
+      <h1>/===============\<br>/ > RisBrine404 < \<br>\=================/</h1> <!-- Sedikit penyesuaian teks H1 -->
     </header>
 
     <nav class="main-nav">
@@ -321,98 +400,90 @@
 
     <main>
       <section id="home">
-          <p class="greeting-arabic animate-on-scroll"> اَلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُاللَّهِ وَبَرَكَاتُهُ </p>
-          <h2 class="section-title animate-on-scroll">/---------------------\<br>\ [≤/≥] WELCOME [1\0] /<br>\___________________/</h2>
-          <button class="back-button animate-on-scroll" onclick="history.back()">KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
-          <div class="profile-section animate-on-scroll">
+          <p class="greeting-arabic"> اَلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُاللَّهِ وَبَرَكَاتُهُ </p>
+          <h2 class="section-title">/---------------------\<br>\ [≤/≥] WELCOME [1\0] /<br>\___________________/</h2>
+          <button class="back-button" onclick="history.back()">KEMBALI SEBELUM PERGI LEBIH JAUH (KLIK UNTUK KEMBALI)</button>
+          <div class="profile-section">
               <div class="profile-image-container"><img src="fotohcking.png" alt="Profile Hacking Illustration" class="profile-image"></div>
               <p class="profile-caption">Share Hack System Technologi</p>
           </div>
-          <div class="audio-player-section animate-on-scroll">
-              <p>Oh-Simple-Things-Where-Have-You-Gone-Lyrics-Somewhere-Only-We-Know-Keane-Cover.mp3</p><audio controls src="Oh-Simple-Things-Where-Have-You-Gone-Lyrics-Terjemahan-Somewhere-Only-We-Know-Keane-Cover_k7hArQL_m1k.mp3" type="audio/mpeg"></audio>
-              <p>NAN KO PAHAM New Version.mp3</p><audio controls src="NAN KO PAHAM New Version.mp3" type="audio/mpeg"></audio>
-              <p>Nanti Pasti Kau Mengerti Setelah Sa Hilang (Lirik Lagu) Nan Ko Paham.mp3</p><audio controls src="Nanti Pasti Kau Mengerti Setelah Sa Hilang (Lirik Lagu) Nan Ko Paham - BLG Rap (Tiktok Version)_2jv0yjVD2Pc.mp3" type="audio/mpeg"></audio>
-              <p>lagu AIO.mp3</p><audio controls src="laguaio.mp3" type="audio/mpeg"></audio>
-              <p>Chiisana Koi no Uta [Yui Aragaki] with Lyrics romanji and english sub.mp3</p><audio controls src="Chiisana Koi no Uta [Yui Aragaki] with Lyrics romanji and english sub.mp3" type="audio/mpeg"></audio>
-              <p>Kawtar - Ya Lalali (Sped Up).mp3</p><audio controls src="Kawtar - Ya Lalali (Sped Up).mp3" type="audio/mpeg"></audio>
-              <p class="audio-instruction">Nyalakan Atau Matikan Sound Sesuai Keinginan Anda</p>
-          </div>
-          <div class="profile-link-container animate-on-scroll"><a href="https://risbrine404.github.io/datadiri/" class="profile-link"><span> [Profile Identity] </span></a></div>
-          <div class="animate-on-scroll"><p class="warning-text">[--!!:WARNING:!!--]<br>SEBAGIAN SCRIPT MENGALAMI<br>!!! ERROR / MASALAH !!!<br>[ >> MOHON DIMAKLUMI << ]</p></div>
-          <p class="intro-text animate-on-scroll">Halo selamat datang di website saya.<br>Dibawah ini ialah akun media sosial saya<br>Bila bisa tolong Bantu follow/ikuti/subscribe/like akun yang ada di bawah ini</p>
+
+          <!-- Bagian Audio Player di sini DIHAPUS -->
+
+          <div class="profile-link-container"><a href="https://risbrine404.github.io/datadiri/" class="profile-link"><span> [Profile Identity] </span></a></div>
+          <div><p class="warning-text">[--!!:WARNING:!!--]<br>SEBAGIAN SCRIPT MENGALAMI<br>!!! ERROR / MASALAH !!!<br>[ >> MOHON DIMAKLUMI << ]</p></div>
+          <p class="intro-text">Halo selamat datang di website saya.<br>Dibawah ini ialah akun media sosial saya<br>Bila bisa tolong Bantu follow/ikuti/subscribe/like akun yang ada di bawah ini</p>
       </section>
 
       <section id="smedia">
-          <h2 class="section-title animate-on-scroll">SOCIAL MEDIA</h2>
+          <h2 class="section-title">SOCIAL MEDIA</h2>
           <div class="social-container">
-              <!-- Tambahkan class animate-on-scroll ke setiap link sosial media -->
-              <a class="social-link animate-on-scroll" href="https://wa.me/+6285755498964"><img src="whatsapp.png" alt="WhatsApp"><span>》WhatsApp《</span></a>
-              <a class="social-link animate-on-scroll" href="http://www.facebook.com/profile.php?id=100076396292235"><img src="facebook.png" alt="Facebook"><span>》Facebook《</span></a>
-              <a class="social-link animate-on-scroll" href="https://www.instagram.com/r15_br1ne49"><img src="instagram.png" alt="Instagram"><span>》Instagram《</span></a>
-              <a class="social-link animate-on-scroll" href="https://youtube.com/channel/UCYy0Gydrz4gtX_9dVBc4ltA"><img src="youtube.png" alt="YouTube"><span>》YouTube《</span></a>
-              <a class="social-link animate-on-scroll" href="https://repl.it/@risbrine404/"><img src="replit.jpg" alt="Replit"><span>》Replit《</span></a>
-              <a class="social-link animate-on-scroll" href="https://github.com/RisBrine404/RisBrine404"><img src="github.png" alt="Github"><span>》Github《</span></a>
+              <a class="social-link" href="https://wa.me/+6285755498964"><img src="whatsapp.png" alt="WhatsApp"><span>》WhatsApp《</span></a>
+              <a class="social-link" href="http://www.facebook.com/profile.php?id=100076396292235"><img src="facebook.png" alt="Facebook"><span>》Facebook《</span></a>
+              <a class="social-link" href="https://www.instagram.com/r15_br1ne49"><img src="instagram.png" alt="Instagram"><span>》Instagram《</span></a>
+              <a class="social-link" href="https://youtube.com/channel/UCYy0Gydrz4gtX_9dVBc4ltA"><img src="youtube.png" alt="YouTube"><span>》YouTube《</span></a>
+              <a class="social-link" href="https://repl.it/@risbrine404/"><img src="replit.jpg" alt="Replit"><span>》Replit《</span></a>
+              <a class="social-link" href="https://github.com/RisBrine404/RisBrine404"><img src="github.png" alt="Github"><span>》Github《</span></a>
           </div>
       </section>
 
       <section id="linux">
-         <h2 class="section-title animate-on-scroll">/==============\
+         <h2 class="section-title">/==============\
                               <br>/ Web Installasi \
                               <br>\ .Distro Linux. /
                                <br>\==============/</h2>
          <ul class="linux-list">
-             <!-- Tambahkan class animate-on-scroll ke setiap linux-item -->
-             <li class="linux-item animate-on-scroll">
+             <li class="linux-item">
                 <a href="https://www.kali.org/" target="_blank" rel="noopener noreferrer"><img src="kalnux.png" alt="Kali Linux Logo"><span class="distro-title">•⟩ ~Web /Kali Linux</span></a>
                 <div class="distro-details"><strong>Kelebihan:</strong><br>  > Fokus ke keamanan<br>  > Ringan dan cepat<br><strong>Kekurangan:</strong><br>  > Tidak ramah pengguna umum<br><br>Cocok untuk: ethical hackers/testers</div>
                  <div class="distro-links"><a href="kode.html">THIS IS CODE</a><a href="https://www.kali.org/docs/nethunter/nethunter-rootless/" target="_blank" rel="noopener noreferrer">Install Net Hunter</a></div>
                  <div class="distro-details" style="margin-top:1rem;">Kode Tambahan Termux:<br>  $ termux-change-repo<br>  $ apt update && apt upgrade -y<br>  $ pkg install neofetch<br>  $ neofetch<br><br>Aplikasi Tambahan:<br>  <a href="https://f-droid.org/id/packages/com.termux/" target="_blank" rel="noopener noreferrer" style="color: skyblue;">Termux F-Droid</a><br>  <a href="https://store.nethunter.com/" target="_blank" rel="noopener noreferrer" style="color: skyblue;">Nethunter Store</a></div>
             </li>
-            <li class="linux-item animate-on-scroll">
+            <li class="linux-item">
                 <a href="https://tails.boum.org/install/" target="_blank" rel="noopener noreferrer"><img src="tails.png" alt="Tails OS Logo"><span class="distro-title">•⟩ ~Web /Tails</span></a>
                 <div class="distro-details"><strong>Kelebihan:</strong><br>  > Sistem keamanan terbaik<br>  > Ringan<br><strong>Kekurangan:</strong><br>  > Booting cabut pasang (untuk keamanan)<br><br>Cocok untuk: pengguna privasi tinggi</div>
             </li>
-             <li class="linux-item animate-on-scroll">
+             <li class="linux-item">
                  <a href="https://archlinux.org/download/" target="_blank" rel="noopener noreferrer"><img src="anux.png" alt="Arch Linux Logo"><span class="distro-title">•⟩ ~Web /Arch</span></a>
                  <div class="distro-details"><strong>Kelebihan:</strong><br>  > Kustomisasi tinggi<br>  > Tools advanced<br>  > Komunitas kuat<br><strong>Kekurangan:</strong><br>  > Butuh pengetahuan Linux<br><br>Cocok untuk: pengguna advanced</div>
             </li>
-            <li class="linux-item animate-on-scroll">
+            <li class="linux-item">
                  <a href="https://www.gentoo.org/" target="_blank" rel="noopener noreferrer"><img src="gentoolinux.png" alt="Gentoo Linux Logo"><span class="distro-title">•⟩ ~Web /Gentoo Linux</span></a>
                  <div class="distro-details"><strong>Kelebihan:</strong><br>  > Ringan dan cepat<br>  > Kontrol kustomisasi penuh<br><strong>Kekurangan:</strong><br>  > Butuh pengetahuan cukup<br><br>Cocok untuk: pengguna advanced</div>
             </li>
-            <li class="linux-item animate-on-scroll">
+            <li class="linux-item">
                  <a href="https://get.opensuse.org/" target="_blank" rel="noopener noreferrer"><img src="opensuse.png" alt="openSUSE Logo"><span class="distro-title">•⟩ ~Web /openSUSE</span></a>
                  <div class="distro-details"><strong>Kelebihan:</strong><br>  > Fitur lengkap<br>  > Multimedia terbaik<br>  > Paket efisien<br><strong>Kekurangan:</strong><br>  > Bukan untuk pemula<br><br>Cocok untuk: sysadmins & developers</div>
             </li>
-            <li class="linux-item animate-on-scroll">
+            <li class="linux-item">
                  <a href="https://linuxmint.com/" target="_blank" rel="noopener noreferrer"><img src="linuxmint.png" alt="Linux Mint Logo"><span class="distro-title">•⟩ ~Web /Linux Mint</span></a>
                  <div class="distro-details"><strong>Kelebihan:</strong><br>  > Multimedia<br>  > Stabil & ringan<br><strong>Kekurangan:</strong><br>  > Tampilan desktop klasik<br><br>Cocok untuk: pemula</div>
             </li>
-             <li class="linux-item animate-on-scroll">
+             <li class="linux-item">
                  <a href="https://www.debian.org/" target="_blank" rel="noopener noreferrer"><img src="debian.png" alt="Debian Logo"><span class="distro-title">•⟩ ~Web /Debian</span></a>
                  <div class="distro-details"><strong>Kelebihan:</strong><br>  > Aman & ringan<br><strong>Kekurangan:</strong><br>  > Tampilan jadul<br><br>Cocok untuk: semua orang</div>
             </li>
-             <li class="linux-item animate-on-scroll">
+             <li class="linux-item">
                  <a href="https://www.deepin.org/index/en" target="_blank" rel="noopener noreferrer"><img src="deepin.png" alt="Deepin OS Logo"><span class="distro-title">•⟩ ~Web /Deepin</span></a>
                  <div class="distro-details"><strong>Kelebihan:</strong><br>  > Tampilan stylish<br>  > Paket Debian<br><strong>Kekurangan:</strong><br>  > Berat & lambat<br><br>Cocok untuk: pengguna rumahan</div>
             </li>
-             <li class="linux-item animate-on-scroll">
+             <li class="linux-item">
                  <a href="https://ubuntu.com/" target="_blank" rel="noopener noreferrer"><img src="ubuntu.png" alt="Ubuntu Logo"><span class="distro-title">•⟩ ~Web /Ubuntu</span></a>
                  <div class="distro-details"><strong>Kelebihan:</strong><br>  > Ramah pengguna<br>  > Stabil & aman<br>  > Update berkala<br><strong>Kekurangan:</strong><br>  > Tampilan standar<br><br>Cocok untuk: pemula</div>
             </li>
-             <li class="linux-item animate-on-scroll">
+             <li class="linux-item">
                  <a href="https://lubuntu.me/" target="_blank" rel="noopener noreferrer"><img src="lubuntu.png" alt="Lubuntu Logo"><span class="distro-title">•⟩ ~Web /Lubuntu</span></a>
                  <div class="distro-details"><strong>Kelebihan:</strong><br>  > Sistem jadul<br>  > Ringan & efisien<br><strong>Kekurangan:</strong><br>  > Penggunaan berat<br><br>Cocok untuk: hardware jadul</div>
             </li>
-             <li class="linux-item animate-on-scroll">
+             <li class="linux-item">
                  <a href="https://peppermintos.com/" target="_blank" rel="noopener noreferrer"><img src="peppermint.png" alt="Peppermint OS Logo"><span class="distro-title">•⟩ ~Web /Peppermint OS</span></a>
                  <div class="distro-details"><strong>Kelebihan:</strong><br>  > Bersih & modern<br>  > Ramah pengguna<br>  > Integrasi cloud<br><strong>Kekurangan:</strong><br>  > Update jarang<br><br>Cocok untuk: semua pengguna</div>
             </li>
-            <li class="linux-item animate-on-scroll">
+            <li class="linux-item">
                 <a href="https://elementary.io/" target="_blank" rel="noopener noreferrer"><img src="elementary.png" alt="elementary OS Logo"><span class="distro-title">•⟩ ~Web /elementary OS</span></a>
                 <div class="distro-details"><strong>Kelebihan:</strong><br>  > Muda & segar<br>  > Kebutuhan desktop<br><strong>Kekurangan:</strong><br>  > Mirip Mac<br><br>Cocok untuk: pemula</div>
             </li>
-            <li class="linux-item animate-on-scroll">
+            <li class="linux-item">
                 <a href="https://centos.org/" target="_blank" rel="noopener noreferrer"><img src="centos.png" alt="CentOS Logo"><span class="distro-title">•⟩ ~Web /CentOS</span></a>
                 <div class="distro-details"><strong>Kelebihan:</strong><br>  > Stabil<br><strong>Kekurangan:</strong><br>  > Bukan desktop harian<br><br>Cocok untuk: home server</div>
             </li>
@@ -420,50 +491,48 @@
       </section>
 
       <section id="class">
-         <h2 class="section-title animate-on-scroll">/================\
+         <h2 class="section-title">/================\
                               <br>/ Recomended Kawan \
                               <br>\ Kelas Belajar IT /
                                <br>\================/</h2>
          <ul class="class-list">
-             <!-- Tambahkan class animate-on-scroll ke setiap class-item -->
-             <li class="class-item animate-on-scroll"><a href="https://www.cyberacademy.id/belajar-online" target="_blank" rel="noopener noreferrer"><img src="cyberacademy.png" alt="Cyber Academy Logo"><span class="class-title">•⟩ ~Cyber Academy</span></a></li>
-             <li class="class-item animate-on-scroll"><a href="https://www.agunacourse.com/?standalone=true" target="_blank" rel="noopener noreferrer"><img src="agunacourse.png" alt="Aguna Course Logo"><span class="class-title">•⟩ ~Aguna Course</span></a></li>
-             <li class="class-item animate-on-scroll"><a href="https://tujuhub-303131.tujuhub.com/student/home" target="_blank" rel="noopener noreferrer"><img src="tujuhub.png" alt="Tujuhub Logo"><span class="class-title">•⟩ ~Tujuhub</span></a></li>
-             <li class="class-item animate-on-scroll"><a href="https://myskill.id/" target="_blank" rel="noopener noreferrer"><img src="myskill.png" alt="MySkill Logo"><span class="class-title">•⟩ ~My Skill</span></a></li>
-             <li class="class-item animate-on-scroll"><a href="https://www.dicoding.com/" target="_blank" rel="noopener noreferrer"><img src="new-ui-logo.png" alt="Dicoding Logo"><span class="class-title">•⟩ ~Dicoding</span></a></li>
-             <li class="class-item animate-on-scroll"><a href="https://www.idn.id/" target="_blank" rel="noopener noreferrer"><img src="id.png" alt="IDN Logo"><span class="class-title">•⟩ ~Idn.Id</span></a></li>
-             <li class="class-item animate-on-scroll"><a href="https://matahacker.id/" target="_blank" rel="noopener noreferrer"><img src="matahacker.png" alt="Mata Hacker Logo"><span class="class-title">•⟩ ~Mata Hacker</span></a></li>
+             <li class="class-item"><a href="https://www.cyberacademy.id/belajar-online" target="_blank" rel="noopener noreferrer"><img src="cyberacademy.png" alt="Cyber Academy Logo"><span class="class-title">•⟩ ~Cyber Academy</span></a></li>
+             <li class="class-item"><a href="https://www.agunacourse.com/?standalone=true" target="_blank" rel="noopener noreferrer"><img src="agunacourse.png" alt="Aguna Course Logo"><span class="class-title">•⟩ ~Aguna Course</span></a></li>
+             <li class="class-item"><a href="https://tujuhub-303131.tujuhub.com/student/home" target="_blank" rel="noopener noreferrer"><img src="tujuhub.png" alt="Tujuhub Logo"><span class="class-title">•⟩ ~Tujuhub</span></a></li>
+             <li class="class-item"><a href="https://myskill.id/" target="_blank" rel="noopener noreferrer"><img src="myskill.png" alt="MySkill Logo"><span class="class-title">•⟩ ~My Skill</span></a></li>
+             <li class="class-item"><a href="https://www.dicoding.com/" target="_blank" rel="noopener noreferrer"><img src="new-ui-logo.png" alt="Dicoding Logo"><span class="class-title">•⟩ ~Dicoding</span></a></li>
+             <li class="class-item"><a href="https://www.idn.id/" target="_blank" rel="noopener noreferrer"><img src="id.png" alt="IDN Logo"><span class="class-title">•⟩ ~Idn.Id</span></a></li>
+             <li class="class-item"><a href="https://matahacker.id/" target="_blank" rel="noopener noreferrer"><img src="matahacker.png" alt="Mata Hacker Logo"><span class="class-title">•⟩ ~Mata Hacker</span></a></li>
          </ul>
       </section>
 
       <section id="project">
-         <h2 class="section-title animate-on-scroll">/===========\
+         <h2 class="section-title">/===========\
                               <br>/ My__Projeck \
                               <br>\ ..<(^_^)>.. /
                                <br>\===========/</h2>
          <ul class="project-list">
-             <!-- Tambahkan class animate-on-scroll ke setiap project-item -->
-             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/smk5sila/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Website Official School</span></a></li>
-            <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/manipulasi/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Website Belajar Manipulasi (PENCEGAHAN)</span></a></li>
-             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/money/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Catatan Keuangan (Pengeluaran/Pemasukan)</span></a></li>
-             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/money/detail.html" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Catatan Keuangan (Grafik Penghasilan)</span></a></li>
-             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/kredivo/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Catatan Transaksi Kredivo</span></a></li>
-             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/shst/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><div><span class="project-title">•⟩ ~Web Quote+Audio</span><span class="project-description">Share Hack System Technologi</span></div></a></li>
-             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/Its/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Slide Video Job</span></a></li>
-            <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/shop/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~E-Commerce Go WhatsApp</span></a></li>
-            <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/sdnmjwr1-18/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><div><span class="project-title">•⟩ ~Web Daftar Nama Alumni</span><span class="project-description">SDN Mojowarno 1 (2017/2018)</span></div></a></li>
-             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/lebaran/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web Ucapan Idul Fitri 2025</span></a></li>
-             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/ramadhan2022/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web Menyambut Ramadhan 2022</span></a></li>
-             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/datadiri/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web RisBrine Profile Identity</span></a></li>
-            <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/list/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web List Latihan Olahraga/Bela Diri</span></a></li>
-             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/faster_eye/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web Game Faster Eye Ball</span></a></li>
-             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/portfolio1.0/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><div><span class="project-title">•⟩ ~Web Personal Portfolio Animation</span><span class="project-description">(Khusus Windows Chrome)</span></div></a></li>
-             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/portofolio_one/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web Personal Portfolio</span></a></li>
-             <li class="project-item animate-on-scroll"><a href="https://risbrine404.github.io/ry/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web Ultah (One Target)</span></a></li>
+             <li class="project-item"><a href="https://risbrine404.github.io/smk5sila/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Website Official School</span></a></li>
+            <li class="project-item"><a href="https://risbrine404.github.io/manipulasi/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Website Belajar Manipulasi (PENCEGAHAN)</span></a></li>
+             <li class="project-item"><a href="https://risbrine404.github.io/money/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Catatan Keuangan (Pengeluaran/Pemasukan)</span></a></li>
+             <li class="project-item"><a href="https://risbrine404.github.io/money/detail.html" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Catatan Keuangan (Grafik Penghasilan)</span></a></li>
+             <li class="project-item"><a href="https://risbrine404.github.io/kredivo/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Catatan Transaksi Kredivo</span></a></li>
+             <li class="project-item"><a href="https://risbrine404.github.io/shst/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><div><span class="project-title">•⟩ ~Web Quote+Audio</span><span class="project-description">Share Hack System Technologi</span></div></a></li>
+             <li class="project-item"><a href="https://risbrine404.github.io/Its/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Slide Video Job</span></a></li>
+            <li class="project-item"><a href="https://risbrine404.github.io/shop/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~E-Commerce Go WhatsApp</span></a></li>
+            <li class="project-item"><a href="https://risbrine404.github.io/sdnmjwr1-18/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><div><span class="project-title">•⟩ ~Web Daftar Nama Alumni</span><span class="project-description">SDN Mojowarno 1 (2017/2018)</span></div></a></li>
+             <li class="project-item"><a href="https://risbrine404.github.io/lebaran/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web Ucapan Idul Fitri 2025</span></a></li>
+             <li class="project-item"><a href="https://risbrine404.github.io/ramadhan2022/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web Menyambut Ramadhan 2022</span></a></li>
+             <li class="project-item"><a href="https://risbrine404.github.io/datadiri/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web RisBrine Profile Identity</span></a></li>
+            <li class="project-item"><a href="https://risbrine404.github.io/list/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web List Latihan Olahraga/Bela Diri</span></a></li>
+             <li class="project-item"><a href="https://risbrine404.github.io/faster_eye/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web Game Faster Eye Ball</span></a></li>
+             <li class="project-item"><a href="https://risbrine404.github.io/portfolio1.0/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><div><span class="project-title">•⟩ ~Web Personal Portfolio Animation</span><span class="project-description">(Khusus Windows Chrome)</span></div></a></li>
+             <li class="project-item"><a href="https://risbrine404.github.io/portofolio_one/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web Personal Portfolio</span></a></li>
+             <li class="project-item"><a href="https://risbrine404.github.io/ry/" target="_blank" rel="noopener noreferrer"><img src="website.png" alt="Project Icon"><span class="project-title">•⟩ ~Web Ultah (One Target)</span></a></li>
          </ul>
       </section>
 
-       <p class="greeting-arabic animate-on-scroll" style="margin-top: 3rem;">
+       <p class="greeting-arabic" style="margin-top: 3rem;">
           =====================<br>
            وَالسَّلَامُ عَلَيْكُمْ وَرَحْمَةُاللَّهِ وَبَرَكَاتُه<br>
           =====================
@@ -474,10 +543,72 @@
     <!-- Floating Action Buttons -->
     <a href="https://risbrine404.github.io/portofolio_one/" class="fab fab-portfolio" title="Lihat Portofolio"><img src="website.png" alt="portofolio"></a>
     <a href="https://risbrine404.github.io/runone/" class="fab fab-code" title="Lihat Kode"><img src="kodeone.png" alt="kode"></a>
+    <!-- Tombol FAB Baru untuk Musik -->
+    <!-- Gunakan div agar bisa lebih mudah ditangani JS jika diperlukan, atau tetap <a> jika tidak perlu link -->
+    <div class="fab fab-music" id="fab-music" title="Daftar Lagu">
+        <img src="musik.png" alt="musik"> <!-- Ganti dengan ikon musik yang sesuai -->
+    </div>
+
 
   </div> <!-- End .main-container -->
 
-  <footer class="page-footer animate-on-scroll"> <!-- Footer juga bisa dianimasikan -->
+  <!-- Music Sidebar -->
+  <div id="music-sidebar">
+      <button id="close-sidebar-btn" title="Tutup">×</button>
+      <h3>Daftar Lagu</h3>
+      <div class="music-list-container">
+          <div class="music-item">
+              <p>1. Somewhere Only We Know (Cover)</p>
+              <audio controls controlslist="nodownload" src="Oh-Simple-Things-Where-Have-You-Gone-Lyrics-Terjemahan-Somewhere-Only-We-Know-Keane-Cover_k7hArQL_m1k.mp3" type="audio/mpeg"></audio>
+          </div>
+          <div class="music-item">
+              <p>2. NAN KO PAHAM New Version</p>
+              <audio controls controlslist="nodownload" src="NAN KO PAHAM New Version.mp3" type="audio/mpeg"></audio>
+          </div>
+          <div class="music-item">
+              <p>3. Nan Ko Paham (Tiktok Version)</p>
+              <audio controls controlslist="nodownload" src="Nanti Pasti Kau Mengerti Setelah Sa Hilang (Lirik Lagu) Nan Ko Paham - BLG Rap (Tiktok Version)_2jv0yjVD2Pc.mp3" type="audio/mpeg"></audio>
+          </div>
+          <div class="music-item">
+              <p>4. laguaio</p>
+              <audio controls controlslist="nodownload" src="laguaio.mp3" type="audio/mpeg"></audio>
+          </div>
+          <div class="music-item">
+              <p>5. Chiisana Koi no Uta [Yui Aragaki]</p>
+              <audio controls controlslist="nodownload" src="Chiisana Koi no Uta [Yui Aragaki] with Lyrics romanji and english sub.mp3" type="audio/mpeg"></audio>
+          </div>
+          <div class="music-item">
+              <p>6. Kawtar - Ya Lalali (Sped Up)</p>
+              <audio controls controlslist="nodownload" src="Kawtar - Ya Lalali (Sped Up).mp3" type="audio/mpeg"></audio>
+          </div>
+          <div class="music-item">
+              <p>7. Lagu Santai Buat Kerja</p>
+              <audio controls controlslist="nodownload" src="Lagu Santai Buat Kerja.mp3" type="audio/mpeg"></audio>
+          </div>
+          <div class="music-item">
+              <p>8. Best Nightcore Gaming Mix 2024</p>
+              <audio controls controlslist="nodownload" src="Best Nightcore Gaming Mix 2024 ♫ Gaming Music Mix ♫ New Music 2024 EDM Gaming Music.mp3" type="audio/mpeg"></audio>
+          </div>
+          <div class="music-item">
+              <p>9. Best Nightcore Songs Mix 2024</p>
+              <audio controls controlslist="nodownload" src="Best Nightcore Songs Mix 2024 ♫ 1 Hour Gaming Music ♫ Nightcore Gaming Mix 2024.mp3" type="audio/mpeg"></audio>
+          </div>
+          <div class="music-item">
+              <p>10. Kumpulan lagu Tiktok 2022 (sped up+reverb)</p>
+              <audio controls controlslist="nodownload" src="Kumpulan lagu Tiktok 2022 (sped up+reverb).mp3" type="audio/mpeg"></audio>
+          </div>
+          <div class="music-item">
+              <p>11. Nightcore - Say Goodbye (Sped Up)</p>
+              <audio controls controlslist="nodownload" src="Nightcore - Say Goodbye Unknown Brain ft. Marvin Divine [Sped Up] (1).mp3" type="audio/mpeg"></audio>
+          </div>
+          <div class="music-item">
+              <p>12. Top Song For Revenge</p>
+              <audio controls controlslist="nodownload" src="Top Song For Revenge PENYANGKALAN SADRAH PULANG JAKARTA HARI INI SERANA TERMENTAHKAN.mp3" type="audio/mpeg"></audio>
+          </div>
+      </div>
+  </div>
+
+  <footer class="page-footer">
     <p class="footer-text">
         -Copyright©2022-Sekarang / RisBrine<br>
         Supported by SHST
@@ -485,45 +616,61 @@
     <p class="thanks-text">TERIMA KASIH TELAH BERKUNJUNG</p>
   </footer>
 
-  <!-- --- >>> JAVASCRIPT UNTUK ANIMASI SCROLL <<< --- -->
+  <!-- JavaScript untuk Sidebar Musik -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const observerOptions = {
-        root: null, // Menggunakan viewport sebagai root
-        rootMargin: '0px',
-        threshold: 0.1 // Memicu ketika 10% elemen terlihat
-      };
+    const musicButton = document.getElementById('fab-music');
+    const sidebar = document.getElementById('music-sidebar');
+    const closeButton = document.getElementById('close-sidebar-btn');
+    const allAudioPlayers = sidebar.querySelectorAll('audio'); // Ambil semua player di sidebar
 
-      const observerCallback = (entries, observer) => {
-        entries.forEach(entry => {
-          // Jika elemen masuk ke viewport
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            // Hentikan pengamatan elemen ini setelah animasi dijalankan sekali
-            observer.unobserve(entry.target);
-          }
-          // Jika ingin animasi berjalan setiap kali masuk/keluar viewport,
-          // hapus baris observer.unobserve(entry.target); di atas
-          // dan tambahkan logika untuk menghapus class 'is-visible':
-          // else {
-          //   entry.target.classList.remove('is-visible');
-          // }
+    // Fungsi untuk menghentikan semua audio player lain
+    function stopOtherPlayers(currentPlayer) {
+        allAudioPlayers.forEach(player => {
+            if (player !== currentPlayer && !player.paused) {
+                player.pause();
+                // player.currentTime = 0; // Opsional: reset ke awal jika diinginkan
+            }
         });
-      };
+    }
 
-      // Buat observer
-      const observer = new IntersectionObserver(observerCallback, observerOptions);
+    // Buka Sidebar
+    musicButton.addEventListener('click', () => {
+      sidebar.classList.add('open');
+    });
 
-      // Pilih semua elemen yang ingin dianimasikan
-      const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-
-      // Mulai amati setiap elemen
-      elementsToAnimate.forEach(el => {
-        observer.observe(el);
+    // Tutup Sidebar
+    closeButton.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      // Hentikan semua audio saat sidebar ditutup
+      allAudioPlayers.forEach(player => {
+          if (!player.paused) {
+              player.pause();
+          }
       });
     });
+
+    // Tambahkan event listener ke setiap audio player
+    allAudioPlayers.forEach(player => {
+        player.addEventListener('play', () => {
+            stopOtherPlayers(player); // Hentikan yang lain saat player ini mulai
+        });
+    });
+
+    // (Opsional) Tutup sidebar jika klik di luar area sidebar
+    document.addEventListener('click', (event) => {
+        // Cek apakah sidebar terbuka DAN klik terjadi di luar sidebar DAN bukan pada tombol pembuka
+        if (sidebar.classList.contains('open') && !sidebar.contains(event.target) && event.target !== musicButton && !musicButton.contains(event.target)) {
+            sidebar.classList.remove('open');
+            // Hentikan juga semua audio saat klik di luar
+            allAudioPlayers.forEach(player => {
+                if (!player.paused) {
+                    player.pause();
+                }
+            });
+        }
+    });
+
   </script>
-  <!-- --- >>> AKHIR JAVASCRIPT ANIMASI SCROLL <<< --- -->
 
 </body>
 </html>
